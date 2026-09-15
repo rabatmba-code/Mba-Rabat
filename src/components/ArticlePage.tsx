@@ -52,8 +52,8 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
   // Generate category slug for SEO URLs
   const categorySlug = (article?.category || 'wellness').toLowerCase().replace(/[^a-z0-9]+/g, '-');
   const canonicalUrl = article.path 
-    ? `https://vitalpathdaily.com${article.path}` 
-    : `https://vitalpathdaily.com/${categorySlug}/${article?.slug || ''}/`;
+    ? `https://mba-rabat.vercel.app${article.path}` 
+    : `https://mba-rabat.vercel.app/${categorySlug}/${article?.slug || ''}/`;
 
   // Dynamic SEO Structured Data (Schema.org Article & Breadcrumbs)
   useEffect(() => {
@@ -89,13 +89,13 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
               '@type': 'ListItem',
               'position': 1,
               'name': 'Home',
-              'item': 'https://vitalpathdaily.com',
+              'item': 'https://mba-rabat.vercel.app',
             },
             {
               '@type': 'ListItem',
               'position': 2,
               'name': article.category,
-              'item': `https://vitalpathdaily.com/${categorySlug}/`,
+              'item': `https://mba-rabat.vercel.app/${categorySlug}/`,
             },
             {
               '@type': 'ListItem',
@@ -127,7 +127,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
             'name': 'VitalPath Daily',
             'logo': {
               '@type': 'ImageObject',
-              'url': 'https://vitalpathdaily.com/assets/vitalpath-logo.png',
+              'url': 'https://mba-rabat.vercel.app/assets/vitalpath-logo.png',
             },
           },
           'about': article.category,

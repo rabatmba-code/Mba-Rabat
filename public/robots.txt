@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vitalpathdaily.com/sitemap.xml
+Sitemap: https://mba-rabat.vercel.app/sitemap.xml

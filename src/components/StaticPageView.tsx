@@ -647,7 +647,7 @@ export const StaticPageView: React.FC<StaticPageViewProps> = ({
                 Editorial Sitemap & Directory
               </h1>
               <p className="text-slate-500 text-xs mt-1">
-                XML Sitemap URL: <a href="/sitemap.xml" className="text-emerald-700 underline font-mono" target="_blank" rel="noopener noreferrer">https://vitalpathdaily.com/sitemap.xml</a>
+                XML Sitemap URL: <a href="/sitemap.xml" className="text-emerald-700 underline font-mono" target="_blank" rel="noopener noreferrer">https://mba-rabat.vercel.app/sitemap.xml</a>
               </p>
             </div>
 
