@@ -18,7 +18,6 @@ export const all30Articles: Article[] = [
     coverImage: 'https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=1200&q=80',
     summary: 'Blood glucose is your body’s primary cellular fuel, but sharp peaks and valleys can accelerate metabolic fatigue, trigger intense sugar cravings, and place excessive burden on your cardiovascular system.',
     isEditorialPinnacle: true,
-    linkedOfferId: 'bloodsugar-gluco6',
     contentSections: [
       {
         heading: 'The Mechanics of Glucose and Insulin Homeostasis',
@@ -50,7 +49,6 @@ export const all30Articles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80',
     summary: 'What you eat matters, but how you combine and sequence your foods plays an equally profound role in moderating post-meal glucose spikes.',
-    linkedOfferId: 'bloodsugar-gluco6',
     contentSections: [
       {
         heading: 'The Power of Food Sequencing',
@@ -82,7 +80,6 @@ export const all30Articles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80',
     summary: 'Exercise and daily movement act as non-insulin-dependent pathways for muscle cells to draw glucose straight out of the bloodstream.',
-    linkedOfferId: 'bloodsugar-defender',
     contentSections: [
       {
         heading: 'The 10-Minute Post-Meal Walk',
@@ -114,7 +111,6 @@ export const all30Articles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=1200&q=80',
     summary: 'Not all blood sugar supplements are created equal. Discover which ingredients have legitimate clinical trial backing and how to avoid under-dosed proprietary blends.',
-    linkedOfferId: 'bloodsugar-gluco6',
     contentSections: [
       {
         heading: 'Verified Botanical Actives with Human Data',
@@ -146,7 +142,6 @@ export const all30Articles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80',
     summary: 'Dietary supplements are designed to support and complement healthy physiology—never to replace medical diagnosis, prescription medications, or physician guidance.',
-    linkedOfferId: 'bloodsugar-defender',
     contentSections: [
       {
         heading: 'Supplements Are Not Prescription Replacements',
@@ -278,7 +273,6 @@ export const all30Articles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80',
     summary: 'Aging changes hormonal sensitivity, mitochondrial density, and lean tissue turnover. Learn where to focus your efforts for sustainable body composition results.',
-    linkedOfferId: 'metabolism-puravive',
     contentSections: [
       {
         heading: 'The Biology of the 40+ Metabolic Shift',
@@ -310,7 +304,6 @@ export const all30Articles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80',
     summary: 'Crash dieting slows thyroid output and spikes cortisol. Discover the common traps to avoid when pursuing sustainable weight wellness.',
-    linkedOfferId: 'metabolism-puravive',
     contentSections: [
       {
         heading: 'Mistake 1: Extreme Caloric Deficits',
@@ -342,7 +335,6 @@ export const all30Articles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80',
     summary: 'Sustainable weight management is built on daily non-stressful micro-habits rather than punitive short-term fitness challenges.',
-    linkedOfferId: 'gut-leanbiome',
     contentSections: [
       {
         heading: 'Harnessing NEAT (Non-Exercise Activity Thermogenesis)',
@@ -442,7 +434,6 @@ export const all30Articles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1200&q=80',
     summary: 'Sleep is not passive downtime—it is when your glymphatic system clears neurotoxic waste and your endocrine system recalibrates.',
-    linkedOfferId: 'sleep-slimtea',
     contentSections: [
       {
         heading: 'The Glymphatic Brain Wash',
@@ -474,7 +465,6 @@ export const all30Articles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80',
     summary: 'A predictable evening wind-down routine signals your pineal gland to synthesize melatonin naturally, without heavy pharmacological sedatives.',
-    linkedOfferId: 'sleep-slimtea',
     contentSections: [
       {
         heading: 'Dimming Blue and Green Spectrum Light',
@@ -506,7 +496,6 @@ export const all30Articles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1520206183501-b80df61043c2?auto=format&fit=crop&w=1200&q=80',
     summary: 'Waking up at 3:00 AM with racing thoughts is rarely random—it is frequently tied to blood sugar dips and nocturnal cortisol compensation.',
-    linkedOfferId: 'sleep-slimtea',
     contentSections: [
       {
         heading: 'The 3:00 AM Cortisol Surge and Hypoglycemia',
@@ -607,7 +596,6 @@ export const all30Articles: Article[] = [
     coverImage: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80',
     summary: 'Longevity is determined less by genetics and more by daily cellular signals. Build these ten cornerstone habits for lasting vitality.',
     isEditorialPinnacle: true,
-    linkedOfferId: 'nerve-pronervium',
     contentSections: [
       {
         heading: 'Habits 1–3: Movement, Muscle, and Bone Density',
@@ -639,7 +627,6 @@ export const all30Articles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1200&q=80',
     summary: 'Radical health overhauls frequently trigger burnout. Discover how simple, repeated micro-habits yield immense health returns over decades.',
-    linkedOfferId: 'nerve-pronervium',
     contentSections: [
       {
         heading: 'The Compound Effect in Human Biology',
@@ -671,7 +658,6 @@ export const all30Articles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80',
     summary: 'Decreased gastric hydrochloric acid and reduced muscle protein synthesis require strategic nutrient density adjustments.',
-    linkedOfferId: 'nerve-pronervium',
     contentSections: [
       {
         heading: 'Hypochlorhydria and Nutrient Malabsorption',
@@ -771,7 +757,6 @@ export const all30Articles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80',
     summary: 'Forget restrictive diet dogma. Focus on food quality, ingredient transparency, and feeding your microbiome with whole, unadulterated foods.',
-    linkedOfferId: 'mediterranean-diet',
     contentSections: [
       {
         heading: 'Focus on Single-Ingredient Foods',
@@ -803,7 +788,6 @@ export const all30Articles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80',
     summary: 'Demystifying macronutrients: learn the ideal proportions and high-quality sources of protein, dietary fiber, and healthy fats.',
-    linkedOfferId: 'bloodsugar-gluco6',
     contentSections: [
       {
         heading: 'Protein: The Structural Foundation',
@@ -835,7 +819,6 @@ export const all30Articles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80',
     summary: 'Outdated diet guidelines can lead to sarcopenia, sluggish thyroid function, and nutrient deficiencies. Here is what to fix.',
-    linkedOfferId: 'gut-leanbiome',
     contentSections: [
       {
         heading: 'Under-Eating High-Quality Protein',
@@ -867,7 +850,6 @@ export const all30Articles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&w=1200&q=80',
     summary: 'Learn how to spot deceptive labeling tricks, identify whether an ingredient is clinically dosed, and verify safety credentials before spending your money.',
-    linkedOfferId: 'bloodsugar-gluco6',
     contentSections: [
       {
         heading: 'Spotting the "Proprietary Blend" Trap',

@@ -122,10 +122,10 @@ export const ComplianceFooter: React.FC<ComplianceFooterProps> = ({
               <li>
                 <span className="text-slate-500 block text-[11px]">Direct Support:</span>
                 <a 
-                  href="mailto:contact@vitalpathdaily.com"
+                  href="mailto:rabatmba@gmail.com"
                   className="text-slate-300 hover:text-emerald-400 font-mono text-xs transition-colors"
                 >
-                  contact@vitalpathdaily.com
+                  rabatmba@gmail.com
                 </a>
               </li>
               <li>

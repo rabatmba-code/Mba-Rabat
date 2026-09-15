@@ -1,6 +1,6 @@
 {
   "name": "VitalPath Daily",
-  "description": "Practical Wellness Guidance for a Healthier Everyday Life. Discover evidence-informed guides, nutrition tips, healthy-aging advice and honest product reviews.",
+  "description": "Evidence-based wellness guides, nutrition tips, healthy aging advice, and unbiased supplement reviews to help you live a healthier, longer life.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

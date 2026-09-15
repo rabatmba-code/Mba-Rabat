@@ -23,7 +23,6 @@ export const primarySeoArticles: Article[] = [
     coverImage: 'https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=1200&q=80',
     summary: 'Blood glucose is the primary circulating energetic substrate for human cellular respiration. When fasting and postprandial glucose remain in harmonious balance, cells receive predictable fuel without excess oxidative stress or pancreatic exhaustion.',
     isEditorialPinnacle: true,
-    linkedOfferId: 'gluco6',
     contentSections: [
       {
         heading: 'The Biochemistry of Blood Glucose and Insulin Regulation',
@@ -147,7 +146,6 @@ export const primarySeoArticles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80',
     summary: 'The speed at which food enters your bloodstream matters as much as total caloric intake. By understanding food order, dietary fiber viscosity, and nutrient pairings, you can flatten your glycemic curves without restrictive deprivation.',
-    linkedOfferId: 'gluco6',
     contentSections: [
       {
         heading: 'The Science of the Glycemic Curve and Gastric Emptying',
@@ -260,7 +258,6 @@ export const primarySeoArticles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80',
     summary: 'Diet is only one piece of the glycemic puzzle. Daily non-strenuous movement, deep restorative sleep, and chronic stress management directly control cellular insulin signaling pathways without requiring intense gym workouts.',
-    linkedOfferId: 'sugarDefender',
     contentSections: [
       {
         heading: 'The 10-Minute Post-Meal Walk: Non-Insulin Glucose Clearance',
@@ -373,7 +370,6 @@ export const primarySeoArticles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=1200&q=80',
     summary: 'The dietary supplement landscape is saturated with proprietary blends and exaggerated claims. Learn the specific clinical criteria that distinguish legitimate, laboratory-tested formulas from low-grade formulations.',
-    linkedOfferId: 'gluco6',
     contentSections: [
       {
         heading: 'The Critical Difference: Clinically Validated Actives vs. Fairy Dusting',
@@ -505,7 +501,6 @@ export const primarySeoArticles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80',
     summary: 'Dietary supplements are designed to support and nourish normal physiological pathways, not to replace medical treatment. Discover how to incorporate nutritional support safely and sustainably into your everyday wellness routine.',
-    linkedOfferId: 'sugarDefender',
     contentSections: [
       {
         heading: 'The Regulatory Landscape: How the FDA Views Dietary Supplements',
@@ -1004,7 +999,6 @@ export const primarySeoArticles: Article[] = [
     coverImage: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80',
     summary: 'Midlife weight management is not about eating less and exercising more until exhaustion. It requires understanding age-related mitochondrial shifts, muscle sarcopenia, hormonal recalibration, and brown adipose tissue thermogenesis.',
     isEditorialPinnacle: true,
-    linkedOfferId: 'puravive',
     contentSections: [
       {
         heading: 'The Biology of the 40+ Metabolic Shift: Sarcopenia and Mitochondrial Density',
@@ -1115,7 +1109,6 @@ export const primarySeoArticles: Article[] = [
     medicallyReviewedBy: medicalReviewers.elena,
     coverImage: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80',
     summary: 'The commercial weight loss supplement market is plagued by hazardous mega-dose caffeine pills and proprietary mystery blends. Discover how to identify clean, research-backed botanicals that gently support resting thermogenesis without stressing your heart.',
-    linkedOfferId: 'puravive',
     contentSections: [
       {
         heading: 'Why High-Stimulant "Fat Burners" Are Counterproductive After 40',

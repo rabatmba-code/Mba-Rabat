@@ -35,8 +35,6 @@ import { QuizFunnel } from './components/QuizFunnel';
 import { ComplianceFooter } from './components/ComplianceFooter';
 import { TopAnnouncementBar } from './components/TopAnnouncementBar';
 import { StickyDealBar } from './components/StickyDealBar';
-import { ExitIntentModal } from './components/ExitIntentModal';
-import { LiveDealToast } from './components/LiveDealToast';
 import { RotatingOfferBanner } from './components/RotatingOfferBanner';
 import { AffiliateManagerModal } from './components/AffiliateManagerModal';
 import { LeadMagnetModal } from './components/LeadMagnetModal';
@@ -743,23 +741,14 @@ export default function App() {
         onOpenReview={handleOpenReview}
       />
 
-      {/* Conversion & Affiliate Boosters */}
-      <StickyDealBar
-        activeOffer={contextOffer}
-        affiliateSettings={affiliateSettings}
-        onOpenReview={handleOpenReview}
-      />
-
-      <ExitIntentModal
-        activeOffer={contextOffer}
-        affiliateSettings={affiliateSettings}
-        onOpenQuiz={() => setIsQuizOpen(true)}
-      />
-
-      <LiveDealToast
-        offers={clickBankOffers}
-        affiliateSettings={affiliateSettings}
-      />
+      {/* Contextual Product Actions (Only displayed when actively reviewing a product) */}
+      {activeView === 'review' && (
+        <StickyDealBar
+          activeOffer={contextOffer}
+          affiliateSettings={affiliateSettings}
+          onOpenReview={handleOpenReview}
+        />
+      )}
 
       {/* Free Digital Guide Lead Capture Modal */}
       <LeadMagnetModal

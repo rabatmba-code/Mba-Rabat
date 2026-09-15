@@ -58,17 +58,30 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
   // Dynamic SEO Structured Data (Schema.org Article & Breadcrumbs)
   useEffect(() => {
     // 1. Update Title and Meta Tags
-    document.title = article.seoTitle 
+    const pageTitle = article.seoTitle 
       ? `${article.seoTitle} | VitalPath Daily` 
       : `${article.title} | VitalPath Daily`;
+    document.title = pageTitle;
 
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement('meta');
-      metaDesc.setAttribute('name', 'description');
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.setAttribute('content', article.metaDescription || article.summary);
+    const setMetaTag = (selector: string, attr: 'name' | 'property', attrValue: string, content: string) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attr, attrValue);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', content);
+    };
+
+    const descriptionContent = article.metaDescription || article.summary;
+    setMetaTag('meta[name="description"]', 'name', 'description', descriptionContent);
+    setMetaTag('meta[property="og:title"]', 'property', 'og:title', pageTitle);
+    setMetaTag('meta[property="og:description"]', 'property', 'og:description', descriptionContent);
+    setMetaTag('meta[property="og:image"]', 'property', 'og:image', article.coverImage);
+    setMetaTag('meta[property="og:url"]', 'property', 'og:url', canonicalUrl);
+    setMetaTag('meta[name="twitter:title"]', 'name', 'twitter:title', pageTitle);
+    setMetaTag('meta[name="twitter:description"]', 'name', 'twitter:description', descriptionContent);
+    setMetaTag('meta[name="twitter:image"]', 'name', 'twitter:image', article.coverImage);
 
     let canonicalLink = document.querySelector('link[rel="canonical"]');
     if (!canonicalLink) {

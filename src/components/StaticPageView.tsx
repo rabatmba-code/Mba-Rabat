@@ -265,8 +265,8 @@ export const StaticPageView: React.FC<StaticPageViewProps> = ({
                     <span>Editorial Inquiries</span>
                   </div>
                   <p className="text-xs text-slate-600 mb-2">For study verification, citations, and corrections:</p>
-                  <a href="mailto:editorial@vitalpathdaily.com" className="text-xs font-semibold text-emerald-700 hover:underline">
-                    editorial@vitalpathdaily.com
+                  <a href="mailto:rabatmba@gmail.com" className="text-xs font-semibold text-emerald-700 hover:underline">
+                    rabatmba@gmail.com
                   </a>
                 </div>
 
@@ -426,7 +426,7 @@ export const StaticPageView: React.FC<StaticPageViewProps> = ({
 
               <h2 className="font-bold text-base text-slate-900">5. Opt-Out & Contact</h2>
               <p>
-                To opt out of our email newsletters or request data deletion, click the "Unsubscribe" link at the bottom of any email or write to <span className="text-emerald-700 font-semibold">privacy@vitalpathdaily.com</span>.
+                To opt out of our email newsletters or request data deletion, click the "Unsubscribe" link at the bottom of any email or write to <a href="mailto:rabatmba@gmail.com" className="text-emerald-700 font-semibold hover:underline">rabatmba@gmail.com</a>.
               </p>
             </div>
           </div>

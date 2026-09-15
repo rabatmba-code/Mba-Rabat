@@ -441,17 +441,19 @@ export const clickBankOffers: ClickBankOffer[] = [
 
 import { all30Articles } from './articlesList';
 import { primarySeoArticles } from './seoContentData';
+import { pureEducationalArticles } from './pureEducationalArticles';
 
-// Deduplicate and prioritize comprehensive SEO articles
-const primaryTitles = new Set(primarySeoArticles.map(a => a.title.toLowerCase().trim()));
-const primarySlugs = new Set(primarySeoArticles.map(a => a.slug));
+// Deduplicate and prioritize comprehensive educational & SEO articles
+const priorityArticles = [...pureEducationalArticles, ...primarySeoArticles];
+const primaryTitles = new Set(priorityArticles.map(a => a.title.toLowerCase().trim()));
+const primarySlugs = new Set(priorityArticles.map(a => a.slug));
 
 export const articles: Article[] = [
-  ...primarySeoArticles,
+  ...priorityArticles,
   ...all30Articles.filter(a => {
     const titleMatch = primaryTitles.has(a.title.toLowerCase().trim());
     const slugMatch = primarySlugs.has(a.slug);
-    const similarSlug = primarySeoArticles.some(p => a.slug.startsWith(p.slug) || p.slug.startsWith(a.slug));
+    const similarSlug = priorityArticles.some(p => a.slug.startsWith(p.slug) || p.slug.startsWith(a.slug));
     return !titleMatch && !slugMatch && !similarSlug;
   })
 ];
