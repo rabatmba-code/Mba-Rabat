@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>VitalPath Daily — Practical Wellness Guidance for a Healthier Everyday Life</title>
+    <meta name="description" content="Practical Wellness Guidance for a Healthier Everyday Life. Discover evidence-informed guides, nutrition tips, healthy-aging advice and honest product reviews." />
+    <meta property="og:title" content="VitalPath Daily — Practical Wellness Guidance for a Healthier Everyday Life" />
+    <meta property="og:description" content="Practical Wellness Guidance for a Healthier Everyday Life. Discover evidence-informed guides, nutrition tips, healthy-aging advice and honest product reviews." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vitalpathdaily.com/" />
+    <script>
+      // Defensively support setter on window.fetch for browser iframe / extension environments
+      (function() {
+        try {
+          var _fetch = window.fetch;
+          var installFetchAccessor = function(target) {
+            try {
+              if (!target) return;
+              var desc = Object.getOwnPropertyDescriptor(target, 'fetch');
+              if (!desc || !desc.set) {
+                Object.defineProperty(target, 'fetch', {
+                  get: function() {
+                    return _fetch || window.fetch;
+                  },
+                  set: function(fn) {
+                    _fetch = fn;
+                  },
+                  configurable: true,
+                  enumerable: true
+                });
+              }
+            } catch (e) {}
+          };
+          installFetchAccessor(window);
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            installFetchAccessor(Window.prototype);
+          }
+        } catch (err) {}
+      })();
+    </script>
+    <!-- Schema.org Organization & WebSite Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://vitalpathdaily.com/#organization",
+          "name": "VitalPath Daily",
+          "url": "https://vitalpathdaily.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://vitalpathdaily.com/assets/vitalpath-logo.png",
+            "caption": "VitalPath Daily"
+          },
+          "description": "Practical Wellness Guidance for a Healthier Everyday Life. Evidence-informed guides, nutrition tips, healthy-aging advice and honest product reviews.",
+          "knowsAbout": ["Healthy Blood Sugar", "Healthy Aging", "Nutrition", "Sleep & Stress", "Weight Management", "Dietary Supplements"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://vitalpathdaily.com/#website",
+          "url": "https://vitalpathdaily.com/",
+          "name": "VitalPath Daily",
+          "publisher": {
+            "@id": "https://vitalpathdaily.com/#organization"
+          },
+          "inLanguage": "en-US",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://vitalpathdaily.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
