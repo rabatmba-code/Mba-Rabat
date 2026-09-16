@@ -1047,3 +1047,28 @@ export function getAffiliateUrl(offerId?: string | { id?: string; vendorId?: str
   const domainKey = offer.name.toLowerCase().replace(/[^a-z0-9]/g, '');
   return `https://${domainKey}.com`;
 }
+
+/**
+ * Resolves the most relevant vetted affiliate offer for any article category.
+ * Ensures every educational article has an authoritative product recommendation at the bottom.
+ */
+export function getOfferForCategory(category?: string): AffiliateOffer {
+  if (!category) return AFFILIATE_OFFERS['gluco6'];
+  const cat = category.toLowerCase().trim();
+  if (cat.includes('blood sugar') || cat.includes('glucose') || cat.includes('glycemic')) {
+    return AFFILIATE_OFFERS['gluco6'];
+  }
+  if (cat.includes('weight') || cat.includes('metabolism') || cat.includes('fat')) {
+    return AFFILIATE_OFFERS['puravive'];
+  }
+  if (cat.includes('gut') || cat.includes('nutrition') || cat.includes('diet') || cat.includes('microbiome')) {
+    return AFFILIATE_OFFERS['leanbiome'] || AFFILIATE_OFFERS['gluco6'];
+  }
+  if (cat.includes('sleep') || cat.includes('stress')) {
+    return AFFILIATE_OFFERS['instasoothe'] || AFFILIATE_OFFERS['gluco6'];
+  }
+  if (cat.includes('aging') || cat.includes('nerve') || cat.includes('joint') || cat.includes('longevity')) {
+    return AFFILIATE_OFFERS['pronervium'] || AFFILIATE_OFFERS['gluco6'];
+  }
+  return AFFILIATE_OFFERS['gluco6'];
+}

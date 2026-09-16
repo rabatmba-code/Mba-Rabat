@@ -22,8 +22,7 @@ import { AffiliateDisclosure } from './AffiliateDisclosure';
 import { AffiliateCTA } from './AffiliateCTA';
 import { FAQSection, FAQItem } from './FAQSection';
 import { RelatedArticles } from './RelatedArticles';
-import { InArticleNativeBanner } from './InArticleNativeBanner';
-import { OfferProductGallery } from './OfferProductGallery';
+import { getOfferForCategory, getAffiliateOffer } from '../config/affiliateOffers';
 
 interface ArticlePageProps {
   article: Article;
@@ -48,6 +47,12 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
 }) => {
   const [copied, setCopied] = useState(false);
   const [activeTocId, setActiveTocId] = useState<string>('');
+
+  // Dynamically resolve the best matching vetted protocol/offer for this article
+  const matchedOffer = article.linkedOfferId 
+    ? getAffiliateOffer(article.linkedOfferId) 
+    : getOfferForCategory(article.category);
+  const matchedOfferId = matchedOffer?.id || 'gluco6';
 
   // Generate category slug for SEO URLs
   const categorySlug = (article?.category || 'wellness').toLowerCase().replace(/[^a-z0-9]+/g, '-');
@@ -395,18 +400,6 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
             </ul>
           </div>
 
-          {/* Top In-Article Protocol Recommendation (if linked offer exists) */}
-          {article.linkedOfferId && (
-            <div className="no-print print:hidden in-article-banner">
-              <InArticleNativeBanner 
-                offerId={article.linkedOfferId} 
-                onReadReview={onOpenReview}
-                title="Editor's Vetted Protocol Spotlight"
-                contextNote="Clinically supported formula matching the biological mechanisms in this guide."
-              />
-            </div>
-          )}
-
           {/* Table of Contents (Mobile/In-content) */}
           {tocItems.length > 0 && (
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 mb-8 no-print print:hidden table-of-contents">
@@ -510,18 +503,6 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
                     <p className="italic text-blue-900/90 leading-relaxed">{sec.callout.text}</p>
                   </div>
                 )}
-
-                {/* Mid-Article Clinical Callout Banner (after Section 2) */}
-                {idx === 1 && article.linkedOfferId && (
-                  <div className="no-print print:hidden in-article-banner">
-                    <InArticleNativeBanner 
-                      offerId={article.linkedOfferId} 
-                      onReadReview={onOpenReview}
-                      title="Mid-Guide Recommended Protocol"
-                      contextNote="Verified direct manufacturer pricing and 60-day money-back guarantee."
-                    />
-                  </div>
-                )}
               </section>
             ))}
           </div>
@@ -612,29 +593,28 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
             </div>
           )}
 
-          {/* 5-Photo Visual Product Inspection Gallery (if article references an offer) */}
-          {article.linkedOfferId && (
-            <div className="no-print print:hidden product-gallery">
-              <OfferProductGallery
-                offerId={article.linkedOfferId}
-                offerName={article.title.split(':')[0]}
-                onReadReview={onOpenReview}
-              />
+          {/* Dedicated Post-Reading Protocol Recommendation (Placed at the bottom for readers who finished the guide) */}
+          <div className="no-print print:hidden article-cta-box my-10" id="article-bottom-recommendation">
+            <div className="mb-3 flex items-center justify-between flex-wrap gap-2">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
+                  Recommended Support Protocol &amp; Formula
+                </span>
+              </div>
+              <span className="text-xs font-semibold text-emerald-800 bg-emerald-100/80 border border-emerald-200/80 px-2.5 py-1 rounded-full">
+                For Readers of This Guide
+              </span>
             </div>
-          )}
 
-          {/* Contextual Affiliate CTA Component (if article references an offer) */}
-          {article.linkedOfferId && (
-            <div className="no-print print:hidden article-cta-box">
-              <AffiliateCTA
-                offerId={article.linkedOfferId}
-                customHeadline="Interested in learning more?"
-                customButtonText="View Official Product Information"
-                variant="card"
-                onReadReview={onOpenReview}
-              />
-            </div>
-          )}
+            <AffiliateCTA
+              offerId={matchedOfferId}
+              customHeadline={`Targeted Support for ${article.category}: ${matchedOffer?.name || 'Vetted Clinical Formula'}`}
+              customButtonText={`Check Official ${matchedOffer?.name.split(' ')[0] || 'Formula'} Availability & Pricing →`}
+              variant="card"
+              onReadReview={onOpenReview}
+            />
+          </div>
 
           {/* Medical Disclaimer Callout */}
           <div className="my-10 p-5 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-amber-950 text-xs leading-relaxed space-y-2">
@@ -743,17 +723,19 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
               ))}
             </nav>
 
-            {/* Sidebar Compact Affiliate Box */}
-            {article.linkedOfferId && (
-              <div className="pt-4 border-t border-slate-100">
-                <AffiliateCTA
-                  offerId={article.linkedOfferId}
-                  variant="compact"
-                  customHeadline="Vetted Recommendation:"
-                  customButtonText="View Offer"
-                />
+            {/* Sidebar Compact Protocol Recommendation */}
+            <div className="pt-4 border-t border-slate-100">
+              <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2">
+                Recommended Protocol:
               </div>
-            )}
+              <AffiliateCTA
+                offerId={matchedOfferId}
+                variant="compact"
+                customHeadline={`${matchedOffer?.name.split(' ')[0] || 'Formula'} Support`}
+                customButtonText="View Offer →"
+                onReadReview={onOpenReview}
+              />
+            </div>
           </div>
         </aside>
       </div>

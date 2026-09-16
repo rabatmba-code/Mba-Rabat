@@ -65,34 +65,62 @@ export const AffiliateCTA: React.FC<AffiliateCTAProps> = ({
   }
 
   return (
-    <div className="my-8 bg-slate-50/90 rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-2xs" id={`affiliate-cta-box-${offer.id}`}>
-      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 mb-4 border-b border-slate-200">
+    <div className="my-8 bg-gradient-to-br from-emerald-50/40 via-white to-slate-50 rounded-2xl p-6 sm:p-8 border-2 border-emerald-600/20 shadow-sm" id={`affiliate-cta-box-${offer.id}`}>
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 mb-5 border-b border-slate-200">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
-          <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
-            Editorial Spotlight • {offer.category}
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
+          <span className="text-xs font-bold uppercase tracking-wider text-emerald-950">
+            Editor's Choice Protocol • {offer.category}
           </span>
         </div>
-        <div className="flex items-center gap-1.5 text-xs text-slate-500">
-          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-          <span>{offer.guaranteeDays}-Day Return Policy</span>
+        <div className="flex items-center gap-3 text-xs text-slate-600">
+          {offer.rating && (
+            <span className="font-semibold text-amber-700 flex items-center gap-1">
+              ★ {offer.rating.toFixed(1)}/5.0
+            </span>
+          )}
+          <div className="flex items-center gap-1 text-slate-500">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+            <span>{offer.guaranteeDays}-Day Money-Back Guarantee</span>
+          </div>
         </div>
       </div>
 
-      <div className="space-y-2 mb-4">
-        <h4 className="text-lg sm:text-xl font-bold font-serif-title text-slate-900">
-          {customHeadline}
-        </h4>
-        <p className="text-sm text-slate-600 leading-relaxed">
-          {offer.whatIs}
-        </p>
+      <div className="flex flex-col sm:flex-row items-start gap-5 mb-5">
+        {offer.heroImage && (
+          <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden shrink-0 border border-slate-200 bg-white shadow-2xs">
+            <img
+              src={offer.heroImage}
+              alt={offer.name}
+              className="w-full h-full object-cover"
+              loading="lazy"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+        )}
+
+        <div className="space-y-2 flex-1 min-w-0">
+          <div className="flex flex-wrap items-center gap-2">
+            <h4 className="text-lg sm:text-xl font-bold font-serif-title text-slate-900 leading-snug">
+              {customHeadline}
+            </h4>
+            {offer.badge && (
+              <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-md">
+                {offer.badge}
+              </span>
+            )}
+          </div>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            {offer.whatIs}
+          </p>
+        </div>
       </div>
 
       {offer.keyIngredients && offer.keyIngredients.length > 0 && (
-        <div className="mb-5 flex flex-wrap items-center gap-1.5">
-          <span className="text-xs text-slate-500 font-medium mr-1">Noteworthy Co-Factors:</span>
+        <div className="mb-5 flex flex-wrap items-center gap-1.5 pt-1">
+          <span className="text-xs text-slate-500 font-semibold mr-1">Key Botanical Co-Factors:</span>
           {offer.keyIngredients.slice(0, 4).map((ing, i) => (
-            <span key={i} className="text-xs bg-white text-slate-700 border border-slate-200 px-2.5 py-0.5 rounded-md font-medium">
+            <span key={i} className="text-xs bg-white text-slate-700 border border-slate-200/80 px-2.5 py-0.5 rounded-md font-medium shadow-3xs">
               {ing.name}
             </span>
           ))}
@@ -101,11 +129,11 @@ export const AffiliateCTA: React.FC<AffiliateCTAProps> = ({
 
       <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-[11px] text-slate-500 leading-relaxed text-center sm:text-left max-w-md">
-          <strong className="text-slate-700 font-semibold block sm:inline">Disclosure: </strong>
-          VitalPath Daily may earn a commission when you purchase through links on this page, at no additional cost to you.
+          <strong className="text-slate-700 font-semibold block sm:inline">Affiliate Transparency: </strong>
+          VitalPath Daily may earn a commission when you order through our verified merchant links, at no added cost to you.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center gap-2.5 w-full sm:w-auto shrink-0">
+        <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto shrink-0">
           {onReadReview && (
             <button
               onClick={() => onReadReview(offer.id)}
@@ -120,11 +148,11 @@ export const AffiliateCTA: React.FC<AffiliateCTAProps> = ({
             href={destinationUrl}
             target="_blank"
             rel="noopener noreferrer nofollow"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-xs hover:shadow transition-colors cursor-pointer whitespace-nowrap"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-md hover:shadow-lg transition-all transform active:scale-98 cursor-pointer whitespace-nowrap"
             id={`affiliate-cta-view-btn-${offer.id}`}
           >
             <span>{customButtonText}</span>
-            <ExternalLink className="w-3.5 h-3.5" />
+            <ExternalLink className="w-4 h-4" />
           </a>
         </div>
       </div>
