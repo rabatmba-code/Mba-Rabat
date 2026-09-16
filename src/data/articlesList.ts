@@ -47,7 +47,7 @@ export const all30Articles: Article[] = [
     publishedDate: 'September 11, 2026',
     author: authors.marcus,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80',
     summary: 'What you eat matters, but how you combine and sequence your foods plays an equally profound role in moderating post-meal glucose spikes.',
     contentSections: [
       {
@@ -78,7 +78,7 @@ export const all30Articles: Article[] = [
     publishedDate: 'September 10, 2026',
     author: authors.sarah,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1490818387583-1baba5e638af?auto=format&fit=crop&w=1200&q=80',
     summary: 'Exercise and daily movement act as non-insulin-dependent pathways for muscle cells to draw glucose straight out of the bloodstream.',
     contentSections: [
       {
@@ -235,7 +235,7 @@ export const all30Articles: Article[] = [
     publishedDate: 'September 05, 2026',
     author: authors.sarah,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1200&q=80',
     summary: 'Comparing mechanism of action, digestive comfort, delivery format, and pricing guarantees across top blood sugar protocols.',
     linkedOfferId: 'bloodsugar-gluco6',
     contentSections: [
@@ -463,7 +463,7 @@ export const all30Articles: Article[] = [
     publishedDate: 'August 29, 2026',
     author: authors.sarah,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=80',
     summary: 'A predictable evening wind-down routine signals your pineal gland to synthesize melatonin naturally, without heavy pharmacological sedatives.',
     contentSections: [
       {
@@ -656,7 +656,7 @@ export const all30Articles: Article[] = [
     publishedDate: 'August 23, 2026',
     author: authors.sarah,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80',
     summary: 'Decreased gastric hydrochloric acid and reduced muscle protein synthesis require strategic nutrient density adjustments.',
     contentSections: [
       {
@@ -687,7 +687,7 @@ export const all30Articles: Article[] = [
     publishedDate: 'August 22, 2026',
     author: authors.marcus,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=1200&q=80',
     summary: 'From Vitamin D3 and K2 to Magnesium glycinate and Omega-3 fatty acids: the foundational nutrients that safeguard healthy aging.',
     linkedOfferId: 'nerve-pronervium',
     contentSections: [
@@ -719,7 +719,7 @@ export const all30Articles: Article[] = [
     publishedDate: 'August 21, 2026',
     author: authors.sarah,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?auto=format&fit=crop&w=1200&q=80',
     summary: 'A friction-free daily checklist that integrates optimal longevity habits seamlessly into your existing workday schedule.',
     linkedOfferId: 'nerve-pronervium',
     contentSections: [
@@ -786,7 +786,7 @@ export const all30Articles: Article[] = [
     publishedDate: 'August 19, 2026',
     author: authors.marcus,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80',
     summary: 'Demystifying macronutrients: learn the ideal proportions and high-quality sources of protein, dietary fiber, and healthy fats.',
     contentSections: [
       {

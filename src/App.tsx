@@ -162,6 +162,7 @@ export default function App() {
     const reviewArticle = articles.find(
       (a) =>
         ((offer.id === 'gluco6' || offer.id === 'bloodsugar-gluco6') && a.slug === 'gluco6-review') ||
+        ((offer.id === 'duwzgu-creatine-gummies' || (offer.id.includes('creatine') && (offer.id.includes('gumm') || offer.id.includes('candy')))) && (a.slug === 'duwzgu-creatine-monohydrate-gummies-review' || a.slug.includes('creatine-monohydrate-gummies'))) ||
         ((offer.id === 'duwzgu-sleep-gummies' || (offer.id.includes('sleep') && offer.id.includes('gumm')) || offer.id.includes('melatonin')) && (a.slug === 'duwzgu-sleep-support-gummies-review' || a.slug.includes('sleep-support-gummies'))) ||
         ((offer.id === 'duwzgu-immune-gummies' || (offer.id.includes('immune') && offer.id.includes('gumm')) || offer.id.includes('elderberry')) && (a.slug === 'duwzgu-immune-support-gummies-review' || a.slug.includes('immune-support-gummies') || a.slug.includes('gummies'))) ||
         ((offer.id === 'duwzgu-creatine' || offer.id.includes('creatine')) && (a.slug === 'duwzgu-creatine-monohydrate-review' || a.slug.includes('creatine'))) ||
@@ -253,11 +254,11 @@ export default function App() {
       if (!isSleep) return false;
     } else if (selectedCategory === 'Healthy Aging') {
       const isAging = artCat.includes('aging') || artCat.includes('longevity') || artCat.includes('joint') || artCat.includes('nerve') || artCat.includes('hearing') ||
-        art.title.toLowerCase().includes('aging') || art.title.toLowerCase().includes('joint') || art.title.toLowerCase().includes('nerve');
+        art.title.toLowerCase().includes('aging') || art.title.toLowerCase().includes('joint') || art.title.toLowerCase().includes('nerve') || art.title.toLowerCase().includes('vitamin');
       if (!isAging) return false;
     } else if (selectedCategory === 'Nutrition') {
       const isNutrition = artCat.includes('nutrition') || artCat.includes('gut') || artCat.includes('diet') || artCat.includes('probiotic') ||
-        art.title.toLowerCase().includes('nutrition') || art.title.toLowerCase().includes('gut') || art.title.toLowerCase().includes('diet');
+        art.title.toLowerCase().includes('nutrition') || art.title.toLowerCase().includes('gut') || art.title.toLowerCase().includes('diet') || art.title.toLowerCase().includes('vitamin');
       if (!isNutrition) return false;
     } else if (!artCat.includes(selCat)) {
       return false;
@@ -636,6 +637,7 @@ export default function App() {
                   {[
                     clickBankOffers.find((o) => o.id === 'gluco6' || o.id === 'bloodsugar-gluco6') || clickBankOffers[0],
                     clickBankOffers.find((o) => o.id === 'duwzgu-d3k2' || o.id === 'duwzgu'),
+                    clickBankOffers.find((o) => o.id === 'duwzgu-creatine-gummies' || o.id.includes('creatine-gummies')),
                     clickBankOffers.find((o) => o.id === 'duwzgu-sleep-gummies' || o.id.includes('sleep-gummies')),
                     clickBankOffers.find((o) => o.id === 'duwzgu-immune-gummies' || o.id.includes('immune-gummies') || o.id.includes('gumm')),
                     clickBankOffers.find((o) => o.id === 'eelhoe-vc' || o.id === 'eelhoe'),
@@ -645,16 +647,19 @@ export default function App() {
                     clickBankOffers.find((o) => o.id === 'puravive' || o.id === 'metabolism-puravive'),
                   ].filter(Boolean).map((offer) => {
                     const destinationUrl = getAffiliateUrl(offer.id);
+                    const isCreatineGummies = offer.id === 'duwzgu-creatine-gummies' || (offer.id.includes('creatine') && (offer.id.includes('gumm') || offer.id.includes('candy')));
                     const isSleepGummies = offer.id.includes('sleep') && (offer.id.includes('gumm') || offer.id.includes('melatonin'));
-                    const isImmuneGummies = (offer.id.includes('gumm') || offer.id.includes('elderberry')) && !isSleepGummies;
-                    const isCreatine = offer.id.includes('creatine');
-                    const isDuwzgu = (offer.id.includes('duwzgu') || offer.id.includes('d3k2')) && !isCreatine && !isImmuneGummies && !isSleepGummies;
+                    const isImmuneGummies = (offer.id.includes('gumm') || offer.id.includes('elderberry')) && !isSleepGummies && !isCreatineGummies;
+                    const isCreatine = offer.id.includes('creatine') && !isCreatineGummies;
+                    const isDuwzgu = (offer.id.includes('duwzgu') || offer.id.includes('d3k2')) && !isCreatine && !isImmuneGummies && !isSleepGummies && !isCreatineGummies;
                     const isEelhoe = offer.id.includes('eelhoe');
                     const isPreworkout = offer.id.includes('caffeine') || offer.id.includes('preworkout');
-                    const isDirectDiscount = isDuwzgu || isEelhoe || isPreworkout || isCreatine || isImmuneGummies || isSleepGummies;
+                    const isDirectDiscount = isDuwzgu || isEelhoe || isPreworkout || isCreatine || isImmuneGummies || isSleepGummies || isCreatineGummies;
 
-                    const badgeText = isEelhoe || isDuwzgu || isPreworkout || isCreatine || isImmuneGummies || isSleepGummies ? "★ Editor's Pick" : "Vetted Formula";
-                    const badgeColor = isSleepGummies
+                    const badgeText = isEelhoe || isDuwzgu || isPreworkout || isCreatine || isImmuneGummies || isSleepGummies || isCreatineGummies ? "★ Editor's Pick" : "Vetted Formula";
+                    const badgeColor = isCreatineGummies
+                      ? "bg-cyan-700 text-white"
+                      : isSleepGummies
                       ? "bg-indigo-700 text-white"
                       : isImmuneGummies
                       ? "bg-purple-700 text-white"
@@ -668,7 +673,9 @@ export default function App() {
                       ? "bg-orange-600 text-white"
                       : "bg-emerald-700 text-white";
 
-                    const cardBorder = isSleepGummies
+                    const cardBorder = isCreatineGummies
+                      ? "border-cyan-400/80 ring-1 ring-cyan-400/30 shadow-md"
+                      : isSleepGummies
                       ? "border-indigo-400/80 ring-1 ring-indigo-400/30 shadow-md"
                       : isImmuneGummies
                       ? "border-purple-400/80 ring-1 ring-purple-400/30 shadow-md"
@@ -682,7 +689,9 @@ export default function App() {
                       ? "border-orange-400/80 ring-1 ring-orange-400/30 shadow-md"
                       : "border-slate-200 hover:border-emerald-600/40 hover:shadow-lg";
 
-                    const pricingText = isSleepGummies || isImmuneGummies
+                    const pricingText = isCreatineGummies
+                      ? "$26.99 retail"
+                      : isSleepGummies || isImmuneGummies
                       ? "$18.99 retail"
                       : isEelhoe
                       ? "$24.99 retail"
@@ -694,7 +703,9 @@ export default function App() {
                       ? "$22.99 retail"
                       : `$${offer.bundlePrice} / bottle`;
 
-                    const standardText = isSleepGummies || isImmuneGummies
+                    const standardText = isCreatineGummies
+                      ? "USA cGMP / 6000mg Formula"
+                      : isSleepGummies || isImmuneGummies
                       ? "USA cGMP / Plant Pectin"
                       : isEelhoe
                       ? "Dermatology Tested"
@@ -704,7 +715,9 @@ export default function App() {
                       ? "USA cGMP / HPLC Tested"
                       : "USA cGMP Facility";
 
-                    const buyBtnText = isSleepGummies || isImmuneGummies
+                    const buyBtnText = isCreatineGummies
+                      ? "Claim Discount Now ($26.99)"
+                      : isSleepGummies || isImmuneGummies
                       ? "Claim Discount Now ($18.99)"
                       : isEelhoe
                       ? "Claim Discount Now ($24.99)"

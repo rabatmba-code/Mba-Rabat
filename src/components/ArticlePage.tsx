@@ -575,6 +575,8 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
                         onOpenReview('sugarDefender');
                       } else if (link.url.includes('puravive') && onOpenReview) {
                         onOpenReview('puravive');
+                      } else if (link.url.includes('duwzgu') && onOpenReview) {
+                        onOpenReview('duwzgu');
                       } else {
                         window.location.pathname = link.url;
                       }

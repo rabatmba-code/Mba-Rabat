@@ -126,7 +126,7 @@ export const OFFER_PHOTO_GALLERIES: Record<string, OfferPhotoItem[]> = {
     {
       id: 'sugardefender_daily_routine',
       name: 'Sugar Defender - Midday Glycemic Balance & Sustained Mental Clarity',
-      url: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80',
+      url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
       caption: 'Prevents the dreaded 2:00 PM post-lunch energy crash by maintaining smooth glucose disposal and stable cellular mitochondrial energy.',
       alt: 'Mature adult maintaining clear mental focus with Sugar Defender daily protocol',
       categoryTag: 'Daily Lifestyle'
@@ -270,7 +270,7 @@ export const OFFER_PHOTO_GALLERIES: Record<string, OfferPhotoItem[]> = {
     {
       id: 'pronervium_bottle_packaging',
       name: 'ProNervium - Neurological Vitality Bottle with UV-Block Shield',
-      url: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
+      url: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&w=800&q=80',
       caption: 'Clinical amber shield container protecting bioactive lipophilic B vitamins and Alpha Lipoic Acid from environmental oxidation.',
       alt: 'ProNervium official bottle for peripheral nerve health and cellular longevity',
       categoryTag: 'Bottle & Packaging'
@@ -302,7 +302,7 @@ export const OFFER_PHOTO_GALLERIES: Record<string, OfferPhotoItem[]> = {
     {
       id: 'pronervium_daily_longevity_habit',
       name: 'ProNervium - Daily Foot & Finger Sensory Comfort and Stability',
-      url: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
+      url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
       caption: 'Quiets nighttime tingling, numbness, and burning sensations in the feet and extremities, restoring confident balance and restful sleep.',
       alt: 'Senior adult enjoying confident foot stability and pain-free mobility',
       categoryTag: 'Daily Lifestyle'
@@ -410,7 +410,7 @@ export const OFFER_PHOTO_GALLERIES: Record<string, OfferPhotoItem[]> = {
     {
       id: 'duwzgu_active_synergy',
       name: 'DUWZGU D3+K2 - Bioavailable Cholecalciferol & Menaquinone MK-7 Active Duo',
-      url: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
+      url: 'https://images.unsplash.com/photo-1577401239170-897942555fb3?auto=format&fit=crop&w=800&q=80',
       caption: 'Synergistic pairing of 5000 IU Vitamin D3 with 100 mcg Vitamin K2 (MK-7) to optimize skeletal bone density and arterial protection.',
       alt: 'DUWZGU active micronutrient synergy supporting bone and heart health',
       categoryTag: 'Active Botanicals'
@@ -578,7 +578,7 @@ export const OFFER_PHOTO_GALLERIES: Record<string, OfferPhotoItem[]> = {
     {
       id: 'gummies_bottle_packaging',
       name: 'DUWZGU Immune Support Gummies - 60 Count Child-Resistant Bottle',
-      url: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
+      url: 'https://images.unsplash.com/photo-1550572017-4fcdbb59cc32?auto=format&fit=crop&w=800&q=80',
       caption: '60-count protective bottle with child-resistant safety cap, tamper-evident neck band, and full supplement facts panel.',
       alt: 'DUWZGU Immune Support Gummies bottle packaging with supplement facts',
       categoryTag: 'Bottle & Packaging'
@@ -622,7 +622,7 @@ export const OFFER_PHOTO_GALLERIES: Record<string, OfferPhotoItem[]> = {
     {
       id: 'sleep_bottle_packaging',
       name: 'DUWZGU Sleep Support Gummies - 60 Count Tamper-Sealed Bottle',
-      url: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
+      url: 'https://images.unsplash.com/photo-1584365685547-9a5fb6f3a70c?auto=format&fit=crop&w=800&q=80',
       caption: '60-count child-resistant amber bottle with safety seal, full nocturnal ingredient panel, and cGMP certification batch stamp.',
       alt: 'DUWZGU Sleep Support Gummies bottle with supplement facts',
       categoryTag: 'Bottle & Packaging'
@@ -630,7 +630,7 @@ export const OFFER_PHOTO_GALLERIES: Record<string, OfferPhotoItem[]> = {
     {
       id: 'sleep_gummies_texture',
       name: 'DUWZGU Sleep Gummies - Tender Plant Pectin Texture & Berry Scent',
-      url: 'https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=800&q=80',
+      url: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80',
       caption: 'Formulated with plant-derived pectin for a clean, non-sticky chew that releases calming aromatic botanical terpenes.',
       alt: 'Soft chewable nocturnal botanical gummies close-up',
       categoryTag: 'Capsule Breakdown'
@@ -659,6 +659,49 @@ export const OFFER_PHOTO_GALLERIES: Record<string, OfferPhotoItem[]> = {
       alt: 'Peaceful bedroom environment with soft lighting and comfortable bed',
       categoryTag: 'Daily Lifestyle'
     }
+  ],
+
+  'duwzgu-creatine-gummies': [
+    {
+      id: 'creatine_gummies_bottle_packaging',
+      name: 'DUWZGU Creatine Monohydrate Gummies - 130 Count Bottle',
+      url: 'https://cdn.shopify.com/s/files/1/0733/2108/7065/files/1934778610749804544.jpg',
+      caption: '130-count wide-mouth container with secure seal, delivering 6000mg Creatine Monohydrate, L-Carnitine, and Taurine in blueberry-watermelon chewable form.',
+      alt: 'DUWZGU Creatine Monohydrate Dietary Supplement bottle packaging with watermelon blueberry splash graphic',
+      categoryTag: 'Bottle & Packaging'
+    },
+    {
+      id: 'creatine_gummies_supplement_facts',
+      name: 'DUWZGU Creatine Gummies - Supplement Facts & 6000mg Active Formula',
+      url: 'https://cdn.shopify.com/s/files/1/0733/2108/7065/files/1934778605376901120.jpg',
+      caption: 'Complete supplement facts panel showing 5000mg Creatine Monohydrate, 1000mg L-Carnitine, Taurine, Vitamin B6, and Vitamin B12 per 4-gummy serving.',
+      alt: 'Supplement facts label for DUWZGU Creatine Monohydrate Soft Candy Complex',
+      categoryTag: 'Supplement Facts'
+    },
+    {
+      id: 'creatine_gummies_texture',
+      name: 'DUWZGU Creatine Gummies - Soft Candy Chewable Texture',
+      url: 'https://cdn.shopify.com/s/files/1/0733/2108/7065/files/1934778611194400768.jpg',
+      caption: 'Delicious pectin-infused soft candies featuring natural blueberry and watermelon essences for smooth chewing without chalky grit.',
+      alt: 'Chewable creatine monohydrate gummy soft candies close-up',
+      categoryTag: 'Capsule Breakdown'
+    },
+    {
+      id: 'creatine_gummies_synergy',
+      name: 'DUWZGU Creatine Gummies - L-Carnitine & Taurine Cellular Synergy',
+      url: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80',
+      caption: 'Multi-target active compound matrix supporting cellular ATP resynthesis, mitochondrial fatty acid oxidation, and intracellular hydration.',
+      alt: 'Laboratory verification of creatine, carnitine, and taurine compounds',
+      categoryTag: 'Lab Inspection'
+    },
+    {
+      id: 'creatine_gummies_performance',
+      name: 'DUWZGU Creatine Gummies - High-Intensity Athletic Performance',
+      url: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80',
+      caption: 'Engineered for athletes and active adults seeking explosive muscular power, improved repetition stamina, and reduced post-workout fatigue.',
+      alt: 'Athlete training intensely in gym with dumbbells and barbell',
+      categoryTag: 'Daily Lifestyle'
+    }
   ]
 };
 
@@ -674,6 +717,7 @@ export function getOfferPhotos(offerId?: string | { id?: string } | any): OfferP
 
   if (clean.includes('sleep') && (clean.includes('gumm') || clean.includes('melatonin'))) return OFFER_PHOTO_GALLERIES['duwzgu-sleep-gummies'];
   if (clean.includes('melatonin')) return OFFER_PHOTO_GALLERIES['duwzgu-sleep-gummies'];
+  if (clean.includes('creatine') && (clean.includes('gumm') || clean.includes('candy') || clean.includes('chew'))) return OFFER_PHOTO_GALLERIES['duwzgu-creatine-gummies'];
   if (clean.includes('gumm') || clean.includes('elderberry') || clean.includes('sambucus')) return OFFER_PHOTO_GALLERIES['duwzgu-immune-gummies'];
   if (clean.includes('creatine')) return OFFER_PHOTO_GALLERIES['duwzgu-creatine'];
   if (clean.includes('caffeine') || clean.includes('preworkout') || clean.includes('exercise')) return OFFER_PHOTO_GALLERIES['preworkout-caffeine'];

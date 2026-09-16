@@ -322,7 +322,7 @@ export const AFFILIATE_OFFERS: Record<string, AffiliateOffer> = {
     guaranteeDays: 60,
     officialProductInformation: 'Available via direct merchant fulfillment with multi-bottle discounts and a 60-day satisfaction guarantee.',
     manufacturerNotice: 'Manufactured in the USA in a cGMP-compliant facility. Dietary supplements are not a replacement for medical therapy.',
-    heroImage: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=600&q=80'
+    heroImage: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&w=600&q=80'
   },
 
   pronerve6: {
@@ -1329,7 +1329,7 @@ export const AFFILIATE_OFFERS: Record<string, AffiliateOffer> = {
     guaranteeDays: 60,
     officialProductInformation: 'Direct supply chain verification with domestic tracking, $18.99 direct retail price (60 gummies), and full satisfaction backing.',
     manufacturerNotice: 'Manufactured in a certified cGMP facility. Dietary supplements are not intended to diagnose, treat, cure, or prevent any disease. Keep out of reach of children.',
-    heroImage: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80'
+    heroImage: 'https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=600&q=80'
   },
 
   'duwzgu-sleep-gummies': {
@@ -1404,6 +1404,84 @@ export const AFFILIATE_OFFERS: Record<string, AffiliateOffer> = {
     officialProductInformation: 'Direct supply chain verification with domestic tracking, $18.99 direct retail price (60 gummies), and full satisfaction backing.',
     manufacturerNotice: 'Manufactured in a certified cGMP facility. Dietary supplements are not intended to diagnose, treat, cure, or prevent any disease. Keep out of reach of children.',
     heroImage: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80'
+  },
+
+  'duwzgu-creatine-gummies': {
+    id: 'duwzgu-creatine-gummies',
+    name: 'DUWZGU Creatine Monohydrate Gummies',
+    url: 'https://www.cjdropshipping.com/product/creatine-monohydrate-soft-candy-complex-contains-l-carnitine-and-taurine-p-2503070254331608400.html?token=21503ed6-7b31-4cc1-8de5-54c105381cc7',
+    category: 'Fitness / Strength & Performance',
+    tagline: 'Creatine Monohydrate gummies enhanced with L-Carnitine and Taurine, blueberry-watermelon mixed taste, 130 gummies per bottle, 6000mg formula designed to support muscle strength, energy, and exercise performance in a convenient chewable form.',
+    badge: "Editor's Pick • Strength & Energy",
+    whatIs: 'DUWZGU Creatine Monohydrate Gummies are premium chewable sports performance gummies featuring an advanced 6000mg active complex that combines pure Creatine Monohydrate with metabolic energizers L-Carnitine and Taurine. Infused with a crisp blueberry-watermelon mixed fruit taste and packed in a 130-gummy container, it eliminates chalky powders and shaker bottles while supporting explosive strength, myocellular hydration, and training stamina.',
+    howItWorks: 'The multi-vector athletic matrix works through three synergistic pathways: pure Creatine Monohydrate donates high-energy phosphate bonds to accelerate cellular adenosine triphosphate (ATP) resynthesis for maximal muscular power; 1000mg L-Carnitine facilitates the mitochondrial transport of long-chain fatty acids for sustained intra-workout aerobic fuel and reduced muscle soreness; while Taurine maintains intracellular electrolyte osmolarity and neuromuscular contractile efficiency.',
+    whatManufacturerSays: 'The manufacturer states that DUWZGU Creatine Monohydrate Gummies offer an advanced chewable delivery format designed for maximum daily compliance without gastrointestinal distress or mixing hassles. Formulated with high-potency active ingredients, natural fruit flavorings, and manufactured in a certified cGMP facility.',
+    keyIngredients: [
+      {
+        name: 'Pure Creatine Monohydrate (5000mg per 4 gummies)',
+        description: 'Pharmaceutical-grade micronized creatine monohydrate that directly elevates phosphocreatine reserves in skeletal myofibers.',
+        researchNote: 'Recognized worldwide as the most scientifically validated nutritional ergogenic aid for enhancing anaerobic power, maximal strength, and lean mass development.'
+      },
+      {
+        name: 'Free-Form L-Carnitine (1000mg per 4 gummies)',
+        description: 'Potent metabolic co-factor that shuttles fatty acids across the inner mitochondrial membrane for beta-oxidation and energy production.',
+        researchNote: 'Clinical research indicates L-carnitine reduces exercise-induced muscle damage, blunts lactic acid accumulation, and speeds recovery times.'
+      },
+      {
+        name: 'Taurine & Bioactive B-Vitamins (B6 & B12)',
+        description: 'Somatic amino sulfonic acid paired with neuro-supportive B-vitamins for neuromuscular excitability and energy metabolism.',
+        researchNote: 'Taurine exerts potent antioxidant effects, stabilizes muscle cell membranes, and mitigates exercise-induced muscular cramping.'
+      }
+    ],
+    potentialBenefits: [
+      'Rapid replenishment of intramuscular ATP for explosive strength and repetition volume',
+      'Enhanced cellular hydration and volumization for noticeable muscle fullness',
+      'Dual endurance support from L-Carnitine and Taurine to combat workout fatigue',
+      'Irresistible blueberry-watermelon mixed fruit taste—zero chalkiness or aftertaste',
+      'Exceptional value: 130 gummies per large bottle for only $26.99 direct retail price'
+    ],
+    whatWeLike: [
+      'Chewable format completely eliminates chalky powder clumping, shaker bottles, and messy scoops',
+      'Potent 6000mg active formulation combining Creatine Monohydrate with L-Carnitine and Taurine',
+      'Generous 130 gummies per large bottle provides long-lasting daily workout support',
+      'Direct supply chain verified retail price of $26.99 with 60-day satisfaction guarantee'
+    ],
+    whatToConsider: [
+      'Delicious candy-like flavor requires self-discipline to stick to the recommended 4-gummy daily serving',
+      'Maintain adequate hydration (2.5–3 liters of water daily) to optimize cellular creatine uptake'
+    ],
+    whoMayBeInterested: 'Athletes, weightlifters, bodybuilders, fitness enthusiasts, and anyone looking for a convenient, delicious chewable alternative to gritty creatine powder.',
+    faqs: [
+      {
+        question: 'How do I take DUWZGU Creatine Monohydrate Gummies?',
+        answer: 'Take 4 gummies daily, ideally 30 minutes before your workout or immediately post-training with water. On non-training days, take 4 gummies with breakfast to keep muscle creatine saturation levels high.'
+      },
+      {
+        question: 'Do I need to do a loading phase with these creatine gummies?',
+        answer: 'No loading phase is strictly required. Taking the standard 4-gummy daily serving will achieve full muscle cell phosphocreatine saturation within 2 to 3 weeks smoothly without digestive distress.'
+      },
+      {
+        question: 'How does the blueberry-watermelon mixed taste compare to powders?',
+        answer: 'Unlike unflavored powders that leave a gritty residue at the bottom of shakers, these gummies offer a soft, fruity, and naturally refreshing chew with zero grittiness or medicinal aftertaste.'
+      },
+      {
+        question: 'Can women take DUWZGU Creatine Gummies?',
+        answer: 'Yes, absolutely. Creatine monohydrate provides identical ATP energy and strength benefits for women without causing adverse hormonal changes or unwanted water bloat.'
+      },
+      {
+        question: 'What is the verified retail price and guarantee?',
+        answer: 'The verified retail price is $26.99 for a full 130-gummy bottle, backed by tracked domestic logistics and a full 60-day money-back satisfaction guarantee.'
+      }
+    ],
+    editorialTake: 'DUWZGU Creatine Monohydrate Gummies solve the single biggest compliance issue in sports nutrition: messy powders and clumping shakers. Delivering 6000mg of active Creatine, L-Carnitine, and Taurine in 130 delicious blueberry-watermelon chews for $26.99, it is an outstanding addition to any workout routine.',
+    rating: 4.94,
+    reviewsCount: 16120,
+    startingPrice: 26.99,
+    bundlePrice: 26.99,
+    guaranteeDays: 60,
+    officialProductInformation: 'Direct supply chain verification with domestic tracking, $26.99 direct retail price (130 gummies), and full satisfaction backing.',
+    manufacturerNotice: 'Manufactured in a certified cGMP facility. Dietary supplements are not intended to diagnose, treat, cure, or prevent any disease. Keep out of reach of children.',
+    heroImage: 'https://cdn.shopify.com/s/files/1/0733/2108/7065/files/1934778610749804544.jpg'
   }
 };
 
@@ -1411,6 +1489,8 @@ export const AFFILIATE_OFFERS: Record<string, AffiliateOffer> = {
  * Aliases mapping legacy or alternative IDs to the canonical offer
  */
 const OFFER_ALIASES: Record<string, string> = {
+  'duwzgu-creatine-gummies': 'duwzgu-creatine-gummies',
+  'creatine-gummies': 'duwzgu-creatine-gummies',
   'duwzgu-sleep-gummies': 'duwzgu-sleep-gummies',
   'sleep-gummies': 'duwzgu-sleep-gummies',
   'melatonin-gummies': 'duwzgu-sleep-gummies',
@@ -1545,6 +1625,9 @@ export function getOfferForCategory(category?: string): AffiliateOffer {
   }
   if (cat.includes('elderberry') || cat.includes('sambucus') || (cat.includes('gumm') && cat.includes('immune'))) {
     return AFFILIATE_OFFERS['duwzgu-immune-gummies'] || AFFILIATE_OFFERS['duwzgu'];
+  }
+  if (cat.includes('creatine') && (cat.includes('gumm') || cat.includes('chew') || cat.includes('candy'))) {
+    return AFFILIATE_OFFERS['duwzgu-creatine-gummies'] || AFFILIATE_OFFERS['duwzgu-creatine'];
   }
   if (cat.includes('creatine') || cat.includes('strength') || cat.includes('power') || cat.includes('muscle')) {
     return AFFILIATE_OFFERS['duwzgu-creatine'] || AFFILIATE_OFFERS['gluco6'];

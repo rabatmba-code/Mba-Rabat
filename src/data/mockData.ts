@@ -345,7 +345,7 @@ export const clickBankOffers: ClickBankOffer[] = [
     bundlePrice: 18.99,
     savingsPercentage: 35,
     guaranteeDays: 60,
-    heroImage: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=600&q=80',
     pros: [
       'Potent 4-in-1 synergy combining standardized Black Elderberry, Zinc, Vitamin C, and Vitamin D3',
       '100% vegetarian pectin base—free of pork/beef gelatin, gluten, and synthetic colorants',
@@ -442,6 +442,63 @@ export const clickBankOffers: ClickBankOffer[] = [
     bonusGifts: [
       'Bonus 1: The Circadian Architecture & Sleep Hygiene Handbook (PDF)',
       'Bonus 2: Evening Cortisol Reset & Breathwork Protocol'
+    ]
+  },
+  {
+    id: 'duwzgu-creatine-gummies',
+    name: 'DUWZGU Creatine Monohydrate Gummies',
+    niche: 'fitness',
+    categoryName: 'Fitness / Strength & Performance',
+    tagline: 'Creatine Monohydrate gummies enhanced with L-Carnitine and Taurine, blueberry-watermelon mixed taste, 130 gummies per bottle, 6000mg formula designed to support muscle strength, energy, and exercise performance in a convenient chewable form.',
+    badge: "★ Editor's Pick: Muscle & Power",
+    vendorId: 'duwzgu-creatine-gummies',
+    hoplinkFallback: 'https://www.cjdropshipping.com/product/creatine-monohydrate-soft-candy-complex-contains-l-carnitine-and-taurine-p-2503070254331608400.html?token=21503ed6-7b31-4cc1-8de5-54c105381cc7',
+    rating: 4.94,
+    reviewsCount: 16120,
+    startingPrice: 26.99,
+    bundlePrice: 26.99,
+    savingsPercentage: 35,
+    guaranteeDays: 60,
+    heroImage: 'https://cdn.shopify.com/s/files/1/0733/2108/7065/files/1934778610749804544.jpg',
+    pros: [
+      'Potent 6000mg active complex combining pure Creatine Monohydrate with L-Carnitine and Taurine',
+      'Irresistible natural blueberry-watermelon mixed fruit taste—zero chalky residue, shakers, or grittiness',
+      '130 gummies per large bottle providing convenient daily energy, strength, and workout endurance support',
+      'Accelerates muscular ATP replenishment, cellular hydration, and mitochondrial metabolic efficiency',
+      'Direct verified retail price of $26.99 with domestic tracking and full 60-day satisfaction guarantee'
+    ],
+    cons: [
+      'Delicious candy-like taste requires adherence to the recommended 4-gummy daily serving',
+      'Ensure adequate daily water intake (2.5–3L) to maximize cellular creatine hydration'
+    ],
+    keyIngredients: [
+      {
+        name: 'Pure Creatine Monohydrate (5000mg per 4 gummies)',
+        description: 'Micro-milled creatine monohydrate rapidly donating high-energy phosphate groups to regenerate ATP during heavy resistance exercise and explosive sprints.',
+        clinicalTrialNote: 'Peer-reviewed studies confirm creatine monohydrate significantly increases 1RM strength, anaerobic power, and lean muscle mass accretion.'
+      },
+      {
+        name: 'L-Carnitine Free Form (1000mg per 4 gummies)',
+        description: 'Key amino acid derivative transporting long-chain fatty acids into mitochondria for beta-oxidation and ATP generation during intense workout sessions.',
+        clinicalTrialNote: 'Clinical trials demonstrate L-carnitine reduces exercise-induced muscle tissue damage and attenuates post-workout delayed onset muscle soreness (DOMS).'
+      },
+      {
+        name: 'Taurine & Bioactive B-Vitamins (B6 & B12)',
+        description: 'Essential sulfonic acid and neuro-support vitamins optimizing intracellular osmoregulation, calcium ion channel kinetics, and energy metabolism.',
+        clinicalTrialNote: 'Taurine enhances cellular hydration and neuromuscular contractile force while blunting exercise-induced oxidative stress.'
+      }
+    ],
+    verdict: 'DUWZGU Creatine Monohydrate Gummies solve the biggest obstacle in sports nutrition: messy, chalky powders and large unswallowable pills. Featuring 6000mg of active Creatine Monohydrate, L-Carnitine, and Taurine in 130 delicious blueberry-watermelon chews for $26.99, it delivers elite athletic performance in an effortless daily routine.',
+    ctaText: 'Claim Discount & Order Now ($26.99) →',
+    vslBulletPoints: [
+      '6000mg active strength matrix (Creatine Monohydrate + L-Carnitine + Taurine)',
+      '130 delicious blueberry-watermelon chewable gummies per bottle',
+      'Zero chalky powder mixing, zero shaker cups, and zero gastrointestinal distress',
+      'Direct supply chain verified retail price of $26.99 with 60-day satisfaction guarantee'
+    ],
+    bonusGifts: [
+      'Bonus 1: The Lean Mass & Explosive Power Training Guide (PDF)',
+      'Bonus 2: Nutrient Timing & Anabolic Hydration Blueprint'
     ]
   },
   {
