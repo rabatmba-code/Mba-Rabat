@@ -22,6 +22,7 @@ import { AffiliateDisclosure } from './AffiliateDisclosure';
 import { AffiliateCTA } from './AffiliateCTA';
 import { FAQSection, FAQItem } from './FAQSection';
 import { RelatedArticles } from './RelatedArticles';
+import { OfferProductGallery } from './OfferProductGallery';
 import { getOfferForCategory, getAffiliateOffer } from '../config/affiliateOffers';
 
 interface ArticlePageProps {
@@ -605,6 +606,15 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
               <span className="text-xs font-semibold text-emerald-800 bg-emerald-100/80 border border-emerald-200/80 px-2.5 py-1 rounded-full">
                 For Readers of This Guide
               </span>
+            </div>
+
+            {/* Visual Product Inspection Gallery (5 Verified Real Photos) */}
+            <div className="product-gallery mb-6">
+              <OfferProductGallery
+                offerId={matchedOfferId}
+                offerName={matchedOffer?.name || 'Vetted Protocol'}
+                onReadReview={onOpenReview}
+              />
             </div>
 
             <AffiliateCTA

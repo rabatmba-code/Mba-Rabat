@@ -38,6 +38,8 @@ import { StickyDealBar } from './components/StickyDealBar';
 import { RotatingOfferBanner } from './components/RotatingOfferBanner';
 import { AffiliateManagerModal } from './components/AffiliateManagerModal';
 import { LeadMagnetModal } from './components/LeadMagnetModal';
+import { ExitIntentModal } from './components/ExitIntentModal';
+import { LiveDealToast } from './components/LiveDealToast';
 
 type ViewState = 'home' | 'article' | 'review' | 'comparison' | 'category' | StaticPageType;
 
@@ -266,8 +268,10 @@ export default function App() {
   });
 
   // Contextually active offer for banners & exit popup
-  const contextOffer = (activeView === 'article' && selectedArticle.linkedOfferId
-    ? clickBankOffers.find(o => o.id === selectedArticle.linkedOfferId || o.vendorId === selectedArticle.linkedOfferId)
+  const contextOffer = (activeView === 'article'
+    ? (selectedArticle.linkedOfferId
+        ? clickBankOffers.find(o => o.id === selectedArticle.linkedOfferId || o.vendorId === selectedArticle.linkedOfferId)
+        : clickBankOffers.find(o => o.niche === selectedArticle.category?.toLowerCase() || o.categoryName?.toLowerCase().includes(selectedArticle.category?.toLowerCase())))
     : activeView === 'review'
     ? selectedReviewOffer
     : null) || clickBankOffers.find(o => o.id === affiliateSettings.activePromotedOfferId) || clickBankOffers[0];
@@ -741,14 +745,29 @@ export default function App() {
         onOpenReview={handleOpenReview}
       />
 
-      {/* Contextual Product Actions (Only displayed when actively reviewing a product) */}
-      {activeView === 'review' && (
+      {/* Contextual Product Actions (Displayed on review and article views when scrolling) */}
+      {(activeView === 'review' || activeView === 'article') && (
         <StickyDealBar
           activeOffer={contextOffer}
           affiliateSettings={affiliateSettings}
           onOpenReview={handleOpenReview}
         />
       )}
+
+      {/* Live Social Proof Activity Toast */}
+      {affiliateSettings.enableLiveNotification && (
+        <LiveDealToast
+          offers={clickBankOffers}
+          affiliateSettings={affiliateSettings}
+        />
+      )}
+
+      {/* Exit-Intent VIP Special Discount Modal */}
+      <ExitIntentModal
+        activeOffer={contextOffer}
+        affiliateSettings={affiliateSettings}
+        onOpenQuiz={() => setIsQuizOpen(true)}
+      />
 
       {/* Free Digital Guide Lead Capture Modal */}
       <LeadMagnetModal
