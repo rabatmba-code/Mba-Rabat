@@ -259,13 +259,13 @@ export const HeroFeatured: React.FC<HeroFeaturedProps> = ({
               <div className="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <img
-                    src={article.author.avatar}
-                    alt={article.author.name}
+                    src={article.author?.avatar || 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80'}
+                    alt={article.author?.name || 'Editorial Team'}
                     className="w-11 h-11 rounded-full object-cover ring-2 ring-emerald-500/40"
                   />
                   <div className="text-xs">
-                    <p className="font-bold text-white text-sm">{article.author.name}</p>
-                    <p className="text-slate-400">{article.author.credentials}</p>
+                    <p className="font-bold text-white text-sm">{article.author?.name || 'Editorial Team'}</p>
+                    <p className="text-slate-400">{article.author?.credentials || 'Evidence-Based Medicine'}</p>
                   </div>
                 </div>
 

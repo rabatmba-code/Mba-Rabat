@@ -328,16 +328,16 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <img
-                src={article.author.avatar}
-                alt={article.author.name}
+                src={article.author?.avatar || 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80'}
+                alt={article.author?.name || 'Editorial Team'}
                 className="w-12 h-12 rounded-full object-cover ring-2 ring-emerald-600/40"
               />
               <div>
                 <p className="text-sm font-bold text-slate-900">
-                  By {article.author.name}
+                  By {article.author?.name || 'VitalPath Editorial Team'}
                 </p>
                 <p className="text-xs text-slate-500">
-                  {article.author.role} • {article.author.credentials}
+                  {article.author?.role || 'Medical Contributor'} • {article.author?.credentials || 'Evidence-Based Research'}
                 </p>
               </div>
             </div>

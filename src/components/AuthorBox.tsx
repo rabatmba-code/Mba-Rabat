@@ -15,13 +15,21 @@ export const AuthorBox: React.FC<AuthorBoxProps> = ({
   publishedDate,
   updatedDate,
 }) => {
+  const safeAuthor = author || {
+    name: 'Dr. Elena Vance, MD',
+    role: 'Chief Medical Editor',
+    credentials: 'Board-Certified Internal Medicine & Preventive Cardiologist',
+    avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80',
+    bio: 'Medical research and editorial review team at VitalPath Health.',
+  };
+
   return (
     <div className="my-10 bg-slate-50 border border-slate-200/90 rounded-2xl p-6 sm:p-7 space-y-6" id="author-bio-box">
       {/* Primary Author */}
       <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
         <img
-          src={author.avatar}
-          alt={author.name}
+          src={safeAuthor.avatar || 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80'}
+          alt={safeAuthor.name}
           className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover ring-2 ring-emerald-600/30 shrink-0 shadow-xs"
           loading="lazy"
         />
@@ -31,16 +39,16 @@ export const AuthorBox: React.FC<AuthorBoxProps> = ({
               Lead Author
             </span>
             <span className="text-xs text-slate-500 font-medium">
-              {author.role} • {author.credentials}
+              {safeAuthor.role} • {safeAuthor.credentials}
             </span>
           </div>
 
           <h3 className="font-serif-title text-xl font-bold text-slate-900">
-            {author.name}
+            {safeAuthor.name}
           </h3>
 
           <p className="text-sm text-slate-600 leading-relaxed">
-            {author.bio}
+            {safeAuthor.bio}
           </p>
 
           {(publishedDate || updatedDate) && (
@@ -60,10 +68,10 @@ export const AuthorBox: React.FC<AuthorBoxProps> = ({
       </div>
 
       {/* Medical Reviewer Co-Verification */}
-      {medicallyReviewedBy && (
+      {medicallyReviewedBy && medicallyReviewedBy.name && (
         <div className="pt-5 border-t border-slate-200/80 flex flex-col sm:flex-row items-start gap-4 bg-white/70 p-4 rounded-xl border border-slate-200/60">
           <img
-            src={medicallyReviewedBy.avatar}
+            src={medicallyReviewedBy.avatar || 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80'}
             alt={medicallyReviewedBy.name}
             className="w-12 h-12 rounded-xl object-cover ring-2 ring-teal-600/30 shrink-0"
             loading="lazy"

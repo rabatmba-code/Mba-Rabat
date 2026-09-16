@@ -8,6 +8,11 @@ export function buildHoplink(
     return settings.customHoplinkOverride;
   }
 
+  // If the offer has a direct pre-configured external buy link (e.g. cjdropshipping or specific shop)
+  if (offer.hoplinkFallback && !offer.hoplinkFallback.includes('.hop.clickbank.net') && (offer.hoplinkFallback.startsWith('http://') || offer.hoplinkFallback.startsWith('https://'))) {
+    return offer.hoplinkFallback;
+  }
+
   // If the offer has a direct pre-configured ClickBank hoplink
   if (offer.hoplinkFallback && offer.hoplinkFallback.includes('.hop.clickbank.net')) {
     const tid = settings.trackingId?.trim() ? `?tid=${encodeURIComponent(settings.trackingId.trim())}` : '';

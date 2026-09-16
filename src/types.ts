@@ -34,7 +34,7 @@ export interface OfferPhotoItem {
 export interface ClickBankOffer {
   id: string;
   name: string;
-  niche: 'metabolism' | 'bloodsugar' | 'gut' | 'joints' | 'longevity' | 'sleep' | 'aging';
+  niche: 'metabolism' | 'bloodsugar' | 'gut' | 'joints' | 'longevity' | 'sleep' | 'aging' | 'immunity' | 'heart' | 'skincare' | 'beauty' | 'fitness' | 'energy' | 'performance' | 'wellness';
   categoryName: string;
   tagline: string;
   badge: string;
@@ -89,6 +89,7 @@ export interface Article {
     | 'Blood Sugar'
     | 'Weight Management'
     | 'Sleep & Stress'
+    | 'Sleep & Stress / Daily Wellness'
     | 'Healthy Aging'
     | 'Nutrition'
     | 'Product Reviews'
@@ -96,7 +97,18 @@ export interface Article {
     | 'Comparisons'
     | 'Metabolism'
     | 'Gut Health'
-    | 'Joints & Mobility';
+    | 'Joints & Mobility'
+    | 'Immune Support'
+    | 'Immune Support / Bone & Heart Health'
+    | 'Immune Support / Daily Wellness'
+    | 'Daily Wellness'
+    | 'Skincare / Beauty'
+    | 'Skincare'
+    | 'Fitness / Energy & Performance'
+    | 'Fitness / Strength & Performance'
+    | 'Strength & Performance'
+    | 'Fitness & Performance'
+    | 'Energy & Performance';
   readingTime: string;
   publishedDate: string;
   author: Author;

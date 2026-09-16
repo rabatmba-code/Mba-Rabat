@@ -162,6 +162,12 @@ export default function App() {
     const reviewArticle = articles.find(
       (a) =>
         ((offer.id === 'gluco6' || offer.id === 'bloodsugar-gluco6') && a.slug === 'gluco6-review') ||
+        ((offer.id === 'duwzgu-sleep-gummies' || (offer.id.includes('sleep') && offer.id.includes('gumm')) || offer.id.includes('melatonin')) && (a.slug === 'duwzgu-sleep-support-gummies-review' || a.slug.includes('sleep-support-gummies'))) ||
+        ((offer.id === 'duwzgu-immune-gummies' || (offer.id.includes('immune') && offer.id.includes('gumm')) || offer.id.includes('elderberry')) && (a.slug === 'duwzgu-immune-support-gummies-review' || a.slug.includes('immune-support-gummies') || a.slug.includes('gummies'))) ||
+        ((offer.id === 'duwzgu-creatine' || offer.id.includes('creatine')) && (a.slug === 'duwzgu-creatine-monohydrate-review' || a.slug.includes('creatine'))) ||
+        ((offer.id === 'duwzgu' || offer.id === 'duwzgu-d3k2' || offer.id.includes('duwzgu')) && (a.slug === 'duwzgu-d3-k2-review' || a.slug === 'duwzgu-d3k2-review')) ||
+        ((offer.id === 'eelhoe' || offer.id === 'eelhoe-vc' || offer.id.includes('eelhoe')) && (a.slug === 'eelhoe-vitamin-c-spray-review' || a.slug.includes('eelhoe'))) ||
+        ((offer.id === 'preworkout-caffeine' || offer.id.includes('caffeine') || offer.id.includes('preworkout')) && (a.slug === 'preworkout-caffeine-exercise-supplement-review' || a.slug.includes('preworkout'))) ||
         ((offer.id === 'bloodsugar-defender' || offer.id === 'sugar-defender' || offer.id === 'sugarDefender' || offer.id === 'sugardefender') && a.slug === 'sugar-defender-review') ||
         ((offer.id === 'puravive' || offer.id === 'metabolism-puravive') && a.slug === 'puravive-review')
     );
@@ -626,18 +632,94 @@ export default function App() {
                   </button>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
                     clickBankOffers.find((o) => o.id === 'gluco6' || o.id === 'bloodsugar-gluco6') || clickBankOffers[0],
-                    clickBankOffers.find((o) => o.id === 'bloodsugar-defender') || clickBankOffers[1],
-                    clickBankOffers.find((o) => o.id === 'puravive' || o.id === 'metabolism-puravive') || clickBankOffers[2],
-                  ].map((offer) => {
+                    clickBankOffers.find((o) => o.id === 'duwzgu-d3k2' || o.id === 'duwzgu'),
+                    clickBankOffers.find((o) => o.id === 'duwzgu-sleep-gummies' || o.id.includes('sleep-gummies')),
+                    clickBankOffers.find((o) => o.id === 'duwzgu-immune-gummies' || o.id.includes('immune-gummies') || o.id.includes('gumm')),
+                    clickBankOffers.find((o) => o.id === 'eelhoe-vc' || o.id === 'eelhoe'),
+                    clickBankOffers.find((o) => o.id === 'preworkout-caffeine' || o.id.includes('caffeine')),
+                    clickBankOffers.find((o) => o.id === 'duwzgu-creatine' || o.id.includes('creatine')),
+                    clickBankOffers.find((o) => o.id === 'bloodsugar-defender'),
+                    clickBankOffers.find((o) => o.id === 'puravive' || o.id === 'metabolism-puravive'),
+                  ].filter(Boolean).map((offer) => {
                     const destinationUrl = getAffiliateUrl(offer.id);
+                    const isSleepGummies = offer.id.includes('sleep') && (offer.id.includes('gumm') || offer.id.includes('melatonin'));
+                    const isImmuneGummies = (offer.id.includes('gumm') || offer.id.includes('elderberry')) && !isSleepGummies;
+                    const isCreatine = offer.id.includes('creatine');
+                    const isDuwzgu = (offer.id.includes('duwzgu') || offer.id.includes('d3k2')) && !isCreatine && !isImmuneGummies && !isSleepGummies;
+                    const isEelhoe = offer.id.includes('eelhoe');
+                    const isPreworkout = offer.id.includes('caffeine') || offer.id.includes('preworkout');
+                    const isDirectDiscount = isDuwzgu || isEelhoe || isPreworkout || isCreatine || isImmuneGummies || isSleepGummies;
+
+                    const badgeText = isEelhoe || isDuwzgu || isPreworkout || isCreatine || isImmuneGummies || isSleepGummies ? "★ Editor's Pick" : "Vetted Formula";
+                    const badgeColor = isSleepGummies
+                      ? "bg-indigo-700 text-white"
+                      : isImmuneGummies
+                      ? "bg-purple-700 text-white"
+                      : isEelhoe
+                      ? "bg-pink-600 text-white"
+                      : isCreatine
+                      ? "bg-blue-600 text-white"
+                      : isDuwzgu
+                      ? "bg-amber-600 text-white"
+                      : isPreworkout
+                      ? "bg-orange-600 text-white"
+                      : "bg-emerald-700 text-white";
+
+                    const cardBorder = isSleepGummies
+                      ? "border-indigo-400/80 ring-1 ring-indigo-400/30 shadow-md"
+                      : isImmuneGummies
+                      ? "border-purple-400/80 ring-1 ring-purple-400/30 shadow-md"
+                      : isEelhoe
+                      ? "border-pink-300/80 ring-1 ring-pink-400/30 shadow-md"
+                      : isCreatine
+                      ? "border-blue-400/80 ring-1 ring-blue-400/30 shadow-md"
+                      : isDuwzgu
+                      ? "border-amber-400/80 ring-1 ring-amber-400/30 shadow-md"
+                      : isPreworkout
+                      ? "border-orange-400/80 ring-1 ring-orange-400/30 shadow-md"
+                      : "border-slate-200 hover:border-emerald-600/40 hover:shadow-lg";
+
+                    const pricingText = isSleepGummies || isImmuneGummies
+                      ? "$18.99 retail"
+                      : isEelhoe
+                      ? "$24.99 retail"
+                      : isCreatine
+                      ? "$27.99 retail"
+                      : isDuwzgu
+                      ? "$19.99 retail"
+                      : isPreworkout
+                      ? "$22.99 retail"
+                      : `$${offer.bundlePrice} / bottle`;
+
+                    const standardText = isSleepGummies || isImmuneGummies
+                      ? "USA cGMP / Plant Pectin"
+                      : isEelhoe
+                      ? "Dermatology Tested"
+                      : isCreatine
+                      ? "USA cGMP / Micronized 200 Mesh"
+                      : isPreworkout
+                      ? "USA cGMP / HPLC Tested"
+                      : "USA cGMP Facility";
+
+                    const buyBtnText = isSleepGummies || isImmuneGummies
+                      ? "Claim Discount Now ($18.99)"
+                      : isEelhoe
+                      ? "Claim Discount Now ($24.99)"
+                      : isCreatine
+                      ? "Claim Discount Now ($27.99)"
+                      : isDuwzgu
+                      ? "Claim Discount Now ($19.99)"
+                      : isPreworkout
+                      ? "Claim Discount Now ($22.99)"
+                      : "Official Product Information";
 
                     return (
                       <div
                         key={offer.id}
-                        className="bg-white rounded-2xl border border-slate-200 hover:border-emerald-600/40 hover:shadow-lg transition-all flex flex-col justify-between overflow-hidden group"
+                        className={`bg-white rounded-2xl border ${cardBorder} transition-all flex flex-col justify-between overflow-hidden group`}
                       >
                         <div className="relative aspect-16/10 overflow-hidden bg-slate-100">
                           <img
@@ -648,8 +730,8 @@ export default function App() {
                           <div className="absolute top-2.5 left-2.5 bg-slate-900/80 backdrop-blur-xs text-white text-[10px] font-bold px-2 py-0.5 rounded">
                             {offer.categoryName}
                           </div>
-                          <div className="absolute top-2.5 right-2.5 bg-emerald-700 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-2xs">
-                            Vetted Formula
+                          <div className={`absolute top-2.5 right-2.5 ${badgeColor} text-[10px] font-bold px-2 py-0.5 rounded shadow-2xs`}>
+                            {badgeText}
                           </div>
                         </div>
 
@@ -675,11 +757,11 @@ export default function App() {
                               </div>
                               <div className="flex items-center justify-between">
                                 <span className="text-slate-500">Official Direct Pricing:</span>
-                                <span className="font-bold text-slate-900">${offer.bundlePrice} / bottle</span>
+                                <span className="font-bold text-slate-900">{pricingText}</span>
                               </div>
                               <div className="flex items-center justify-between">
                                 <span className="text-slate-500">Manufacturing Standard:</span>
-                                <span className="text-slate-700 font-medium">USA cGMP Facility</span>
+                                <span className="text-slate-700 font-medium">{standardText}</span>
                               </div>
                             </div>
                           </div>
@@ -698,10 +780,10 @@ export default function App() {
                               href={destinationUrl}
                               target="_blank"
                               rel="noopener noreferrer nofollow"
-                              className="w-full inline-flex items-center justify-center gap-1 text-center text-xs font-medium text-slate-600 hover:text-emerald-800 py-1.5 transition-colors cursor-pointer"
+                              className={`w-full inline-flex items-center justify-center gap-1.5 text-center text-xs font-semibold ${isDirectDiscount ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-2xs' : 'text-slate-600 hover:text-emerald-800'} py-2 px-3 rounded-xl transition-colors cursor-pointer`}
                             >
-                              <span>Official Product Information</span>
-                              <ExternalLink className="w-3 h-3" />
+                              <span>{buyBtnText}</span>
+                              <ExternalLink className="w-3.5 h-3.5" />
                             </a>
                           </div>
                         </div>

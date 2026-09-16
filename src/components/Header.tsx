@@ -117,6 +117,10 @@ export const Header: React.FC<HeaderProps> = ({
   const popularKeywords = [
     { label: 'Blood Sugar Spikes', category: 'Healthy Blood Sugar' },
     { label: 'Gluco6 Review', category: 'Product Reviews' },
+    { label: 'DUWZGU Sleep Gummies', category: 'Product Reviews' },
+    { label: 'DUWZGU Immune Gummies', category: 'Product Reviews' },
+    { label: 'DUWZGU Creatine', category: 'Product Reviews' },
+    { label: 'Pre-Workout Caffeine', category: 'Product Reviews' },
     { label: 'Metabolism After 40', category: 'Weight Management' },
     { label: 'Puravive BAT Hack', category: 'Product Reviews' },
     { label: 'Cortisol & Sleep', category: 'Sleep & Stress' },

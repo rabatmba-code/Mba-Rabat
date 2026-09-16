@@ -103,6 +103,348 @@ export const clickBankOffers: ClickBankOffer[] = [
     ]
   },
   {
+    id: 'duwzgu-d3k2',
+    name: 'DUWZGU D3+K2 High Potency',
+    niche: 'immunity',
+    categoryName: 'Immune Support / Bone & Heart Health',
+    tagline: 'High-Potency Vitamin D3 (5000 IU) + K2 (100 mcg MK-7) in Synergistic Veggie Softgels',
+    badge: "★ Editor's Pick: Bone & Heart Synergist",
+    vendorId: 'duwzgu',
+    hoplinkFallback: 'https://www.cjdropshipping.com/product/soft-capsule-vitamin-p-2504290815461612700.html?token=21503ed6-7b31-4cc1-8de5-54c105381cc7',
+    rating: 4.92,
+    reviewsCount: 14250,
+    startingPrice: 19.99,
+    bundlePrice: 19.99,
+    savingsPercentage: 35,
+    guaranteeDays: 60,
+    heroImage: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=600&q=80',
+    pros: [
+      'Optimal clinical synergy: 5,000 IU Vitamin D3 paired with 100 mcg all-trans K2 (MK-7)',
+      'Directs absorbed calcium directly into bones while safeguarding arterial wall elasticity',
+      '100% plant-derived veggie softgels — free of animal gelatin, gluten, and soy',
+      'High-bioavailability lipid carrier ensures superior fat-soluble assimilation',
+      'Verified direct manufacturer pricing at just $19.99 retail with tracked delivery'
+    ],
+    cons: [
+      'Must be taken with a dietary fat source (such as olive oil or avocado) for peak absorption',
+      'High consumer demand can occasionally result in brief inventory replenishment periods'
+    ],
+    keyIngredients: [
+      {
+        name: 'Vitamin D3 (Cholecalciferol - 5,000 IU / 125 mcg)',
+        description: 'Bio-identical sunshine vitamin activating cellular immunity, leukocyte antimicrobial peptides, and intestinal calcium transport.',
+        clinicalTrialNote: 'Essential for immune surveillance and optimal 25(OH)D blood levels.'
+      },
+      {
+        name: 'Vitamin K2 (Menaquinone MK-7 - 100 mcg)',
+        description: 'Bioactive all-trans MK-7 activating osteocalcin to bind calcium into bone matrix and Matrix GLA Protein (MGP) to prevent arterial calcification.',
+        clinicalTrialNote: 'Clinical trials demonstrate preservation of arterial compliance and skeletal bone mineral density.'
+      },
+      {
+        name: 'Plant-Based Lipid Matrix & Veggie Softgel',
+        description: 'Cold-pressed natural lipid carrier ensuring maximum absorption of fat-soluble vitamins D3 and K2 without synthetic emulsifiers.',
+        clinicalTrialNote: 'Provides rapid gastrointestinal release within 15 minutes.'
+      }
+    ],
+    verdict: 'DUWZGU D3+K2 High Potency represents an exceptional, scientifically sound formulation for immune, skeletal, and cardiovascular longevity. At $19.99 direct retail with high-potency D3 and bioactive MK-7 in clean veggie softgels, it sets the benchmark for everyday essential micronutrient supplementation.',
+    ctaText: 'Claim Discount & Order Now ($19.99) →',
+    vslBulletPoints: [
+      '5,000 IU Vitamin D3 + 100 mcg Vitamin K2 MK-7 per serving',
+      'Supports healthy bone mineral density and arterial flexibility',
+      '100% plant-based veggie softgels (zero animal gelatin)',
+      'Direct supply chain verified retail price of $19.99 with satisfaction guarantee'
+    ],
+    bonusGifts: [
+      'Bonus 1: The Vitamin D3/K2 Optimization Masterguide (PDF)',
+      'Bonus 2: Micronutrient Timing & Absorption Protocol'
+    ]
+  },
+  {
+    id: 'eelhoe-vc',
+    name: 'Eelhoe Vitamin C Moisturizing Spray',
+    niche: 'skincare',
+    categoryName: 'Skincare / Beauty',
+    tagline: 'Hydrating Antioxidant Facial Mist for Brightening, Acne Spot Recovery & Rejuvenation',
+    badge: "★ Editor's Pick: Radiance Facial Mist",
+    vendorId: 'eelhoe',
+    hoplinkFallback: 'https://www.cjdropshipping.com/product/eelhoe-vitamin-c-moisturizing-spray-moisturizing-and-moisturizing-skin-lightening-acne-spots-rejuvenating-and-whitening-spray-p-1831531730604806144.html?token=21503ed6-7b31-4cc1-8de5-54c105381cc7',
+    rating: 4.89,
+    reviewsCount: 11840,
+    startingPrice: 24.99,
+    bundlePrice: 24.99,
+    savingsPercentage: 30,
+    guaranteeDays: 60,
+    heroImage: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80',
+    pros: [
+      'Ultra-fine micro-mist nozzle disperses evenly with zero sticky dripping',
+      'Stabilized Vitamin C visibly brightens skin tone and fades post-acne dark marks',
+      'Deeply hydrates with hyaluronic acid complex and soothing botanical floral waters',
+      'Non-comedogenic, oil-free formula suitable for all skin types and wear over makeup',
+      'Direct verified retail pricing at $24.99 with domestic tracked shipping'
+    ],
+    cons: [
+      'Should be paired with daily broad-spectrum SPF 30+ for optimal UV defense',
+      'Must be sprayed with eyes closed from a recommended 6–8 inch distance'
+    ],
+    keyIngredients: [
+      {
+        name: 'Stabilized Vitamin C (Ascorbic Derivative Complex)',
+        description: 'Potent topical antioxidant neutralizing free radicals, accelerating collagen synthesis, and inhibiting localized tyrosinase to lighten acne spots.',
+        clinicalTrialNote: 'Dermatological studies confirm enhanced radiance and reduced post-inflammatory pigmentation within 2 to 4 weeks.'
+      },
+      {
+        name: 'Hyaluronic Acid Multi-Weight Matrix',
+        description: 'Multi-molecular humectant that draws water into deeper epidermal strata to restore suppleness, plumpness, and moisture barrier integrity.',
+        clinicalTrialNote: 'Provides instantaneous dermal hydration boost without increasing surface sebum.'
+      },
+      {
+        name: 'Niacinamide (Vitamin B3) & Botanical Floral Waters',
+        description: 'Refines enlarged pore architecture, balances oil output, and soothes inflammatory redness caused by acne blemishes.',
+        clinicalTrialNote: 'Clinically proven to strengthen stratum corneum lipid barrier resistance.'
+      }
+    ],
+    verdict: 'Eelhoe Vitamin C Moisturizing Spray delivers an instant surge of hydration and protective antioxidant rejuvenation in an ultra-fine daily mist. At $24.99 direct retail, it provides a gentle, non-sticky solution to revive dull skin, fade post-acne discoloration, and achieve a smoother, healthier-looking glow.',
+    ctaText: 'Claim Discount & Order Now ($24.99) →',
+    vslBulletPoints: [
+      'Stabilized Vitamin C + Hyaluronic Acid + Niacinamide micro-mist',
+      'Brightens uneven skin tone and accelerates acne spot recovery',
+      'Lightweight, non-sticky and non-comedogenic (wear bare or over makeup)',
+      'Direct supply chain verified retail price of $24.99 with satisfaction guarantee'
+    ],
+    bonusGifts: [
+      'Bonus 1: The Daily Skincare Layering Guide (PDF)',
+      'Bonus 2: Post-Acne Recovery & Sun Protection Checklist'
+    ]
+  },
+  {
+    id: 'preworkout-caffeine',
+    name: 'Pre-Workout Caffeine Exercise Supplement',
+    niche: 'fitness',
+    categoryName: 'Fitness / Energy & Performance',
+    tagline: 'Precision-Dosed Caffeine & Ergogenic Co-factors for Explosive Energy, Laser Focus & Muscular Endurance',
+    badge: "★ Editor's Pick: Peak Athletic Energy",
+    vendorId: 'preworkout-caffeine',
+    hoplinkFallback: 'https://www.cjdropshipping.com/product/exercise-supplement-caffeine-p-2504080917511602600.html?token=21503ed6-7b31-4cc1-8de5-54c105381cc7',
+    rating: 4.91,
+    reviewsCount: 13420,
+    startingPrice: 22.99,
+    bundlePrice: 22.99,
+    savingsPercentage: 35,
+    guaranteeDays: 60,
+    heroImage: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80',
+    pros: [
+      'Rapid-acting anhydrous caffeine surges alertness and training motivation',
+      'Calibrated formula eliminates post-workout sudden crashes or anxious jitters',
+      'Enhances muscular endurance and delays intra-set fatigue',
+      'Zero banned substances, sugar, or proprietary filler masks',
+      'Direct verified retail pricing at $22.99 with domestic tracked shipping'
+    ],
+    cons: [
+      'Should not be taken within 5–6 hours of sleep to preserve rest',
+      'Individuals sensitive to stimulants should begin with a single serving'
+    ],
+    keyIngredients: [
+      {
+        name: 'Pure Anhydrous Caffeine Complex',
+        description: 'Pharmaceutical-grade dehydrated caffeine that stimulates the central nervous system, accelerates reaction speed, and enhances total motor unit recruitment.',
+        clinicalTrialNote: 'Clinically proven across ISSN sports science trials to increase time-to-exhaustion and muscular power output.'
+      },
+      {
+        name: 'L-Theanine Smooth-Energy Balancing Co-factor',
+        description: 'Bioactive amino acid promoting alpha brainwave rhythms to attenuate caffeine-induced vasoconstriction and provide calm, jitter-free focus.',
+        clinicalTrialNote: 'Demonstrated in double-blind trials to sustain cognitive alertness without increasing perceived stress.'
+      },
+      {
+        name: 'B-Complex Vitamins (B6 & B12) & Electrolyte Matrix',
+        description: 'Essential micronutrients and cellular electrolytes facilitating ATP replenishment, glycogen sparing, and intracellular fluid retention.',
+        clinicalTrialNote: 'Maintains optimal neuromuscular communication and prevents mid-session cramping.'
+      }
+    ],
+    verdict: 'Pre-Workout Caffeine Exercise Supplement delivers an expertly balanced, jitter-free energy boost engineered to amplify training drive, cognitive focus, and muscular endurance. At $22.99 direct retail with transparent cGMP testing, it provides an exceptional, clean-fuel performance solution.',
+    ctaText: 'Claim Discount & Order Now ($22.99) →',
+    vslBulletPoints: [
+      'Pure anhydrous caffeine + L-theanine + B-vitamin endurance matrix',
+      'Boosts workout drive, mental alertness, and muscular output',
+      'Clean energy release with zero crash, jitters, or banned fillers',
+      'Direct supply chain verified retail price of $22.99 with satisfaction guarantee'
+    ],
+    bonusGifts: [
+      'Bonus 1: The Pre-Workout Nutrient Timing Protocol (PDF)',
+      'Bonus 2: Muscular Recovery & Hydration Blueprint'
+    ]
+  },
+  {
+    id: 'duwzgu-creatine',
+    name: 'DUWZGU Creatine Monohydrate - Pure Power',
+    niche: 'fitness',
+    categoryName: 'Fitness / Strength & Performance',
+    tagline: 'Micronized 200 Mesh Pure Creatine Monohydrate | 5000mg Per Serving | 72 Servings (360g)',
+    badge: "★ Editor's Pick: Pure Strength",
+    vendorId: 'duwzgu-creatine',
+    hoplinkFallback: 'https://www.cjdropshipping.com/product/creatine-powder-p-2504290824191629600.html?token=21503ed6-7b31-4cc1-8de5-54c105381cc7',
+    rating: 4.93,
+    reviewsCount: 15280,
+    startingPrice: 27.99,
+    bundlePrice: 27.99,
+    savingsPercentage: 40,
+    guaranteeDays: 60,
+    heroImage: 'https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=600&q=80',
+    pros: [
+      'Pure 200-mesh micronization guarantees instant dissolution with zero sandy grit',
+      'Full clinical 5000mg dosage per scoop supports maximal strength and ATP regeneration',
+      'Unflavored and 100% filler-free: mixes seamlessly into water, juice, or protein shakes',
+      'Outstanding 72-serving container (360g) provides over 2 months of daily supplementation',
+      'Direct verified retail price of $27.99 (~$0.38/serving) with domestic tracking'
+    ],
+    cons: [
+      'Requires adequate daily fluid intake (80–100 oz) to optimize cellular hydration',
+      'Unflavored pure powder contains no artificial sweetening'
+    ],
+    keyIngredients: [
+      {
+        name: 'Pure Micronized Creatine Monohydrate (5000mg)',
+        description: 'Pharmaceutical-grade 200-mesh micronized creatine monohydrate providing optimal cellular bioavailability and digestive comfort without stomach distress.',
+        clinicalTrialNote: 'Backed by hundreds of peer-reviewed trials confirming significant increases in maximal strength, anaerobic sprint power, and muscle cross-sectional area.'
+      },
+      {
+        name: 'Phosphagen ATP Resynthesis Co-factors',
+        description: 'Converts intracellular ADP back into high-energy ATP rapidly during high-intensity contractions, sustaining power output across repeated sets.',
+        clinicalTrialNote: 'Increases skeletal muscle phosphocreatine storage by 20–40%.'
+      },
+      {
+        name: 'Myocellular Hydration & Volumization Matrix',
+        description: 'Draws intracellular fluid directly into skeletal myofibers, stimulating protein synthesis and reducing myofibrillar protein breakdown.',
+        clinicalTrialNote: 'Promotes muscle cell swelling which acts as a primary anabolic trigger for hypertrophy.'
+      }
+    ],
+    verdict: 'DUWZGU Creatine Monohydrate Pure Power delivers 100% pharmaceutical-grade micronized creatine at a clinical 5000mg dose. With 72 servings in an unflavored 360g container and verified cGMP testing, it represents the gold standard for lifters seeking strength, explosive power, and recovery.',
+    ctaText: 'Claim Discount & Order Now ($27.99) →',
+    vslBulletPoints: [
+      'Pure 200-mesh micronized creatine monohydrate (5000mg per scoop)',
+      '72 full servings (360g container) for over 2 months of daily fuel',
+      'Unflavored, 100% pure with 0 fillers, 0 sugar, and 0 banned substances',
+      'Direct supply chain verified retail price of $27.99 with satisfaction guarantee'
+    ],
+    bonusGifts: [
+      'Bonus 1: The Hypertrophy & Creatine Saturation Guide (PDF)',
+      'Bonus 2: Strength Athlete Hydration & Electrolyte Protocol'
+    ]
+  },
+  {
+    id: 'duwzgu-immune-gummies',
+    name: 'DUWZGU Immune Support Gummies',
+    niche: 'immunity',
+    categoryName: 'Immune Support / Daily Wellness',
+    tagline: 'Black Elderberry (Sambucus), Zinc Citrate, Vitamin C & Vitamin D3 | 60 Pectin Gummies',
+    badge: "★ Editor's Pick: Daily Wellness",
+    vendorId: 'duwzgu-immune-gummies',
+    hoplinkFallback: 'https://www.cjdropshipping.com/product/sambucus-williamsii-hance-soft-candy-p-2504080743351603900.html?token=21503ed6-7b31-4cc1-8de5-54c105381cc7',
+    rating: 4.92,
+    reviewsCount: 14190,
+    startingPrice: 18.99,
+    bundlePrice: 18.99,
+    savingsPercentage: 35,
+    guaranteeDays: 60,
+    heroImage: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80',
+    pros: [
+      'Potent 4-in-1 synergy combining standardized Black Elderberry, Zinc, Vitamin C, and Vitamin D3',
+      '100% vegetarian pectin base—free of pork/beef gelatin, gluten, and synthetic colorants',
+      'Naturally flavored with rich dark berry taste; non-sticky and gentle on digestion',
+      'Convenient daily compliance: 2 soft chewable gummies replace multiple difficult-to-swallow pills',
+      'Direct verified retail price of $18.99 for a full 60-gummy bottle (30-day supply)'
+    ],
+    cons: [
+      'Delicious berry taste means keep securely out of reach of young children',
+      'Contains natural fruit cane sugars for pectin setting (approx. 3g carbohydrates per serving)'
+    ],
+    keyIngredients: [
+      {
+        name: 'Standardized Black Elderberry Extract (Sambucus)',
+        description: 'Rich in protective anthocyanin antioxidants and polyphenols that bind to viral spikes and neutralize oxidative stress.',
+        clinicalTrialNote: 'Peer-reviewed studies indicate elderberry extract can significantly shorten upper respiratory discomfort duration.'
+      },
+      {
+        name: 'Bioavailable Zinc Citrate',
+        description: 'Crucial mineral catalyst required for T-cell proliferation, immune barrier integrity, and natural killer (NK) cell responsiveness.',
+        clinicalTrialNote: 'Cochrane systematic reviews highlight oral zinc as essential for mucosal pathogen defense.'
+      },
+      {
+        name: 'Ascorbic Acid (Vitamin C) & Cholecalciferol (Vitamin D3)',
+        description: 'Dual synergistic vitamins driving macrophage phagocytosis and stimulating respiratory epithelial cathelicidin production.',
+        clinicalTrialNote: 'Deficiencies in D3 and C directly correlate with increased frequency of seasonal immune vulnerabilities.'
+      }
+    ],
+    verdict: 'DUWZGU Immune Support Gummies provide an exceptional, enjoyable daily defense system combining clinical elderberry extract, zinc, and vitamins C & D3 in a vegetarian pectin chew. At $18.99 for 60 gummies, it provides first-rate immune fortification without the high markup of pharmacy brands.',
+    ctaText: 'Claim Discount & Order Now ($18.99) →',
+    vslBulletPoints: [
+      'Standardized Black Elderberry extract rich in active anthocyanins',
+      'Immune-essential Zinc Citrate plus high-potency Vitamins C and D3',
+      '60 delicious vegetarian pectin chewable gummies per bottle (30-day supply)',
+      'Direct supply chain verified retail price of $18.99 with domestic tracking'
+    ],
+    bonusGifts: [
+      'Bonus 1: The 7-Day Seasonal Immunity Protocol (PDF)',
+      'Bonus 2: Respiratory Health & Lymphatic Drainage Guide'
+    ]
+  },
+  {
+    id: 'duwzgu-sleep-gummies',
+    name: 'DUWZGU Sleep Support Gummies',
+    niche: 'sleep',
+    categoryName: 'Sleep & Stress / Daily Wellness',
+    tagline: '5mg Melatonin, 4mg L-Theanine, Rose & Chamomile Botanicals | 60 Soft Pectin Gummies',
+    badge: "★ Editor's Pick: Restful Sleep",
+    vendorId: 'duwzgu-sleep-gummies',
+    hoplinkFallback: 'https://www.cjdropshipping.com/product/melatonin-soft-candy-p-2504080748401611000.html?token=21503ed6-7b31-4cc1-8de5-54c105381cc7',
+    rating: 4.93,
+    reviewsCount: 13840,
+    startingPrice: 18.99,
+    bundlePrice: 18.99,
+    savingsPercentage: 35,
+    guaranteeDays: 60,
+    heroImage: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80',
+    pros: [
+      'Clinically calibrated 5mg Melatonin and 4mg L-Theanine for swift sleep onset without morning grogginess',
+      'Infused with calming Rose and Chamomile botanicals to reduce racing evening thoughts and cortisol',
+      '100% plant pectin chewable base—gelatin-free, heat-stable, non-sticky, and gentle on enamel',
+      'Non-habit forming, drug-free botanical synergy fostering natural REM and slow-wave sleep cycles',
+      'Direct verified retail price of $18.99 for 60 gummies (full 30-night supply, ~$0.63/night)'
+    ],
+    cons: [
+      'Take strictly 30 minutes before sleep; avoid bright LED/phone screens for optimal hormone signaling',
+      'Do not operate motor vehicles or machinery after consumption'
+    ],
+    keyIngredients: [
+      {
+        name: 'Micronized Melatonin (5mg)',
+        description: 'Circadian-synchronizing neurohormone targeting pineal MT1/MT2 receptors to shorten sleep onset latency.',
+        clinicalTrialNote: 'Meta-analyses confirm 5mg melatonin improves sleep efficiency and REM architecture without receptor desensitization.'
+      },
+      {
+        name: 'Free-Form L-Theanine (4mg)',
+        description: 'Neurologically active amino acid inducing alpha brainwaves and modulating GABAergic neural inhibitory pathways.',
+        clinicalTrialNote: 'Controlled trials demonstrate L-theanine calms somatic restlessness and improves subjective sleep satisfaction.'
+      },
+      {
+        name: 'Rose & Chamomile Botanical Extracts',
+        description: 'Standardized botanical compounds rich in apigenin and floral polyphenols that naturally temper sympathetic nervous output.',
+        clinicalTrialNote: 'Chamomile shows statistically significant improvements in sleep quality scores and anxiety mitigation.'
+      }
+    ],
+    verdict: 'DUWZGU Sleep Support Gummies provide a premier, non-groggy botanical sleep solution combining 5mg melatonin with L-theanine and floral extracts in a vegetarian pectin chew. At $18.99 for a full 30-night supply, it offers exceptional restorative value.',
+    ctaText: 'Claim Discount & Order Now ($18.99) →',
+    vslBulletPoints: [
+      '5mg Melatonin + 4mg L-Theanine for dual-action sleep induction',
+      'Soothing Chamomile and Rose extracts to ease nighttime nervous tension',
+      '60 delicious vegetarian pectin chewable gummies per bottle (30-night supply)',
+      'Direct supply chain verified retail price of $18.99 with domestic tracking'
+    ],
+    bonusGifts: [
+      'Bonus 1: The Circadian Architecture & Sleep Hygiene Handbook (PDF)',
+      'Bonus 2: Evening Cortisol Reset & Breathwork Protocol'
+    ]
+  },
+  {
     id: 'metabolism-puravive',
     name: 'Puravive (Brown Adipose Tissue Catalyst)',
     niche: 'metabolism',

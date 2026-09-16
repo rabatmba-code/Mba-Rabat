@@ -395,6 +395,270 @@ export const OFFER_PHOTO_GALLERIES: Record<string, OfferPhotoItem[]> = {
       alt: 'Family enjoying wholesome Mediterranean dinner together outdoors',
       categoryTag: 'Daily Lifestyle'
     }
+  ],
+
+  // 10. DUWZGU D3+K2 High Potency
+  duwzgu: [
+    {
+      id: 'duwzgu_bottle_packaging',
+      name: 'DUWZGU D3+K2 - High-Potency Bottle Packaging & UV Protective Container',
+      url: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
+      caption: 'DUWZGU pharmaceutical-grade protective bottle shielding sensitive fat-soluble D3 and all-trans K2 molecules from photo-oxidation.',
+      alt: 'DUWZGU D3+K2 high potency bottle packaging with safety seal',
+      categoryTag: 'Bottle & Packaging'
+    },
+    {
+      id: 'duwzgu_active_synergy',
+      name: 'DUWZGU D3+K2 - Bioavailable Cholecalciferol & Menaquinone MK-7 Active Duo',
+      url: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
+      caption: 'Synergistic pairing of 5000 IU Vitamin D3 with 100 mcg Vitamin K2 (MK-7) to optimize skeletal bone density and arterial protection.',
+      alt: 'DUWZGU active micronutrient synergy supporting bone and heart health',
+      categoryTag: 'Active Botanicals'
+    },
+    {
+      id: 'duwzgu_cgmp_lab_assay',
+      name: 'DUWZGU D3+K2 - Third-Party Lab Assay & Microbial Purity Verification',
+      url: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80',
+      caption: 'Every manufacturing batch undergoes comprehensive HPLC potency testing to ensure exact 5000 IU D3 and 100 mcg MK-7 label accuracy.',
+      alt: 'Laboratory HPLC testing verifying purity of DUWZGU D3+K2 softgels',
+      categoryTag: 'Lab Inspection'
+    },
+    {
+      id: 'duwzgu_veggie_softgel',
+      name: 'DUWZGU D3+K2 - 100% Plant-Based Veggie Softgels & Lipid Bioavailability',
+      url: 'https://images.unsplash.com/photo-1577401239170-897942555fb3?auto=format&fit=crop&w=800&q=80',
+      caption: 'Plant-derived vegetarian softgel capsules with cold-pressed lipid carrier matrix ensuring rapid micellar absorption without animal gelatin.',
+      alt: 'DUWZGU plant-based veggie softgels showcasing clean, gelatin-free composition',
+      categoryTag: 'Capsule Breakdown'
+    },
+    {
+      id: 'duwzgu_daily_routine',
+      name: 'DUWZGU D3+K2 - Daily Morning Mealtime & Immune Vitality Protocol',
+      url: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80',
+      caption: 'Taken once daily with water alongside breakfast or lunch containing dietary fats to promote sustained year-round immune defense.',
+      alt: 'Taking DUWZGU D3+K2 veggie softgel with morning meal',
+      categoryTag: 'Daily Lifestyle'
+    }
+  ],
+
+  // 11. Eelhoe Vitamin C Moisturizing Spray
+  eelhoe: [
+    {
+      id: 'eelhoe_bottle_packaging',
+      name: 'Eelhoe Vitamin C Spray - Packaging & Precision Micro-Mist Nozzle',
+      url: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80',
+      caption: 'Eelhoe ergonomic mist dispenser with specialized ultra-fine atomization nozzle engineered to prevent heavy droplets.',
+      alt: 'Eelhoe Vitamin C Moisturizing Spray bottle packaging',
+      categoryTag: 'Bottle & Packaging'
+    },
+    {
+      id: 'eelhoe_active_vitaminc',
+      name: 'Eelhoe Vitamin C Spray - Stabilized Ascorbic Derivative & Botanical Matrix',
+      url: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80',
+      caption: 'Infused with stabilized Vitamin C, hyaluronic acid, and niacinamide to simultaneously brighten and hydrate.',
+      alt: 'Antioxidant citrus botanicals and hyaluronic active essence in Eelhoe spray',
+      categoryTag: 'Active Botanicals'
+    },
+    {
+      id: 'eelhoe_micro_mist',
+      name: 'Eelhoe Vitamin C Spray - Featherweight Micro-Atomized Facial Mist Dispersion',
+      url: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80',
+      caption: 'Disperses a cloud of featherlight moisture that absorbs instantly across epidermal pores without dripping or smudging makeup.',
+      alt: 'Ultra-fine facial mist cloud dispersion test',
+      categoryTag: 'Capsule Breakdown'
+    },
+    {
+      id: 'eelhoe_lab_testing',
+      name: 'Eelhoe Vitamin C Spray - Dermatological Safety & Non-Comedogenic Testing',
+      url: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
+      caption: 'Third-party patch-tested for safety across sensitive skin and confirmed non-comedogenic with zero pore-clogging mineral oils.',
+      alt: 'Cosmetics testing and microbial evaluation of Eelhoe formula',
+      categoryTag: 'Lab Inspection'
+    },
+    {
+      id: 'eelhoe_daily_routine',
+      name: 'Eelhoe Vitamin C Spray - Daily Radiance, Post-Acne Recovery & Makeup Setting',
+      url: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
+      caption: 'Used post-cleanse to prep the barrier, mid-day for an antioxidant boost, and as a makeup refreshing mist.',
+      alt: 'Woman applying refreshing facial mist spray for healthy glowing skin',
+      categoryTag: 'Daily Lifestyle'
+    }
+  ],
+
+  // 12. Pre-Workout Caffeine Exercise Supplement
+  'preworkout-caffeine': [
+    {
+      id: 'caffeine_bottle_packaging',
+      name: 'Pre-Workout Caffeine Supplement - Bottle Packaging & Nutrition Facts',
+      url: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80',
+      caption: 'Secure seal container with transparent dosage facts, batch lot verification, and safety tamper-evident closure.',
+      alt: 'Pre-Workout Caffeine Exercise Supplement container packaging',
+      categoryTag: 'Bottle & Packaging'
+    },
+    {
+      id: 'caffeine_active_powder',
+      name: 'Pre-Workout Caffeine - Anhydrous Caffeine & Ergogenic Matrix',
+      url: 'https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=800&q=80',
+      caption: 'High-purity anhydrous caffeine paired with L-theanine and B-vitamins for clean cellular energy and rapid uptake.',
+      alt: 'Micro-crystallized active pre-workout compounds and amino acid co-factors',
+      categoryTag: 'Active Botanicals'
+    },
+    {
+      id: 'caffeine_shaker_mix',
+      name: 'Pre-Workout Caffeine - Rapid Dissolution & Shaker Mixability Test',
+      url: 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=800&q=80',
+      caption: 'Rapidly dissolves in 8–10 oz of cold water within 15 seconds with zero residual clumping or gritty settling.',
+      alt: 'Mixing pre-workout exercise drink in shaker cup',
+      categoryTag: 'Capsule Breakdown'
+    },
+    {
+      id: 'caffeine_lab_assay',
+      name: 'Pre-Workout Caffeine - cGMP Heavy Metal & Stimulant Potency Testing',
+      url: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80',
+      caption: 'Independently audited via High-Performance Liquid Chromatography (HPLC) confirming exact milligram potency and zero banned adulterants.',
+      alt: 'Laboratory HPLC assay verifying caffeine supplement purity',
+      categoryTag: 'Lab Inspection'
+    },
+    {
+      id: 'caffeine_training_action',
+      name: 'Pre-Workout Caffeine - High-Intensity Resistance Training & Peak Output',
+      url: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80',
+      caption: 'Consumed 20–30 minutes pre-training to optimize muscular endurance, neuromuscular focus, and training capacity.',
+      alt: 'Athlete training in the gym with high energy and focus',
+      categoryTag: 'Daily Lifestyle'
+    }
+  ],
+
+  // 13. DUWZGU Creatine Monohydrate Pure Power
+  'duwzgu-creatine': [
+    {
+      id: 'creatine_tub_packaging',
+      name: 'DUWZGU Creatine Monohydrate - 360g Tub & 72 Serving Facts',
+      url: 'https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=800&q=80',
+      caption: '360g heavy-duty container with tamper-evident seal, calibrated 5000mg scoop, and clear 72-serving batch facts.',
+      alt: 'DUWZGU Creatine Monohydrate 360g tub packaging and scoop',
+      categoryTag: 'Bottle & Packaging'
+    },
+    {
+      id: 'creatine_micronized_powder',
+      name: 'DUWZGU Creatine - 200-Mesh Micro-Milled Pharmaceutical Powder',
+      url: 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=800&q=80',
+      caption: 'Ultra-fine 200-mesh micronization yielding a silky powder texture that prevents stomach cramping and clumping.',
+      alt: 'Microscopic inspection of ultra-fine micronized creatine monohydrate powder',
+      categoryTag: 'Active Botanicals'
+    },
+    {
+      id: 'creatine_dissolution_test',
+      name: 'DUWZGU Creatine - Rapid Clear Dissolution & Mixability Test',
+      url: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80',
+      caption: 'Dissolves completely in 8–10 oz of cold water within 15 seconds with zero gritty sediment left at the bottom of the glass.',
+      alt: 'Creatine powder dissolving cleanly into clear glass of water',
+      categoryTag: 'Capsule Breakdown'
+    },
+    {
+      id: 'creatine_purity_lab',
+      name: 'DUWZGU Creatine - HPLC Purity & Zero Heavy Metals Assay',
+      url: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80',
+      caption: 'Independently tested via HPLC spectrophotometry confirming 99.9% pure creatine monohydrate with undetectable creatinine, dicyandiamide, and heavy metals.',
+      alt: 'Laboratory HPLC testing verifying 99.9% creatine monohydrate purity',
+      categoryTag: 'Lab Inspection'
+    },
+    {
+      id: 'creatine_training_lifestyle',
+      name: 'DUWZGU Creatine - Heavy Compound Resistance Training & Power Output',
+      url: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80',
+      caption: 'Daily 5g supplementation sustains full myocellular phosphocreatine saturation for maximal barbell strength and intra-set recovery.',
+      alt: 'Strength athlete performing heavy barbell lift in the gym',
+      categoryTag: 'Daily Lifestyle'
+    }
+  ],
+
+  // 14. DUWZGU Immune Support Gummies (Elderberry, Zinc, Vit C, Vit D3)
+  'duwzgu-immune-gummies': [
+    {
+      id: 'gummies_bottle_packaging',
+      name: 'DUWZGU Immune Support Gummies - 60 Count Child-Resistant Bottle',
+      url: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
+      caption: '60-count protective bottle with child-resistant safety cap, tamper-evident neck band, and full supplement facts panel.',
+      alt: 'DUWZGU Immune Support Gummies bottle packaging with supplement facts',
+      categoryTag: 'Bottle & Packaging'
+    },
+    {
+      id: 'gummies_chewable_texture',
+      name: 'DUWZGU Gummies - Plant-Based Pectin Soft Chew Texture',
+      url: 'https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=800&q=80',
+      caption: 'Formulated with tender citrus pectin instead of animal gelatin, providing a soft, non-sticky chew with natural dark berry flavor.',
+      alt: 'Macro view of soft berry chewable pectin immune gummies',
+      categoryTag: 'Capsule Breakdown'
+    },
+    {
+      id: 'gummies_elderberry_botanical',
+      name: 'DUWZGU Gummies - Standardized Black Elderberry (Sambucus) Anthocyanins',
+      url: 'https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=800&q=80',
+      caption: 'Derived from whole Sambucus elderberries packed with antioxidant flavonoids and protective polyphenol bio-actives.',
+      alt: 'Wild dark elderberries and natural botanical antioxidant ingredients',
+      categoryTag: 'Active Botanicals'
+    },
+    {
+      id: 'gummies_lab_assay',
+      name: 'DUWZGU Gummies - cGMP Vitamin & Mineral Potency Verification',
+      url: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80',
+      caption: 'Analytical spectrometry verifies label claims of active Zinc, Ascorbic Acid, and Vitamin D3 with zero heavy metals or microbial contaminants.',
+      alt: 'Laboratory assay confirming potency of Zinc, Vitamin C, and Elderberry',
+      categoryTag: 'Lab Inspection'
+    },
+    {
+      id: 'gummies_daily_lifestyle',
+      name: 'DUWZGU Gummies - Convenient Daily Morning Wellness Routine',
+      url: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80',
+      caption: 'Taking 2 chewable gummies each morning delivers comprehensive 4-in-1 cellular protection for energetic, healthy living.',
+      alt: 'Person starting morning wellness routine with healthy habits',
+      categoryTag: 'Daily Lifestyle'
+    }
+  ],
+
+  // 15. DUWZGU Sleep Support Gummies (Melatonin, L-Theanine, Chamomile, Rose)
+  'duwzgu-sleep-gummies': [
+    {
+      id: 'sleep_bottle_packaging',
+      name: 'DUWZGU Sleep Support Gummies - 60 Count Tamper-Sealed Bottle',
+      url: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
+      caption: '60-count child-resistant amber bottle with safety seal, full nocturnal ingredient panel, and cGMP certification batch stamp.',
+      alt: 'DUWZGU Sleep Support Gummies bottle with supplement facts',
+      categoryTag: 'Bottle & Packaging'
+    },
+    {
+      id: 'sleep_gummies_texture',
+      name: 'DUWZGU Sleep Gummies - Tender Plant Pectin Texture & Berry Scent',
+      url: 'https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=800&q=80',
+      caption: 'Formulated with plant-derived pectin for a clean, non-sticky chew that releases calming aromatic botanical terpenes.',
+      alt: 'Soft chewable nocturnal botanical gummies close-up',
+      categoryTag: 'Capsule Breakdown'
+    },
+    {
+      id: 'sleep_botanicals_chamomile_rose',
+      name: 'DUWZGU Sleep Gummies - Chamomile & Rose Calming Extracts',
+      url: 'https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=800&q=80',
+      caption: 'Purified botanical extracts rich in apigenin bind to soothing GABA-A neuroreceptors to quiet nighttime stress and mental racing.',
+      alt: 'Fresh soothing chamomile blossoms and gentle rose petals',
+      categoryTag: 'Active Botanicals'
+    },
+    {
+      id: 'sleep_lab_assay',
+      name: 'DUWZGU Sleep Gummies - HPLC Melatonin & L-Theanine Purity Assay',
+      url: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80',
+      caption: 'High-performance liquid chromatography testing validates exact 5mg Melatonin and 4mg L-Theanine potency per 2-gummy serving.',
+      alt: 'Laboratory chromatography testing verifying melatonin purity',
+      categoryTag: 'Lab Inspection'
+    },
+    {
+      id: 'sleep_restful_lifestyle',
+      name: 'DUWZGU Sleep Gummies - Restorative REM & Deep Sleep Slumber',
+      url: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80',
+      caption: 'Encourages consistent circadian synchronization, resulting in effortless sleep onset and refreshed, non-groggy morning waking.',
+      alt: 'Peaceful bedroom environment with soft lighting and comfortable bed',
+      categoryTag: 'Daily Lifestyle'
+    }
   ]
 };
 
@@ -408,6 +672,13 @@ export function getOfferPhotos(offerId?: string | { id?: string } | any): OfferP
 
   const clean = rawId.toLowerCase().replace(/[^a-z0-9]/g, '');
 
+  if (clean.includes('sleep') && (clean.includes('gumm') || clean.includes('melatonin'))) return OFFER_PHOTO_GALLERIES['duwzgu-sleep-gummies'];
+  if (clean.includes('melatonin')) return OFFER_PHOTO_GALLERIES['duwzgu-sleep-gummies'];
+  if (clean.includes('gumm') || clean.includes('elderberry') || clean.includes('sambucus')) return OFFER_PHOTO_GALLERIES['duwzgu-immune-gummies'];
+  if (clean.includes('creatine')) return OFFER_PHOTO_GALLERIES['duwzgu-creatine'];
+  if (clean.includes('caffeine') || clean.includes('preworkout') || clean.includes('exercise')) return OFFER_PHOTO_GALLERIES['preworkout-caffeine'];
+  if (clean.includes('eelhoe') || clean.includes('spray') || clean.includes('mist')) return OFFER_PHOTO_GALLERIES.eelhoe;
+  if (clean.includes('duwzgu') || clean.includes('d3k2') || clean.includes('d3') || clean.includes('k2')) return OFFER_PHOTO_GALLERIES.duwzgu;
   if (clean.includes('gluco6') || clean.includes('gluco')) return OFFER_PHOTO_GALLERIES.gluco6;
   if (clean.includes('puravive') || clean.includes('pura')) return OFFER_PHOTO_GALLERIES.puravive;
   if (clean.includes('sugardefender') || clean.includes('defender')) return OFFER_PHOTO_GALLERIES.sugardefender;

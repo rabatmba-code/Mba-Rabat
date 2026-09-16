@@ -33,6 +33,9 @@ export const ProductComparisonTable: React.FC<ProductComparisonTableProps> = ({
   const categories = [
     'All',
     'Healthy Blood Sugar',
+    'Immune & Bone Health',
+    'Skincare & Beauty',
+    'Fitness & Energy',
     'Weight Management',
     'Sleep & Stress',
     'Healthy Aging',
@@ -41,6 +44,9 @@ export const ProductComparisonTable: React.FC<ProductComparisonTableProps> = ({
   const filteredOffers = offers.filter((offer) => {
     if (selectedCategoryFilter === 'All') return true;
     if (selectedCategoryFilter === 'Healthy Blood Sugar') return offer.niche === 'bloodsugar';
+    if (selectedCategoryFilter === 'Immune & Bone Health') return offer.niche === 'immunity' || offer.niche === 'heart';
+    if (selectedCategoryFilter === 'Skincare & Beauty') return offer.niche === 'skincare' || offer.niche === 'beauty';
+    if (selectedCategoryFilter === 'Fitness & Energy') return offer.niche === 'fitness' || offer.niche === 'energy' || offer.niche === 'performance' || offer.id.includes('creatine');
     if (selectedCategoryFilter === 'Weight Management') return offer.niche === 'metabolism';
     if (selectedCategoryFilter === 'Sleep & Stress') return offer.niche === 'sleep';
     if (selectedCategoryFilter === 'Healthy Aging') return offer.niche === 'aging' || offer.niche === 'joints' || offer.niche === 'gut';
@@ -172,10 +178,10 @@ export const ProductComparisonTable: React.FC<ProductComparisonTableProps> = ({
                   <td className="py-4 px-4 text-center">
                     <div className="font-black text-slate-900 text-sm">
                       ${offer.bundlePrice}
-                      <span className="text-[10px] font-normal text-slate-500"> / bottle</span>
+                      <span className="text-[10px] font-normal text-slate-500"> {offer.id.includes('duwzgu') || offer.id.includes('eelhoe') || offer.id.includes('caffeine') || offer.id.includes('preworkout') ? 'retail' : '/ bottle'}</span>
                     </div>
                     <span className="text-[10px] text-emerald-700 font-bold">
-                      Save {offer.savingsPercentage}% on 6-Pack
+                      {offer.id.includes('duwzgu') || offer.id.includes('eelhoe') || offer.id.includes('caffeine') || offer.id.includes('preworkout') ? 'Direct Verified Price' : `Save ${offer.savingsPercentage}% on 6-Pack`}
                     </span>
                   </td>
 

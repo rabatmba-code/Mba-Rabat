@@ -48,12 +48,12 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, onRead }) => 
         <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <img
-              src={article.author.avatar}
-              alt={article.author.name}
+              src={article.author?.avatar || 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80'}
+              alt={article.author?.name || 'Editorial Team'}
               className="w-7 h-7 rounded-full object-cover"
             />
             <span className="text-xs font-medium text-slate-700">
-              {article.author.name}
+              {article.author?.name || 'Editorial Team'}
             </span>
           </div>
 

@@ -294,13 +294,13 @@ export const CategoryPageView: React.FC<CategoryPageViewProps> = ({
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <img
-                      src={leadArticle.author.avatar}
-                      alt={leadArticle.author.name}
+                      src={leadArticle.author?.avatar || 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80'}
+                      alt={leadArticle.author?.name || 'Editorial Team'}
                       className="w-10 h-10 rounded-full object-cover ring-2 ring-emerald-500/20"
                     />
                     <div className="text-xs">
-                      <p className="font-bold text-slate-900">{leadArticle.author.name}</p>
-                      <p className="text-slate-400">{leadArticle.author.credentials}</p>
+                      <p className="font-bold text-slate-900">{leadArticle.author?.name || 'VitalPath Editorial Team'}</p>
+                      <p className="text-slate-400">{leadArticle.author?.credentials || 'Evidence-Based Research'}</p>
                     </div>
                   </div>
 
