@@ -575,6 +575,12 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
                         onOpenReview('sugarDefender');
                       } else if (link.url.includes('puravive') && onOpenReview) {
                         onOpenReview('puravive');
+                      } else if (link.url.includes('creatine-gummies') && onOpenReview) {
+                        onOpenReview('duwzgu-creatine-gummies');
+                      } else if (link.url.includes('creatine') && onOpenReview) {
+                        onOpenReview('duwzgu-creatine');
+                      } else if ((link.url.includes('duwzgu-d3') || link.url.includes('duwzgu-d3k2')) && onOpenReview) {
+                        onOpenReview('duwzgu-d3k2');
                       } else if (link.url.includes('duwzgu') && onOpenReview) {
                         onOpenReview('duwzgu');
                       } else {

@@ -165,7 +165,7 @@ export default function App() {
         ((offer.id === 'duwzgu-creatine-gummies' || (offer.id.includes('creatine') && (offer.id.includes('gumm') || offer.id.includes('candy')))) && (a.slug === 'duwzgu-creatine-monohydrate-gummies-review' || a.slug.includes('creatine-monohydrate-gummies'))) ||
         ((offer.id === 'duwzgu-sleep-gummies' || (offer.id.includes('sleep') && offer.id.includes('gumm')) || offer.id.includes('melatonin')) && (a.slug === 'duwzgu-sleep-support-gummies-review' || a.slug.includes('sleep-support-gummies'))) ||
         ((offer.id === 'duwzgu-immune-gummies' || (offer.id.includes('immune') && offer.id.includes('gumm')) || offer.id.includes('elderberry')) && (a.slug === 'duwzgu-immune-support-gummies-review' || a.slug.includes('immune-support-gummies') || a.slug.includes('gummies'))) ||
-        ((offer.id === 'duwzgu-creatine' || offer.id.includes('creatine')) && (a.slug === 'duwzgu-creatine-monohydrate-review' || a.slug.includes('creatine'))) ||
+        ((offer.id === 'duwzgu-creatine' || offer.id === 'creatine' || offer.id === 'creatine-powder') && (a.slug === 'duwzgu-creatine-monohydrate-review')) ||
         ((offer.id === 'duwzgu' || offer.id === 'duwzgu-d3k2' || offer.id.includes('duwzgu')) && (a.slug === 'duwzgu-d3-k2-review' || a.slug === 'duwzgu-d3k2-review')) ||
         ((offer.id === 'eelhoe' || offer.id === 'eelhoe-vc' || offer.id.includes('eelhoe')) && (a.slug === 'eelhoe-vitamin-c-spray-review' || a.slug.includes('eelhoe'))) ||
         ((offer.id === 'preworkout-caffeine' || offer.id.includes('caffeine') || offer.id.includes('preworkout')) && (a.slug === 'preworkout-caffeine-exercise-supplement-review' || a.slug.includes('preworkout'))) ||
@@ -257,8 +257,8 @@ export default function App() {
         art.title.toLowerCase().includes('aging') || art.title.toLowerCase().includes('joint') || art.title.toLowerCase().includes('nerve') || art.title.toLowerCase().includes('vitamin');
       if (!isAging) return false;
     } else if (selectedCategory === 'Nutrition') {
-      const isNutrition = artCat.includes('nutrition') || artCat.includes('gut') || artCat.includes('diet') || artCat.includes('probiotic') ||
-        art.title.toLowerCase().includes('nutrition') || art.title.toLowerCase().includes('gut') || art.title.toLowerCase().includes('diet') || art.title.toLowerCase().includes('vitamin');
+      const isNutrition = artCat.includes('nutrition') || artCat.includes('gut') || artCat.includes('diet') || artCat.includes('probiotic') || artCat.includes('fitness') || artCat.includes('creatine') ||
+        art.title.toLowerCase().includes('nutrition') || art.title.toLowerCase().includes('gut') || art.title.toLowerCase().includes('diet') || art.title.toLowerCase().includes('vitamin') || art.title.toLowerCase().includes('creatine');
       if (!isNutrition) return false;
     } else if (!artCat.includes(selCat)) {
       return false;

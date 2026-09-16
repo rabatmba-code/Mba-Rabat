@@ -159,7 +159,7 @@ export const ComplianceFooter: React.FC<ComplianceFooterProps> = ({
 
         {/* Bottom copyright and direct legal links */}
         <div className="border-t border-slate-900 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© 2026 VitalPath Daily (vitalpathdaily.com). All rights reserved.</p>
+          <p>© 2026 VitalPath Daily (<a href="mailto:rabatmba@gmail.com" className="hover:text-slate-300 transition-colors">rabatmba@gmail.com</a>). All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px]">
             <button 
               onClick={() => { onNavigateStaticPage('about'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
