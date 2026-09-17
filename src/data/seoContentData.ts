@@ -766,7 +766,7 @@ export const primarySeoArticles: Article[] = [
     publishedDate: 'September 06, 2026',
     author: authors.marcus,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=1200&q=80',
     summary: 'Understanding a dietary supplement requires examining its biochemical mechanism at the cellular level. In this deep dive, we explore each of the 6 core active constituents in Gluco6, citing published human literature and biological pathways.',
     linkedOfferId: 'gluco6',
     contentSections: [
@@ -996,7 +996,7 @@ export const primarySeoArticles: Article[] = [
     publishedDate: 'September 04, 2026',
     author: authors.elena,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=1200&q=80',
     summary: 'Midlife weight management is not about eating less and exercising more until exhaustion. It requires understanding age-related mitochondrial shifts, muscle sarcopenia, hormonal recalibration, and brown adipose tissue thermogenesis.',
     isEditorialPinnacle: true,
     contentSections: [
@@ -1107,7 +1107,7 @@ export const primarySeoArticles: Article[] = [
     publishedDate: 'September 03, 2026',
     author: authors.marcus,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1550572017-4fcdbb59cc32?auto=format&fit=crop&w=1200&q=80',
     summary: 'The commercial weight loss supplement market is plagued by hazardous mega-dose caffeine pills and proprietary mystery blends. Discover how to identify clean, research-backed botanicals that gently support resting thermogenesis without stressing your heart.',
     contentSections: [
       {
@@ -1215,7 +1215,7 @@ export const primarySeoArticles: Article[] = [
     publishedDate: 'September 02, 2026',
     author: authors.elena,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1514733670139-4d87a1941d55?auto=format&fit=crop&w=1200&q=80',
     summary: 'Puravive has gained massive popularity as a novel weight management supplement centered on Brown Adipose Tissue (BAT) activation. In this in-depth independent review, we audit the formula, review published research on its 8 exotic botanicals, evaluate manufacturer claims, and summarize purchasing terms.',
     linkedOfferId: 'puravive',
     contentSections: [
@@ -2208,7 +2208,7 @@ export const primarySeoArticles: Article[] = [
     publishedDate: 'September 15, 2026',
     author: authors.elena,
     medicallyReviewedBy: medicalReviewers.sarah,
-    coverImage: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&w=1200&q=80',
     summary: 'DUWZGU Sleep Support Gummies feature an evidence-backed neuro-botanical matrix of 5mg pure Melatonin, 4mg L-Theanine, and soothing extracts of Rose and Chamomile in a 100% vegetarian citrus pectin chew. In this comprehensive review, we examine sleep latency kinetics, nocturnal cortisol reduction, sleep architecture preservation without morning grogginess, and direct verified $18.99 retail pricing for 60 gummies.',
     linkedOfferId: 'duwzgu-sleep-gummies',
     contentSections: [

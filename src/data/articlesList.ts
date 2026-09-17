@@ -302,7 +302,7 @@ export const all30Articles: Article[] = [
     publishedDate: 'September 03, 2026',
     author: authors.marcus,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=1200&q=80',
     summary: 'Crash dieting slows thyroid output and spikes cortisol. Discover the common traps to avoid when pursuing sustainable weight wellness.',
     contentSections: [
       {
@@ -333,7 +333,7 @@ export const all30Articles: Article[] = [
     publishedDate: 'September 02, 2026',
     author: authors.sarah,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&w=1200&q=80',
     summary: 'Sustainable weight management is built on daily non-stressful micro-habits rather than punitive short-term fitness challenges.',
     contentSections: [
       {
@@ -786,7 +786,7 @@ export const all30Articles: Article[] = [
     publishedDate: 'August 19, 2026',
     author: authors.marcus,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80',
     summary: 'Demystifying macronutrients: learn the ideal proportions and high-quality sources of protein, dietary fiber, and healthy fats.',
     contentSections: [
       {
@@ -817,7 +817,7 @@ export const all30Articles: Article[] = [
     publishedDate: 'August 18, 2026',
     author: authors.sarah,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1498579150354-977475b7ea0b?auto=format&fit=crop&w=1200&q=80',
     summary: 'Outdated diet guidelines can lead to sarcopenia, sluggish thyroid function, and nutrient deficiencies. Here is what to fix.',
     contentSections: [
       {
@@ -879,7 +879,7 @@ export const all30Articles: Article[] = [
     publishedDate: 'August 16, 2026',
     author: authors.sarah,
     medicallyReviewedBy: medicalReviewers.elena,
-    coverImage: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1200&q=80',
     summary: 'Protect your wallet and health. Use this five-step checklist to avoid shady online supplement scams and auto-billing surprises.',
     linkedOfferId: 'bloodsugar-defender',
     contentSections: [
