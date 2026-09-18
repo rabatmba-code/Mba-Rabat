@@ -743,6 +743,11 @@ export const primarySeoArticles: Article[] = [
         url: '/healthy-blood-sugar/what-is-healthy-blood-sugar/',
         anchorText: 'What Is Healthy Blood Sugar & Why It Matters',
         context: 'Learn about the foundational physiology of glucose balance after 40.'
+      },
+      {
+        url: '/weight-management/intermittent-fasting-benefits-how-to-start/',
+        anchorText: 'Intermittent Fasting Benefits: How to Start Guide',
+        context: 'Learn how time-restricted feeding improves insulin sensitivity and complements glucose support protocols.'
       }
     ],
     references: [
@@ -1084,6 +1089,11 @@ export const primarySeoArticles: Article[] = [
         url: '/healthy-blood-sugar/what-is-healthy-blood-sugar/',
         anchorText: 'What Is Healthy Blood Sugar and Why It Matters',
         context: 'Explore how glucose stability directly prevents stubborn midsection fat accumulation.'
+      },
+      {
+        url: '/weight-management/intermittent-fasting-benefits-how-to-start/',
+        anchorText: 'Intermittent Fasting Benefits: How to Start Guide',
+        context: 'Learn how time-restricted feeding promotes visceral fat loss and preserves resting metabolic rate after 40.'
       }
     ],
     references: [
@@ -2313,6 +2323,11 @@ export const primarySeoArticles: Article[] = [
       }
     ],
     internalLinks: [
+      {
+        url: '/sleep-and-stress/ashwagandha-stress-cortisol-management/',
+        anchorText: 'Ashwagandha for Stress & Cortisol Management Guide',
+        context: 'Explore how botanical adaptogens regulate HPA axis cortisol rhythms alongside circadian sleep support.'
+      },
       {
         url: '/product-reviews/duwzgu-immune-support-gummies-review/',
         anchorText: 'DUWZGU Immune Support Gummies Review',

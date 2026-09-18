@@ -581,6 +581,8 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
                         onOpenReview('duwzgu-creatine');
                       } else if ((link.url.includes('duwzgu-d3') || link.url.includes('duwzgu-d3k2')) && onOpenReview) {
                         onOpenReview('duwzgu-d3k2');
+                      } else if (link.url.includes('duwzgu-sleep') && onOpenReview) {
+                        onOpenReview('duwzgu-sleep-gummies');
                       } else if (link.url.includes('duwzgu') && onOpenReview) {
                         onOpenReview('duwzgu');
                       } else {
