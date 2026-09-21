@@ -10,12 +10,14 @@ interface FAQSectionProps {
   faqs: FAQItem[];
   title?: string;
   subtitle?: string;
+  skipJsonLd?: boolean;
 }
 
 export const FAQSection: React.FC<FAQSectionProps> = ({
   faqs,
   title = 'Frequently Asked Questions',
   subtitle = 'Evidence-informed answers to common reader inquiries.',
+  skipJsonLd = false,
 }) => {
   const [openIndices, setOpenIndices] = useState<number[]>([0]);
 
@@ -25,9 +27,9 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
     );
   };
 
-  // Inject Schema.org FAQPage structured data for SEO
+  // Inject Schema.org FAQPage structured data for SEO (unless handled centrally by parent page)
   useEffect(() => {
-    if (!faqs || faqs.length === 0) return;
+    if (skipJsonLd || !faqs || faqs.length === 0) return;
 
     const faqSchema = {
       '@context': 'https://schema.org',

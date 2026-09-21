@@ -80,8 +80,38 @@ export default function App() {
   // Active primary offer
   const activeOffer = clickBankOffers.find(o => o.id === affiliateSettings.activePromotedOfferId) || clickBankOffers[0];
 
+  // SEO Category Slug Map & Inverse Map for canonical sitemap routing
+  const CATEGORY_SLUG_MAP: Record<string, string> = {
+    'Healthy Blood Sugar': 'healthy-blood-sugar',
+    'Weight Management': 'weight-management',
+    'Sleep & Stress': 'sleep-and-stress',
+    'Healthy Aging': 'healthy-aging',
+    'Nutrition': 'nutrition',
+    'Product Reviews': 'product-reviews',
+  };
+
+  const SLUG_TO_CATEGORY_MAP: Record<string, string> = {
+    'healthy-blood-sugar': 'Healthy Blood Sugar',
+    'weight-management': 'Weight Management',
+    'sleep-and-stress': 'Sleep & Stress',
+    'healthy-aging': 'Healthy Aging',
+    'nutrition': 'Nutrition',
+    'product-reviews': 'Product Reviews',
+    'reviews': 'Product Reviews',
+  };
+
   // Handle URL changes and initial URL routing
   React.useEffect(() => {
+    try {
+      const storedToken = localStorage.getItem('gsc_verification_token') || (import.meta.env.VITE_GOOGLE_SITE_VERIFICATION as string | undefined);
+      if (storedToken) {
+        const meta = document.getElementById('google-site-verification') || document.querySelector('meta[name="google-site-verification"]');
+        if (meta) {
+          meta.setAttribute('content', storedToken);
+        }
+      }
+    } catch (e) {}
+
     const resolveCurrentUrl = () => {
       const path = window.location.pathname;
       if (path === '/' || path === '') {
@@ -106,36 +136,30 @@ export default function App() {
         return;
       }
 
-      if (path.includes('comparison')) {
+      // Comparison page routing
+      if (cleanPath === '/comparison' || cleanPath === '/comparisons' || path.includes('comparison')) {
         setActiveView('comparison');
         return;
       }
 
-      if (path.includes('/category/')) {
-        const catSlug = cleanPath.replace(/^.*\/category\//, '').replace(/\/$/, '');
-        const validCategories = [
-          'Healthy Blood Sugar',
-          'Weight Management',
-          'Sleep & Stress',
-          'Healthy Aging',
-          'Nutrition',
-          'Product Reviews'
-        ];
-        const matchedCategory = validCategories.find(
-          c => c.toLowerCase().replace(/[^a-z0-9]/g, '-') === catSlug
-        );
-        if (matchedCategory) {
-          setSelectedCategory(matchedCategory);
-          setActiveView('category');
-          return;
-        }
+      // Category page routing: Supports direct sitemap URLs (/sleep-and-stress/, /healthy-blood-sugar/)
+      // as well as legacy /category/ prefixed paths (/category/sleep-and-stress/)
+      const pathSegments = cleanPath.split('/').filter(Boolean);
+      const candidateCatSlug = pathSegments[0] === 'category' ? pathSegments[1] : pathSegments[0];
+      
+      if (candidateCatSlug && SLUG_TO_CATEGORY_MAP[candidateCatSlug]) {
+        setSelectedCategory(SLUG_TO_CATEGORY_MAP[candidateCatSlug]);
+        setActiveView('category');
+        return;
       }
 
-      const staticPage = ['about', 'editorial-policy', 'medical-review-board', 'privacy', 'terms', 'affiliate-disclosure', 'contact'].find(
+      // Static compliance pages routing
+      const staticPage = ['about', 'about-us', 'editorial-policy', 'medical-review-board', 'privacy', 'terms', 'affiliate-disclosure', 'contact'].find(
         (p) => path.includes(p)
       );
       if (staticPage) {
-        setActiveView(staticPage as StaticPageType);
+        const resolvedPage = staticPage === 'about-us' ? 'about' : staticPage;
+        setActiveView(resolvedPage as StaticPageType);
         return;
       }
     };
@@ -144,6 +168,20 @@ export default function App() {
     window.addEventListener('popstate', resolveCurrentUrl);
     return () => window.removeEventListener('popstate', resolveCurrentUrl);
   }, []);
+
+  // Ensure canonical tag and document title are restored on home view
+  React.useEffect(() => {
+    if (activeView === 'home') {
+      document.title = 'VitalPath Daily - Evidence-Based Wellness & Longevity';
+      let canonicalLink = document.querySelector('link[rel="canonical"]');
+      if (!canonicalLink) {
+        canonicalLink = document.createElement('link');
+        canonicalLink.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonicalLink);
+      }
+      canonicalLink.setAttribute('href', 'https://mba-rabat.vercel.app/');
+    }
+  }, [activeView]);
 
   // Navigation handlers
   const handleReadArticle = (article: Article) => {
@@ -215,8 +253,8 @@ export default function App() {
     }
     setSelectedCategory(cat);
     setActiveView('category');
-    const slug = cat.toLowerCase().replace(/[^a-z0-9]/g, '-');
-    window.history.pushState(null, '', `/category/${slug}/`);
+    const slug = CATEGORY_SLUG_MAP[cat] || cat.toLowerCase().replace(/[^a-z0-9]/g, '-');
+    window.history.pushState(null, '', `/${slug}/`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

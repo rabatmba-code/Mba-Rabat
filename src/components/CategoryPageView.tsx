@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ArrowLeft, 
   ShieldCheck, 
@@ -21,6 +21,7 @@ import {
 import { Article, ClickBankOffer, AffiliateSettings } from '../types';
 import { ArticleCard } from './ArticleCard';
 import { getAffiliateUrl } from '../config/affiliateOffers';
+import { Breadcrumbs } from './Breadcrumbs';
 
 interface CategoryPageViewProps {
   category: string;
@@ -56,7 +57,7 @@ export const CategoryPageView: React.FC<CategoryPageViewProps> = ({
     recommendedOfferId?: string;
   }> = {
     'Healthy Blood Sugar': {
-      title: 'Healthy Blood Sugar & Glycemic Vitality',
+      title: 'Healthy Blood Sugar & Glycemic Vitality Protocols',
       headline: 'Evidence-Based Protocols for Steady Glucose & Insulin Sensitivity',
       description: 'Explore clinically evaluated guides on meal sequencing, targeted botanical cofactors, carbohydrate thresholds, and morning glucose stability designed for mature adults.',
       clinicalFocus: 'Pancreatic beta-cell support, postprandial glucose blunting, and GLUT-4 receptor efficiency.',
@@ -66,7 +67,7 @@ export const CategoryPageView: React.FC<CategoryPageViewProps> = ({
       recommendedOfferId: 'gluco6'
     },
     'Weight Management': {
-      title: 'Metabolic Health & Weight Management',
+      title: 'Metabolic Health & Weight Management Protocols',
       headline: 'Science-Backed Approaches to Metabolic Rate, BAT & Satiety',
       description: 'Practical, non-restrictive metabolic protocols focused on brown adipose tissue (BAT) activation, liver lipid clearance, leptin signaling, and sustainable fat loss after 40.',
       clinicalFocus: 'Thermogenesis, visceral adiposity reduction, and appetite regulatory hormones.',
@@ -76,7 +77,7 @@ export const CategoryPageView: React.FC<CategoryPageViewProps> = ({
       recommendedOfferId: 'puravive'
     },
     'Sleep & Stress': {
-      title: 'Sleep Architecture & Cortisol Rhythm',
+      title: 'Sleep Architecture & Cortisol Rhythm Protocols',
       headline: 'Restorative Circadian Alignment and Stress Mitigation',
       description: 'Comprehensive research on evening cortisol reduction, slow-wave sleep phases, circadian light hygiene, and neuro-calming amino acids to awaken genuinely refreshed.',
       clinicalFocus: 'HPA-axis downregulation, GABA receptor support, and REM/Deep sleep cycles.',
@@ -86,7 +87,7 @@ export const CategoryPageView: React.FC<CategoryPageViewProps> = ({
       recommendedOfferId: 'zencortex'
     },
     'Healthy Aging': {
-      title: 'Healthy Aging & Longevity Guidance',
+      title: 'Healthy Aging & Longevity Guidance Protocols',
       headline: 'Cellular Autophagy, Joint Lubrication & Everyday Vitality',
       description: 'Peer-reviewed insights into synovial joint fluid preservation, mitochondrial rejuvenation, hearing and cognitive acuity, and age-defying nutritional habits.',
       clinicalFocus: 'Hyaluronan matrix protection, mitochondrial biogenesis, and inflammatory pathway balance.',
@@ -96,7 +97,7 @@ export const CategoryPageView: React.FC<CategoryPageViewProps> = ({
       recommendedOfferId: 'joint-genesis'
     },
     'Nutrition': {
-      title: 'Clinical Nutrition & Gut Microbiome',
+      title: 'Clinical Nutrition & Gut Microbiome Protocols',
       headline: 'Microbiome Diversity, Anti-Inflammatory Foods & Digestion',
       description: 'Discover food sequencing strategies, prebiotic fiber matrices, gut lining integrity protocols, and gut-brain axis optimization verified by clinical nutritional science.',
       clinicalFocus: 'Bacterial strain diversity, short-chain fatty acid production, and mucosal barrier repair.',
@@ -178,33 +179,139 @@ export const CategoryPageView: React.FC<CategoryPageViewProps> = ({
     'Product Reviews'
   ];
 
+  const categorySlugMap: Record<string, string> = {
+    'Healthy Blood Sugar': 'healthy-blood-sugar',
+    'Weight Management': 'weight-management',
+    'Sleep & Stress': 'sleep-and-stress',
+    'Healthy Aging': 'healthy-aging',
+    'Nutrition': 'nutrition',
+    'Product Reviews': 'product-reviews',
+  };
+  const categorySlug = categorySlugMap[category] || category.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const canonicalUrl = `https://mba-rabat.vercel.app/${categorySlug}/`;
+
+  // Dynamic SEO Structured Data for Category Hubs (Schema.org BreadcrumbList & CollectionPage)
+  useEffect(() => {
+    const pageTitle = `${currentMeta.title} | VitalPath Daily`;
+    document.title = pageTitle;
+
+    const setMetaTag = (selector: string, attr: 'name' | 'property', attrValue: string, content: string) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attr, attrValue);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', content);
+    };
+
+    setMetaTag('meta[name="description"]', 'name', 'description', currentMeta.description);
+    setMetaTag('meta[property="og:title"]', 'property', 'og:title', pageTitle);
+    setMetaTag('meta[property="og:description"]', 'property', 'og:description', currentMeta.description);
+    setMetaTag('meta[property="og:url"]', 'property', 'og:url', canonicalUrl);
+    setMetaTag('meta[name="twitter:title"]', 'name', 'twitter:title', pageTitle);
+    setMetaTag('meta[name="twitter:description"]', 'name', 'twitter:description', currentMeta.description);
+
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', canonicalUrl);
+
+    // Schema.org CollectionPage & BreadcrumbList
+    const schemaGraph = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          '@id': `${canonicalUrl}#breadcrumb`,
+          'itemListElement': [
+            {
+              '@type': 'ListItem',
+              'position': 1,
+              'name': 'Home',
+              'item': 'https://mba-rabat.vercel.app/',
+            },
+            {
+              '@type': 'ListItem',
+              'position': 2,
+              'name': 'Categories',
+              'item': 'https://mba-rabat.vercel.app/#categories',
+            },
+            {
+              '@type': 'ListItem',
+              'position': 3,
+              'name': category,
+              'item': canonicalUrl,
+            },
+          ],
+        },
+        {
+          '@type': 'CollectionPage',
+          '@id': `${canonicalUrl}#collection`,
+          'url': canonicalUrl,
+          'name': currentMeta.title,
+          'headline': currentMeta.headline,
+          'description': currentMeta.description,
+          'isPartOf': {
+            '@type': 'WebSite',
+            '@id': 'https://mba-rabat.vercel.app/#website',
+            'name': 'VitalPath Daily',
+            'url': 'https://mba-rabat.vercel.app/',
+          },
+          'about': {
+            '@type': 'Thing',
+            'name': category,
+          },
+        },
+      ],
+    };
+
+    const scriptId = 'category-jsonld-schema';
+    let script = document.getElementById(scriptId) as HTMLScriptElement | null;
+    if (!script) {
+      script = document.createElement('script');
+      script.id = scriptId;
+      script.type = 'application/ld+json';
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(schemaGraph);
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    return () => {
+      const existing = document.getElementById(scriptId);
+      if (existing) existing.remove();
+      document.title = 'VitalPath Daily | Evidence-Based Health, Longevity & Clinical Nutrition';
+      setMetaTag('meta[name="description"]', 'name', 'description', 'VitalPath Daily provides evidence-informed health research, physician-reviewed protocols, metabolic vitality guides, and independent clinical supplement audits.');
+    };
+  }, [category, currentMeta, canonicalUrl]);
+
   return (
     <div className="bg-slate-50 min-h-screen py-8 sm:py-12" id="category-dedicated-page">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
-        {/* TOP NAVIGATION / BREADCRUMBS & BACK BUTTON (ويرجعو لباج لقديمة) */}
+        {/* TOP NAVIGATION / BREADCRUMBS & BACK BUTTON */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+          <Breadcrumbs
+            items={[
+              { label: 'Home', onClick: onBack, url: '/' },
+              { label: 'Categories', url: '/' },
+              { label: category, url: `/${categorySlug}/` }
+            ]}
+            skipJsonLd={true}
+          />
+
           <button
             onClick={onBack}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-emerald-800 hover:text-emerald-950 bg-white hover:bg-emerald-50 px-4 py-2.5 rounded-xl border border-slate-200 shadow-2xs hover:shadow-xs transition-all cursor-pointer group self-start"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-emerald-800 hover:text-emerald-950 bg-white hover:bg-emerald-50 px-4 py-2 rounded-xl border border-slate-200 shadow-2xs hover:shadow-xs transition-all cursor-pointer group self-start sm:self-auto"
             id="category-back-btn"
           >
             <ArrowLeft className="w-4 h-4 text-emerald-700 group-hover:-translate-x-1 transition-transform" />
             <span>← Back to Previous Page / Home</span>
           </button>
-
-          <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
-            <button 
-              onClick={onBack} 
-              className="hover:text-emerald-800 underline cursor-pointer"
-            >
-              Home
-            </button>
-            <span>/</span>
-            <span className="text-slate-400">Categories</span>
-            <span>/</span>
-            <span className="text-slate-800 font-semibold">{category}</span>
-          </div>
         </div>
 
         {/* DEDICATED CATEGORY HERO BANNER */}

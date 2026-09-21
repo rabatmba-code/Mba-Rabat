@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ArrowLeft, 
   ShieldCheck, 
@@ -17,6 +17,7 @@ import {
 import { ClickBankOffer } from '../types';
 import { getAffiliateOffer, getAffiliateUrl } from '../config/affiliateOffers';
 import { OfferProductGallery } from './OfferProductGallery';
+import { Breadcrumbs } from './Breadcrumbs';
 
 interface ReviewBridgeViewProps {
   offer: ClickBankOffer;
@@ -82,21 +83,158 @@ export const ReviewBridgeView: React.FC<ReviewBridgeViewProps> = ({
 
   const editorialTake = configOffer?.editorialTake || offer.verdict;
 
+  // Dynamic SEO & Canonical synchronization
+  useEffect(() => {
+    const pageTitle = `${name} Review (2026): Ingredients, Safety & Clinical Evidence | VitalPath Daily`;
+    document.title = pageTitle;
+
+    const metaDesc = `Unbiased laboratory and clinical breakdown of ${name}. Discover ingredients, real pros and cons, pricing, and independent medical analysis.`;
+    let descTag = document.querySelector('meta[name="description"]');
+    if (descTag) {
+      descTag.setAttribute('content', metaDesc);
+    }
+
+    const canonicalUrl = `https://mba-rabat.vercel.app/product-reviews/${offer.id}/`;
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', canonicalUrl);
+
+    // Schema.org Structured Data for Google Rich Snippets (Product, AggregateRating, Review & Breadcrumbs)
+    const schemaGraph = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          '@id': `${canonicalUrl}#breadcrumb`,
+          'itemListElement': [
+            {
+              '@type': 'ListItem',
+              'position': 1,
+              'name': 'Home',
+              'item': 'https://mba-rabat.vercel.app/',
+            },
+            {
+              '@type': 'ListItem',
+              'position': 2,
+              'name': 'Product Reviews',
+              'item': 'https://mba-rabat.vercel.app/product-reviews/',
+            },
+            {
+              '@type': 'ListItem',
+              'position': 3,
+              'name': `${name} Review`,
+              'item': canonicalUrl,
+            },
+          ],
+        },
+        {
+          '@type': 'Product',
+          '@id': `${canonicalUrl}#product`,
+          'name': name,
+          'image': [configOffer?.heroImage || offer.heroImage],
+          'description': configOffer?.tagline || offer.tagline || editorialTake || `${name} clinical supplement review and laboratory verification.`,
+          'category': category,
+          'brand': {
+            '@type': 'Brand',
+            'name': name,
+          },
+          'aggregateRating': {
+            '@type': 'AggregateRating',
+            'ratingValue': rating.toFixed(1),
+            'bestRating': '5',
+            'worstRating': '1',
+            'ratingCount': reviewsCount.toString(),
+            'reviewCount': reviewsCount.toString(),
+          },
+          'offers': {
+            '@type': 'Offer',
+            'price': startingPrice.toString(),
+            'priceCurrency': 'USD',
+            'priceValidUntil': '2026-12-31',
+            'availability': 'https://schema.org/InStock',
+            'url': canonicalUrl,
+            'seller': {
+              '@type': 'Organization',
+              'name': 'VitalPath Daily Verified Labs',
+            },
+          },
+          'review': {
+            '@type': 'Review',
+            'reviewRating': {
+              '@type': 'Rating',
+              'ratingValue': rating.toFixed(1),
+              'bestRating': '5',
+              'worstRating': '1',
+            },
+            'author': {
+              '@type': 'Person',
+              'name': 'Dr. Sarah Jenkins, MD',
+              'jobTitle': 'Chief Medical Officer',
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'VitalPath Daily',
+            },
+            'datePublished': '2026-01-15',
+            'reviewBody': editorialTake,
+          },
+        },
+        {
+          '@type': 'FAQPage',
+          '@id': `${canonicalUrl}#faq`,
+          'mainEntity': faqs.map((faq) => ({
+            '@type': 'Question',
+            'name': faq.question,
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': faq.answer,
+            },
+          })),
+        },
+      ],
+    };
+
+    const scriptId = 'review-jsonld-schema';
+    let script = document.getElementById(scriptId) as HTMLScriptElement | null;
+    if (!script) {
+      script = document.createElement('script');
+      script.id = scriptId;
+      script.type = 'application/ld+json';
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(schemaGraph);
+
+    return () => {
+      const existing = document.getElementById(scriptId);
+      if (existing) existing.remove();
+    };
+  }, [name, offer.id, rating, reviewsCount, offer.heroImage, offer.tagline, editorialTake, category, startingPrice, faqs, configOffer]);
+
   return (
     <article className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12" id="product-review-container">
-      {/* Navigation */}
-      <div className="flex items-center gap-2 text-xs text-slate-500 mb-6">
+      {/* Navigation & Breadcrumbs */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+        <Breadcrumbs
+          items={[
+            { label: 'Home', onClick: onBack, url: '/' },
+            { label: 'Product Reviews', url: '/product-reviews/' },
+            { label: `${name} Review`, url: `/product-reviews/${offer.id}/` }
+          ]}
+          skipJsonLd={true}
+        />
+
         <button
           onClick={onBack}
-          className="hover:text-emerald-800 transition-colors cursor-pointer flex items-center gap-1 font-medium"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-emerald-900 bg-white hover:bg-emerald-50 border border-slate-200 hover:border-emerald-300 px-3 py-1.5 rounded-lg transition-all shadow-2xs hover:shadow-xs cursor-pointer self-start sm:self-auto"
+          id="review-back-btn"
         >
-          <ArrowLeft className="w-3.5 h-3.5" />
+          <ArrowLeft className="w-3.5 h-3.5 text-slate-600" />
           <span>Back to Articles</span>
         </button>
-        <span>/</span>
-        <span className="text-slate-600">Product Reviews</span>
-        <span>/</span>
-        <span className="text-slate-800 font-medium truncate">{name}</span>
       </div>
 
       {/* Review Header Banner */}

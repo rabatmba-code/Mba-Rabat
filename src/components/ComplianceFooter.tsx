@@ -71,20 +71,33 @@ export const ComplianceFooter: React.FC<ComplianceFooterProps> = ({
               <span>Primary Topics</span>
             </h4>
             <ul className="space-y-2 text-xs">
-              {categories.map((cat) => (
-                <li key={cat}>
-                  <button
-                    onClick={() => {
-                      onSelectCategory(cat);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-1.5 text-left cursor-pointer group"
-                  >
-                    <span className="text-slate-600 group-hover:text-emerald-400 transition-colors">›</span>
-                    <span>{cat}</span>
-                  </button>
-                </li>
-              ))}
+              {categories.map((cat) => {
+                const slugMap: Record<string, string> = {
+                  'Healthy Blood Sugar': 'healthy-blood-sugar',
+                  'Weight Management': 'weight-management',
+                  'Sleep & Stress': 'sleep-and-stress',
+                  'Healthy Aging': 'healthy-aging',
+                  'Nutrition': 'nutrition',
+                  'Product Reviews': 'product-reviews',
+                };
+                const slug = slugMap[cat] || cat.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                return (
+                  <li key={cat}>
+                    <a
+                      href={`/${slug}/`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onSelectCategory(cat);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      className="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-1.5 text-left cursor-pointer group"
+                    >
+                      <span className="text-slate-600 group-hover:text-emerald-400 transition-colors">›</span>
+                      <span>{cat}</span>
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

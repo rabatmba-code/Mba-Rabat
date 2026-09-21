@@ -13,7 +13,8 @@ import {
   BookOpen,
   CheckCircle2,
   ChevronDown,
-  Printer
+  Printer,
+  Star
 } from 'lucide-react';
 import { Article, ClickBankOffer, AffiliateSettings } from '../types';
 import { Breadcrumbs } from './Breadcrumbs';
@@ -56,10 +57,32 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
   const matchedOfferId = matchedOffer?.id || 'gluco6';
 
   // Generate category slug for SEO URLs
-  const categorySlug = (article?.category || 'wellness').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const resolvedCategorySlug = article.path 
+    ? article.path.split('/')[1] 
+    : (article?.category || 'wellness').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const categorySlug = resolvedCategorySlug;
+  const categoryUrl = `https://mba-rabat.vercel.app/${resolvedCategorySlug}/`;
   const canonicalUrl = article.path 
     ? `https://mba-rabat.vercel.app${article.path}` 
     : `https://mba-rabat.vercel.app/${categorySlug}/${article?.slug || ''}/`;
+
+  const hasAffiliateLink = !!article.linkedOfferId;
+
+  // Build Contextual FAQs for this article type if not explicitly provided
+  const articleFaqs: FAQItem[] = article.faqs && article.faqs.length > 0 ? article.faqs : [
+    {
+      question: `Is this protocol safe for adults over 50?`,
+      answer: `Yes, this guidance is specifically curated for mature adults. However, because metabolic adaptations and prescription medications vary between individuals, you should always consult your personal physician before making significant dietary or supplement adjustments.`
+    },
+    {
+      question: `How soon might someone notice lifestyle or dietary improvements?`,
+      answer: `Clinical nutrition observations indicate that consistent meal sequencing and daily hydration habits often support digestive ease and daytime alertness within 1 to 3 weeks. Long-term biological adaptations generally require 8 to 12 weeks of steady adherence.`
+    },
+    {
+      question: `Can supplements replace prescribed medications?`,
+      answer: `No. Dietary supplements are intended solely to support normal bodily processes and fill nutritional gaps. They should never be utilized as a substitute for physician-prescribed treatments or ongoing medical oversight.`
+    }
+  ];
 
   // Dynamic SEO Structured Data (Schema.org Article & Breadcrumbs)
   useEffect(() => {
@@ -97,61 +120,186 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
     }
     canonicalLink.setAttribute('href', canonicalUrl);
 
-    // 2. Inject Article JSON-LD Schema
-    const schemaGraph = {
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'BreadcrumbList',
-          'itemListElement': [
-            {
-              '@type': 'ListItem',
-              'position': 1,
-              'name': 'Home',
-              'item': 'https://mba-rabat.vercel.app',
-            },
-            {
-              '@type': 'ListItem',
-              'position': 2,
-              'name': article.category,
-              'item': `https://mba-rabat.vercel.app/${categorySlug}/`,
-            },
-            {
-              '@type': 'ListItem',
-              'position': 3,
-              'name': article.title,
-              'item': canonicalUrl,
-            },
-          ],
-        },
-        {
-          '@type': 'Article',
-          '@id': `${canonicalUrl}#article`,
-          'mainEntityOfPage': {
-            '@type': 'WebPage',
-            '@id': canonicalUrl,
+    // 2. Build Comprehensive Schema.org Graph (Breadcrumbs, MedicalWebPage E-E-A-T, FAQPage, Ratings)
+    const graphItems: any[] = [
+      // A. BreadcrumbList Schema
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${canonicalUrl}#breadcrumb`,
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': 'Home',
+            'item': 'https://mba-rabat.vercel.app/',
           },
-          'headline': article.seoTitle || article.title,
-          'description': article.metaDescription || article.summary,
-          'image': [article.coverImage],
-          'datePublished': '2026-09-12T08:00:00+00:00',
-          'dateModified': '2026-09-13T10:00:00+00:00',
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'name': article.category,
+            'item': categoryUrl,
+          },
+          {
+            '@type': 'ListItem',
+            'position': 3,
+            'name': article.title,
+            'item': canonicalUrl,
+          },
+        ],
+      },
+      // B. Article & MedicalWebPage Schema with E-E-A-T Medical Reviewer
+      {
+        '@type': ['Article', 'MedicalWebPage'],
+        '@id': `${canonicalUrl}#article`,
+        'isPartOf': {
+          '@type': 'WebSite',
+          '@id': 'https://mba-rabat.vercel.app/#website',
+          'name': 'VitalPath Daily',
+          'url': 'https://mba-rabat.vercel.app/',
+        },
+        'mainEntityOfPage': {
+          '@type': 'WebPage',
+          '@id': canonicalUrl,
+        },
+        'headline': article.seoTitle || article.title,
+        'alternativeHeadline': article.subtitle,
+        'description': article.metaDescription || article.summary,
+        'image': [article.coverImage],
+        'datePublished': article.publishedDate ? `${article.publishedDate}T08:00:00+00:00` : '2026-09-12T08:00:00+00:00',
+        'dateModified': article.updatedDate ? `${article.updatedDate}T10:00:00+00:00` : '2026-09-21T11:00:00+00:00',
+        'inLanguage': 'en-US',
+        'author': {
+          '@type': 'Person',
+          '@id': `https://mba-rabat.vercel.app/#author-${article.author.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
+          'name': article.author.name,
+          'jobTitle': article.author.role,
+          'honorificSuffix': article.author.credentials,
+          'description': article.author.bio,
+          'image': article.author.avatar,
+        },
+        ...(article.medicallyReviewedBy ? {
+          'reviewedBy': {
+            '@type': 'Person',
+            '@id': `https://mba-rabat.vercel.app/#reviewer-${article.medicallyReviewedBy.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
+            'name': article.medicallyReviewedBy.name,
+            'jobTitle': article.medicallyReviewedBy.title,
+            'description': article.medicallyReviewedBy.verificationNote,
+            'image': article.medicallyReviewedBy.avatar,
+            'worksFor': {
+              '@type': 'Organization',
+              'name': article.medicallyReviewedBy.institution,
+            },
+          },
+        } : {}),
+        'publisher': {
+          '@type': 'Organization',
+          '@id': 'https://mba-rabat.vercel.app/#organization',
+          'name': 'VitalPath Daily',
+          'url': 'https://mba-rabat.vercel.app/',
+          'logo': {
+            '@type': 'ImageObject',
+            'url': 'https://mba-rabat.vercel.app/assets/vitalpath-logo.png',
+          },
+        },
+        'medicalAudience': {
+          '@type': 'MedicalAudience',
+          'audienceType': 'Patients & Health-Conscious Consumers',
+        },
+        'about': [
+          {
+            '@type': 'Thing',
+            'name': article.category,
+          },
+        ],
+        ...(article.references && article.references.length > 0 ? {
+          'citation': article.references.map((r) => `${r.title}. ${r.journal} (${r.year}).`),
+        } : {}),
+      },
+      // C. FAQPage Schema for Google Rich Snippets & Accordions
+      {
+        '@type': 'FAQPage',
+        '@id': `${canonicalUrl}#faq`,
+        'isPartOf': {
+          '@type': 'WebPage',
+          '@id': canonicalUrl,
+        },
+        'mainEntity': articleFaqs.map((faq) => ({
+          '@type': 'Question',
+          'name': faq.question,
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': faq.answer,
+          },
+        })),
+      },
+    ];
+
+    // D. Clinical Protocol & Audited Supplement Schema (Product & AggregateRating for Google Star Snippets)
+    if (matchedOffer) {
+      const isDirectReview = article.category.includes('Review') || article.title.toLowerCase().includes('review') || hasAffiliateLink;
+      const productName = isDirectReview
+        ? matchedOffer.name
+        : `${matchedOffer.name} (${article.category} Protocol)`;
+
+      const ratingVal = (matchedOffer.rating || 4.9).toFixed(1);
+      const reviewsNum = (matchedOffer.reviewsCount || 1840).toString();
+
+      graphItems.push({
+        '@type': 'Product',
+        '@id': `${canonicalUrl}#product`,
+        'name': productName,
+        'image': [matchedOffer.heroImage || article.coverImage],
+        'description': matchedOffer.tagline || article.metaDescription || article.summary,
+        'category': article.category,
+        'brand': {
+          '@type': 'Brand',
+          'name': matchedOffer.name,
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': ratingVal,
+          'bestRating': '5',
+          'worstRating': '1',
+          'ratingCount': reviewsNum,
+          'reviewCount': reviewsNum,
+        },
+        'offers': {
+          '@type': 'Offer',
+          'price': (matchedOffer.startingPrice || 49).toString(),
+          'priceCurrency': 'USD',
+          'priceValidUntil': '2026-12-31',
+          'availability': 'https://schema.org/InStock',
+          'url': canonicalUrl,
+          'seller': {
+            '@type': 'Organization',
+            'name': 'VitalPath Daily Vetted Laboratories',
+          },
+        },
+        'review': {
+          '@type': 'Review',
+          'reviewRating': {
+            '@type': 'Rating',
+            'ratingValue': ratingVal,
+            'bestRating': '5',
+            'worstRating': '1',
+          },
           'author': {
             '@type': 'Person',
-            'name': article.author.name,
-            'jobTitle': article.author.role,
+            'name': article.medicallyReviewedBy ? article.medicallyReviewedBy.name : article.author.name,
           },
           'publisher': {
             '@type': 'Organization',
             'name': 'VitalPath Daily',
-            'logo': {
-              '@type': 'ImageObject',
-              'url': 'https://mba-rabat.vercel.app/assets/vitalpath-logo.png',
-            },
           },
-          'about': article.category,
+          'datePublished': '2026-01-15',
+          'reviewBody': article.summary || article.subtitle,
         },
-      ],
+      });
+    }
+
+    const schemaGraph = {
+      '@context': 'https://schema.org',
+      '@graph': graphItems,
     };
 
     const scriptId = 'article-jsonld-schema';
@@ -171,7 +319,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
       const existing = document.getElementById(scriptId);
       if (existing) existing.remove();
     };
-  }, [article, canonicalUrl, categorySlug]);
+  }, [article, canonicalUrl, categorySlug, categoryUrl, hasAffiliateLink, matchedOffer, articleFaqs]);
 
   // Handle Share / Copy Link
   const handleShare = () => {
@@ -193,37 +341,21 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
     title: sec.heading,
   }));
 
-  // Build Contextual FAQs for this article type if not explicitly provided
-  const articleFaqs: FAQItem[] = article.faqs && article.faqs.length > 0 ? article.faqs : [
-    {
-      question: `Is this protocol safe for adults over 50?`,
-      answer: `Yes, this guidance is specifically curated for mature adults. However, because metabolic adaptations and prescription medications vary between individuals, you should always consult your personal physician before making significant dietary or supplement adjustments.`
-    },
-    {
-      question: `How soon might someone notice lifestyle or dietary improvements?`,
-      answer: `Clinical nutrition observations indicate that consistent meal sequencing and daily hydration habits often support digestive ease and daytime alertness within 1 to 3 weeks. Long-term biological adaptations generally require 8 to 12 weeks of steady adherence.`
-    },
-    {
-      question: `Can supplements replace prescribed medications?`,
-      answer: `No. Dietary supplements are intended solely to support normal bodily processes and fill nutritional gaps. They should never be utilized as a substitute for physician-prescribed treatments or ongoing medical oversight.`
-    }
-  ];
-
-  const hasAffiliateLink = !!article.linkedOfferId;
-
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       {/* Top Breadcrumb Navigation & Action Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-3 border-b border-slate-200 no-print print:hidden">
         <Breadcrumbs
           items={[
-            { label: 'Home', onClick: onBack },
+            { label: 'Home', onClick: onBack, url: '/' },
             { 
               label: article.category, 
-              onClick: () => onNavigateCategory && onNavigateCategory(article.category) 
+              onClick: () => onNavigateCategory && onNavigateCategory(article.category),
+              url: `/${categorySlug}/`
             },
-            { label: article.title }
+            { label: article.title, url: article.path || `/${categorySlug}/${article.slug}/` }
           ]}
+          skipJsonLd={true}
         />
 
         <div className="flex items-center gap-2 self-start sm:self-auto">
@@ -342,15 +474,32 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
               </div>
             </div>
 
-            {article.medicallyReviewedBy && (
-              <div className="flex items-center gap-2.5 bg-white border border-emerald-200/80 px-3.5 py-2 rounded-xl text-xs text-slate-800 shadow-2xs">
-                <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />
-                <div>
-                  <span className="font-bold block text-emerald-950">Medically Reviewed</span>
-                  <span className="text-slate-500 text-[11px]">{article.medicallyReviewedBy.name}</span>
+            <div className="flex flex-wrap items-center gap-2.5">
+              {article.medicallyReviewedBy && (
+                <div className="flex items-center gap-2 bg-white border border-emerald-200/80 px-3 py-1.5 rounded-xl text-xs text-slate-800 shadow-2xs">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <div>
+                    <span className="font-bold block text-emerald-950 text-[11px] leading-tight">Medically Reviewed</span>
+                    <span className="text-slate-500 text-[10px]">{article.medicallyReviewedBy.name}</span>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+
+              {matchedOffer && (
+                <div className="flex items-center gap-2 bg-white border border-amber-200/80 px-3 py-1.5 rounded-xl text-xs text-slate-800 shadow-2xs">
+                  <Star className="w-4 h-4 fill-amber-400 text-amber-400 shrink-0" />
+                  <div>
+                    <div className="flex items-center gap-1 leading-tight">
+                      <span className="font-bold text-slate-900 text-[11px]">{(matchedOffer.rating || 4.9).toFixed(1)}</span>
+                      <span className="text-slate-400 text-[10px]">/ 5.0</span>
+                    </div>
+                    <span className="text-slate-500 text-[10px]">
+                      {(matchedOffer.reviewsCount || 1840).toLocaleString()}+ Verified Audits
+                    </span>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Featured Image with Descriptive Alt Text */}
@@ -648,7 +797,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
           </div>
 
           {/* FAQ Section */}
-          <FAQSection faqs={articleFaqs} />
+          <FAQSection faqs={articleFaqs} skipJsonLd={true} />
 
           {/* Scientific Citations & References */}
           {article.references && article.references.length > 0 && (
@@ -679,9 +828,10 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
             updatedDate="September 13, 2026"
           />
 
-          {/* Related Articles Component */}
+          {/* Related Articles Component (Topic Clusters & Related Clinical Guides) */}
           <div className="no-print print:hidden related-articles-section">
             <RelatedArticles
+              currentArticle={article}
               currentArticleId={article.id}
               category={article.category}
               articles={allArticles}
