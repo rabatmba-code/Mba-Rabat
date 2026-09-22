@@ -321,6 +321,16 @@ export const ComplianceFooter: React.FC<ComplianceFooterProps> = ({
                   </a>
                 </li>
                 <li>
+                  <a href="/nutrition/vitamin-b12-deficiency-signs-causes/" className="hover:text-white transition-colors">
+                    • Vitamin B12 Deficiency: Signs & Causes Guide
+                  </a>
+                </li>
+                <li>
+                  <a href="/nutrition/improve-gut-microbiome-diversity-naturally/" className="hover:text-white transition-colors">
+                    • Gut Microbiome Diversity: Evidence-Based Guide
+                  </a>
+                </li>
+                <li>
                   <a href="/weight-management/hydration-electrolytes-metabolic-health-guide/" className="hover:text-white transition-colors">
                     • Hydration & Electrolytes for Metabolic Rate
                   </a>

@@ -322,6 +322,18 @@ export const CATEGORY_PILLAR_NETWORKS: Record<string, CategoryPillarLink[]> = {
       url: '/nutrition/best-foods-before-after-exercise/',
       badge: 'Sports Nutrition',
       description: 'Optimizing pre-workout glycogen and post-exercise muscle protein synthesis with evidence-based timing.'
+    },
+    {
+      title: 'Vitamin B12 Deficiency: Signs, Causes & Clinical Protocols',
+      url: '/nutrition/vitamin-b12-deficiency-signs-causes/',
+      badge: 'Cobalamin Biology',
+      description: 'Absorption pathways, intrinsic factor failure, subacute combined degeneration, and functional biomarkers.'
+    },
+    {
+      title: 'How to Improve Gut Microbiome Diversity Naturally',
+      url: '/nutrition/improve-gut-microbiome-diversity-naturally/',
+      badge: 'Microbial Ecology',
+      description: 'Cultivating bacterial alpha diversity naturally via the 30-plant rule, fermented foods, and lifestyle factors.'
     }
   ]
 };
