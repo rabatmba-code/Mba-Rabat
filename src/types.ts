@@ -22,6 +22,12 @@ export interface ScientificReference {
   doiOrUrl?: string;
 }
 
+export interface InternalLink {
+  anchorText: string;
+  url: string;
+  context: string;
+}
+
 export interface OfferPhotoItem {
   id: string; // e.g. "gluco6_bottle_packaging"
   name: string; // e.g. "Gluco6 Bottle Packaging & Tamper Seal"

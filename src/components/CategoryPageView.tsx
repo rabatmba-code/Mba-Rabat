@@ -22,6 +22,7 @@ import { Article, ClickBankOffer, AffiliateSettings } from '../types';
 import { ArticleCard } from './ArticleCard';
 import { getAffiliateUrl } from '../config/affiliateOffers';
 import { Breadcrumbs } from './Breadcrumbs';
+import { CATEGORY_PILLAR_NETWORKS } from '../utils/internalLinking';
 
 interface CategoryPageViewProps {
   category: string;
@@ -370,66 +371,147 @@ export const CategoryPageView: React.FC<CategoryPageViewProps> = ({
         )}
 
         {/* LEAD ARTICLE SPOTLIGHT (If available) */}
-        {leadArticle && (
-          <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-            <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-              
-              <div className="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-4">
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                      Featured In {category}
-                    </span>
-                    <span className="text-slate-400 text-xs flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5" />
-                      {leadArticle.readingTime}
-                    </span>
-                  </div>
+        {leadArticle && (() => {
+          const leadCategorySlug = (category || 'healthy-blood-sugar').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+          const leadArticleUrl = leadArticle.path || `/${leadCategorySlug}/${leadArticle.slug}/`;
 
-                  <h2 
-                    onClick={() => onReadArticle(leadArticle)}
-                    className="font-serif-title text-2xl sm:text-3xl font-bold text-slate-900 leading-snug hover:text-emerald-800 transition-colors cursor-pointer"
-                  >
-                    {leadArticle.title}
-                  </h2>
-
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    {leadArticle.subtitle}
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src={leadArticle.author?.avatar || 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80'}
-                      alt={leadArticle.author?.name || 'Editorial Team'}
-                      className="w-10 h-10 rounded-full object-cover ring-2 ring-emerald-500/20"
-                    />
-                    <div className="text-xs">
-                      <p className="font-bold text-slate-900">{leadArticle.author?.name || 'VitalPath Editorial Team'}</p>
-                      <p className="text-slate-400">{leadArticle.author?.credentials || 'Evidence-Based Research'}</p>
+          return (
+            <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+                
+                <div className="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-4">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <span className="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                        Featured In {category}
+                      </span>
+                      <span className="text-slate-400 text-xs flex items-center gap-1">
+                        <Clock className="w-3.5 h-3.5" />
+                        {leadArticle.readingTime}
+                      </span>
                     </div>
+
+                    <a 
+                      href={leadArticleUrl}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onReadArticle(leadArticle);
+                      }}
+                      className="font-serif-title text-2xl sm:text-3xl font-bold text-slate-900 leading-snug hover:text-emerald-800 transition-colors cursor-pointer block"
+                    >
+                      {leadArticle.title}
+                    </a>
+
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {leadArticle.subtitle}
+                    </p>
                   </div>
 
-                  <button
-                    onClick={() => onReadArticle(leadArticle)}
-                    className="inline-flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all cursor-pointer group"
-                  >
-                    <span>Read Guide</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                  </button>
-                </div>
-              </div>
+                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <img
+                        src={leadArticle.author?.avatar || 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80'}
+                        alt={leadArticle.author?.name || 'Editorial Team'}
+                        className="w-10 h-10 rounded-full object-cover ring-2 ring-emerald-500/20"
+                      />
+                      <div className="text-xs">
+                        <p className="font-bold text-slate-900">{leadArticle.author?.name || 'VitalPath Editorial Team'}</p>
+                        <p className="text-slate-400">{leadArticle.author?.credentials || 'Evidence-Based Research'}</p>
+                      </div>
+                    </div>
 
-              <div className="lg:col-span-5 relative min-h-[220px] lg:min-h-full bg-slate-100">
-                <img
-                  src={leadArticle.coverImage}
-                  alt={leadArticle.title}
-                  className="w-full h-full object-cover"
-                />
+                    <a
+                      href={leadArticleUrl}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onReadArticle(leadArticle);
+                      }}
+                      className="inline-flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all cursor-pointer group"
+                    >
+                      <span>Read Guide</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    </a>
+                  </div>
+                </div>
+
+                <a
+                  href={leadArticleUrl}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onReadArticle(leadArticle);
+                  }}
+                  className="lg:col-span-5 relative min-h-[220px] lg:min-h-full bg-slate-100 block group overflow-hidden"
+                >
+                  <img
+                    src={leadArticle.coverImage}
+                    alt={leadArticle.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </a>
               </div>
             </div>
-          </div>
+          );
+        })()}
+
+        {/* TOPIC CLUSTER & INTERLINKED PROTOCOLS (Direct Permanent Crawl Network) */}
+        {CATEGORY_PILLAR_NETWORKS[category] && (
+          <section className="bg-emerald-50/50 rounded-3xl border border-emerald-200/80 p-6 sm:p-8 space-y-4" id="category-pillar-network">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-emerald-200/60 pb-3">
+              <div>
+                <div className="flex items-center gap-2 text-emerald-900 font-bold text-xs uppercase tracking-wider mb-1">
+                  <Sparkles className="w-4 h-4 text-emerald-700" />
+                  <span>Topic Cluster • Core Protocols &amp; Comparative Audits</span>
+                </div>
+                <h3 className="font-serif-title text-xl sm:text-2xl font-bold text-slate-900">
+                  Featured Clinical Protocols &amp; Verified Reviews
+                </h3>
+              </div>
+              <span className="text-xs text-slate-500">
+                Direct indexing crawl path
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 pt-1">
+              {CATEGORY_PILLAR_NETWORKS[category].map((item, pIdx) => (
+                <a
+                  key={pIdx}
+                  href={item.url}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const found = articles.find(a => a.path === item.url || a.slug === item.url.split('/').filter(Boolean).pop());
+                    if (found) {
+                      onReadArticle(found);
+                    } else if (item.url.includes('gluco6') && onOpenReview) {
+                      onOpenReview(allOffers.find(o => o.id === 'gluco6') || allOffers[0]);
+                    } else if (item.url.includes('sugar-defender') && onOpenReview) {
+                      onOpenReview(allOffers.find(o => o.id === 'sugar-defender') || allOffers[0]);
+                    } else if (item.url.includes('puravive') && onOpenReview) {
+                      onOpenReview(allOffers.find(o => o.id === 'puravive') || allOffers[0]);
+                    } else {
+                      window.location.pathname = item.url;
+                    }
+                  }}
+                  className="flex flex-col justify-between p-4 rounded-2xl bg-white border border-emerald-200/70 hover:border-emerald-500 hover:shadow-xs transition-all group cursor-pointer"
+                >
+                  <div className="space-y-1.5">
+                    <span className="inline-block text-[10px] font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                      {item.badge}
+                    </span>
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-emerald-700 leading-snug">
+                      {item.title}
+                    </h4>
+                    <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                  <div className="pt-2 text-[11px] font-semibold text-emerald-700 group-hover:text-emerald-900 flex items-center justify-between">
+                    <span>Read guide</span>
+                    <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
         )}
 
         {/* REMAINING ARTICLES IN THIS CATEGORY */}
@@ -552,33 +634,42 @@ export const CategoryPageView: React.FC<CategoryPageViewProps> = ({
               </p>
             </div>
 
-            <button
-              onClick={onBack}
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                onBack();
+              }}
               className="inline-flex items-center gap-2 bg-emerald-800 hover:bg-emerald-900 text-white text-xs sm:text-sm font-bold px-5 py-3 rounded-xl transition-all shadow-sm cursor-pointer self-start sm:self-auto"
               id="category-bottom-back-home-btn"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>← Return to Home / الرئيسية</span>
-            </button>
+            </a>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5">
-            {allCategoriesList.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => {
-                  onSelectCategory(cat);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className={`text-xs font-semibold p-3 rounded-xl border text-center transition-all cursor-pointer ${
-                  cat === category
-                    ? 'bg-emerald-800 text-white border-emerald-900 shadow-2xs'
-                    : 'bg-white border-slate-200 text-slate-700 hover:border-emerald-300 hover:bg-emerald-50/50'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+            {allCategoriesList.map((cat) => {
+              const catSlug = cat.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+              return (
+                <a
+                  key={cat}
+                  href={`/${catSlug}/`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onSelectCategory(cat);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className={`text-xs font-semibold p-3 rounded-xl border text-center transition-all cursor-pointer ${
+                    cat === category
+                      ? 'bg-emerald-800 text-white border-emerald-900 shadow-2xs'
+                      : 'bg-white border-slate-200 text-slate-700 hover:border-emerald-300 hover:bg-emerald-50/50'
+                  }`}
+                >
+                  {cat}
+                </a>
+              );
+            })}
           </div>
         </div>
 

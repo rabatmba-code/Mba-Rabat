@@ -25,6 +25,7 @@ import { FAQSection, FAQItem } from './FAQSection';
 import { RelatedArticles } from './RelatedArticles';
 import { OfferProductGallery } from './OfferProductGallery';
 import { getOfferForCategory, getAffiliateOffer } from '../config/affiliateOffers';
+import { getEnrichedInternalLinks } from '../utils/internalLinking';
 
 interface ArticlePageProps {
   article: Article;
@@ -67,6 +68,9 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
     : `https://mba-rabat.vercel.app/${categorySlug}/${article?.slug || ''}/`;
 
   const hasAffiliateLink = !!article.linkedOfferId;
+
+  // Compute enriched internal links for complete crawl graph and zero orphan pages
+  const enrichedInternalLinks = getEnrichedInternalLinks(article, allArticles);
 
   // Build Contextual FAQs for this article type if not explicitly provided
   const articleFaqs: FAQItem[] = article.faqs && article.faqs.length > 0 ? article.faqs : [
@@ -697,18 +701,27 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
             </div>
           )}
 
-          {/* Editorial Internal Links Section */}
-          {article.internalLinks && article.internalLinks.length > 0 && (
-            <div className="my-10 bg-emerald-50/50 border border-emerald-200/80 rounded-2xl p-5 sm:p-6 space-y-3">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-900">
-                <Sparkles className="w-4 h-4 text-emerald-700" />
-                <span>Related Research & In-Depth Reviews</span>
+          {/* Editorial Internal Links Section (Complete Interlinking Graph) */}
+          {enrichedInternalLinks && enrichedInternalLinks.length > 0 && (
+            <div className="my-10 bg-emerald-50/50 border border-emerald-200/80 rounded-2xl p-5 sm:p-6 space-y-3" id="internal-links-container">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-emerald-200/60 pb-2.5">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-900">
+                  <Sparkles className="w-4 h-4 text-emerald-700" />
+                  <span>Related Research &amp; In-Depth Clinical Guides</span>
+                </div>
+                <a
+                  href={`/${categorySlug}/`}
+                  className="text-xs font-semibold text-emerald-700 hover:text-emerald-900 hover:underline flex items-center gap-1 self-start sm:self-auto"
+                >
+                  <span>Explore all {article.category} guides</span>
+                  <span>→</span>
+                </a>
               </div>
               <p className="text-xs sm:text-sm text-slate-700">
-                Explore our complementary research guides and independent editorial product breakdowns:
+                Explore our complementary research guides, comparative audits, and independent editorial product breakdowns:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                {article.internalLinks.map((link, lIdx) => (
+                {enrichedInternalLinks.map((link, lIdx) => (
                   <a
                     key={lIdx}
                     href={link.url}
@@ -742,7 +755,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
                   >
                     <span className="text-xs font-bold text-emerald-950 group-hover:text-emerald-700 flex items-center justify-between">
                       <span>{link.anchorText}</span>
-                      <ChevronDown className="w-3.5 h-3.5 -rotate-90 text-emerald-600 opacity-60 group-hover:opacity-100" />
+                      <ChevronDown className="w-3.5 h-3.5 -rotate-90 text-emerald-600 opacity-60 group-hover:opacity-100 shrink-0 ml-1" />
                     </span>
                     <span className="text-[11px] text-slate-500 mt-1 leading-snug">
                       {link.context}

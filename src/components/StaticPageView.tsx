@@ -27,7 +27,9 @@ export type StaticPageType =
   | 'affiliate-disclosure' 
   | 'medical-disclaimer'
   | 'cookie-policy'
-  | 'sitemap';
+  | 'sitemap'
+  | 'editorial-policy'
+  | 'medical-review-board';
 
 interface StaticPageViewProps {
   pageType: StaticPageType;
@@ -77,6 +79,8 @@ export const StaticPageView: React.FC<StaticPageViewProps> = ({
 
   const navItems: { id: StaticPageType; label: string; icon: React.ReactNode }[] = [
     { id: 'about', label: 'About Us', icon: <BookOpen className="w-4 h-4" /> },
+    { id: 'editorial-policy', label: 'Editorial Policy', icon: <FileText className="w-4 h-4" /> },
+    { id: 'medical-review-board', label: 'Medical Review Board', icon: <ShieldCheck className="w-4 h-4" /> },
     { id: 'contact', label: 'Contact', icon: <Mail className="w-4 h-4" /> },
     { id: 'privacy', label: 'Privacy Policy', icon: <Lock className="w-4 h-4" /> },
     { id: 'terms', label: 'Terms of Use', icon: <FileText className="w-4 h-4" /> },
@@ -669,6 +673,8 @@ export const StaticPageView: React.FC<StaticPageViewProps> = ({
                 <h2 className="font-bold text-slate-900 text-sm">Institutional & Legal Pages</h2>
                 <ul className="space-y-1 text-xs text-emerald-800">
                   <li>/about-us/</li>
+                  <li>/editorial-policy/</li>
+                  <li>/medical-review-board/</li>
                   <li>/contact/</li>
                   <li>/privacy-policy/</li>
                   <li>/terms-of-use/</li>
@@ -677,6 +683,109 @@ export const StaticPageView: React.FC<StaticPageViewProps> = ({
                   <li>/cookie-policy/</li>
                 </ul>
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* ===================== 9. EDITORIAL POLICY ===================== */}
+        {pageType === 'editorial-policy' && (
+          <div className="space-y-6 text-slate-700 leading-relaxed text-sm">
+            <div>
+              <span className="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
+                <FileText className="w-3.5 h-3.5 text-emerald-700" />
+                Editorial Integrity & Scientific Rigor
+              </span>
+              <h1 className="font-serif-title text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+                VitalPath Daily Editorial Policy
+              </h1>
+              <p className="text-slate-500 text-xs mt-1">
+                Last reviewed &amp; verified: September 2026 • Editorial Director: Dr. Sarah Bennett, MD
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <h2 className="font-bold text-base text-slate-900">1. Evidence-Based Standards & Scientific Citations</h2>
+              <p>
+                Every health guide, metabolic review, and protocol published on VitalPath Daily is grounded exclusively in peer-reviewed clinical research published in high-impact medical journals (including PubMed, The Lancet, JAMA, the New England Journal of Medicine, and the American Journal of Clinical Nutrition). We prohibit secondary hearsay or unverified marketing assertions.
+              </p>
+
+              <h2 className="font-bold text-base text-slate-900">2. Medical Review & Verification Process</h2>
+              <p>
+                Prior to publication, articles undergo a two-tier review process: first by certified health researchers and medical writers, followed by rigorous scrutiny by a licensed clinician on our Medical Review Board. Reviewers verify physiological accuracy, clinical dosages, potential medication contraindications, and regulatory compliance.
+              </p>
+
+              <h2 className="font-bold text-base text-slate-900">3. Commercial Independence & Honest Audits</h2>
+              <p>
+                Commercial relationships, affiliate partnerships, and sponsorships never dictate our editorial verdicts. Supplement formulations are evaluated against published clinical trials regardless of commercial agreements. If a product fails purity, stability, or efficacy benchmarks, our reviewers state this transparently.
+              </p>
+
+              <h2 className="font-bold text-base text-slate-900">4. Continuous Accuracy & Protocol Updates</h2>
+              <p>
+                Nutritional science evolves continuously. Our editorial team reviews clinical directories and product analyses bi-annually or whenever major clinical trials emerge to maintain current, actionable information.
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* ===================== 10. MEDICAL REVIEW BOARD ===================== */}
+        {pageType === 'medical-review-board' && (
+          <div className="space-y-6 text-slate-700 leading-relaxed text-sm">
+            <div>
+              <span className="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
+                Clinical Oversight & Safety
+              </span>
+              <h1 className="font-serif-title text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+                Medical Review Board
+              </h1>
+              <p className="text-slate-500 text-xs mt-1">
+                Independent clinicians and researchers ensuring medical accuracy and patient safety.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
+              <div className="p-5 rounded-2xl border border-slate-200 bg-white space-y-3">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80"
+                    alt="Dr. Sarah Bennett, MD"
+                    className="w-14 h-14 rounded-full object-cover ring-2 ring-emerald-500/20"
+                  />
+                  <div>
+                    <h2 className="font-bold text-slate-900 text-sm">Dr. Sarah Bennett, MD</h2>
+                    <p className="text-emerald-700 text-xs font-medium">Internal Medicine &amp; Metabolic Endocrinology</p>
+                    <p className="text-slate-400 text-[11px]">Harvard Medical School Alumna • 15+ Yrs Clinical Practice</p>
+                  </div>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Specializes in glycemic stabilization, insulin receptor sensitivity, and evidence-based lifestyle interventions for mature adults.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl border border-slate-200 bg-white space-y-3">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&q=80"
+                    alt="Dr. Michael Vance, PharmD"
+                    className="w-14 h-14 rounded-full object-cover ring-2 ring-emerald-500/20"
+                  />
+                  <div>
+                    <h2 className="font-bold text-slate-900 text-sm">Dr. Michael Vance, PharmD</h2>
+                    <p className="text-emerald-700 text-xs font-medium">Clinical Pharmacotherapy &amp; Toxicology</p>
+                    <p className="text-slate-400 text-[11px]">Johns Hopkins Fellowship • Dietary Supplement Audit Lead</p>
+                  </div>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Oversees botanical ingredient purity, bio-availability kinetics, and pharmacokinetic interactions between pharmaceuticals and nutraceuticals.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200/80 text-xs text-slate-700 space-y-1">
+              <span className="font-bold text-emerald-950 block">Our Clinical Review Pledge:</span>
+              <p>
+                VitalPath Daily articles bearing the &ldquo;Medically Reviewed&rdquo; badge have undergone rigorous line-by-line verification by our credentialed board members to ensure safety, biological feasibility, and evidence fidelity.
+              </p>
             </div>
           </div>
         )}

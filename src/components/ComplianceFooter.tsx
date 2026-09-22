@@ -31,14 +31,16 @@ export const ComplianceFooter: React.FC<ComplianceFooterProps> = ({
     'Product Reviews',
   ];
 
-  const legalPages: { id: StaticPageType; label: string; icon: React.ReactNode }[] = [
-    { id: 'about', label: 'About Us', icon: <BookOpen className="w-3.5 h-3.5" /> },
-    { id: 'contact', label: 'Contact', icon: <Mail className="w-3.5 h-3.5" /> },
-    { id: 'privacy', label: 'Privacy Policy', icon: <Lock className="w-3.5 h-3.5" /> },
-    { id: 'terms', label: 'Terms of Use', icon: <FileText className="w-3.5 h-3.5" /> },
-    { id: 'affiliate-disclosure', label: 'Affiliate Disclosure', icon: <Scale className="w-3.5 h-3.5" /> },
-    { id: 'medical-disclaimer', label: 'Medical Disclaimer', icon: <AlertTriangle className="w-3.5 h-3.5" /> },
-    { id: 'cookie-policy', label: 'Cookie Policy', icon: <HelpCircle className="w-3.5 h-3.5" /> },
+  const legalPages: { id: StaticPageType; slug: string; label: string; icon: React.ReactNode }[] = [
+    { id: 'about', slug: 'about-us', label: 'About Us', icon: <BookOpen className="w-3.5 h-3.5" /> },
+    { id: 'editorial-policy', slug: 'editorial-policy', label: 'Editorial Policy', icon: <FileText className="w-3.5 h-3.5" /> },
+    { id: 'medical-review-board', slug: 'medical-review-board', label: 'Medical Review Board', icon: <ShieldCheck className="w-3.5 h-3.5" /> },
+    { id: 'contact', slug: 'contact', label: 'Contact', icon: <Mail className="w-3.5 h-3.5" /> },
+    { id: 'privacy', slug: 'privacy-policy', label: 'Privacy Policy', icon: <Lock className="w-3.5 h-3.5" /> },
+    { id: 'terms', slug: 'terms-of-use', label: 'Terms of Use', icon: <FileText className="w-3.5 h-3.5" /> },
+    { id: 'affiliate-disclosure', slug: 'affiliate-disclosure', label: 'Affiliate Disclosure', icon: <Scale className="w-3.5 h-3.5" /> },
+    { id: 'medical-disclaimer', slug: 'medical-disclaimer', label: 'Medical Disclaimer', icon: <AlertTriangle className="w-3.5 h-3.5" /> },
+    { id: 'cookie-policy', slug: 'cookie-policy', label: 'Cookie Policy', icon: <HelpCircle className="w-3.5 h-3.5" /> },
   ];
 
   return (
@@ -109,8 +111,10 @@ export const ComplianceFooter: React.FC<ComplianceFooterProps> = ({
             <ul className="space-y-2 text-xs">
               {legalPages.map((item) => (
                 <li key={item.id}>
-                  <button
-                    onClick={() => {
+                  <a
+                    href={`/${item.slug}/`}
+                    onClick={(e) => {
+                      e.preventDefault();
                       onNavigateStaticPage(item.id);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
@@ -120,7 +124,7 @@ export const ComplianceFooter: React.FC<ComplianceFooterProps> = ({
                       {item.icon}
                     </span>
                     <span>{item.label}</span>
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -153,6 +157,184 @@ export const ComplianceFooter: React.FC<ComplianceFooterProps> = ({
           </div>
         </div>
 
+        {/* Comprehensive Health Protocols & Evidence-Based Internal Linking Directory */}
+        <div className="border-t border-slate-900 pt-8 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <h4 className="font-bold text-white text-xs uppercase tracking-wider flex items-center gap-2">
+              <BookOpen className="w-4 h-4 text-emerald-400" />
+              <span>Evidence-Based Topic Directories & Core Clinical Protocols</span>
+            </h4>
+            <span className="text-[11px] text-slate-500">
+              Direct permanent crawl index for Google Search Console & Readers
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-400">
+            {/* Healthy Blood Sugar Cluster */}
+            <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 space-y-2.5">
+              <a 
+                href="/healthy-blood-sugar/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelectCategory('Healthy Blood Sugar');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="font-bold text-emerald-400 hover:underline block text-xs"
+              >
+                Healthy Blood Sugar Hub →
+              </a>
+              <ul className="space-y-1.5 text-[11px]">
+                <li>
+                  <a href="/healthy-blood-sugar/blood-sugar-supplements-guide/" className="hover:text-white transition-colors">
+                    • Blood Sugar Supplements Consumer Guide
+                  </a>
+                </li>
+                <li>
+                  <a href="/comparisons/gluco6-vs-other-blood-sugar-supplements/" className="hover:text-white transition-colors">
+                    • Gluco6 vs Other Blood Sugar Supplements
+                  </a>
+                </li>
+                <li>
+                  <a href="/healthy-blood-sugar/post-meal-walk-glucose-protocol/" className="hover:text-white transition-colors">
+                    • 10-Minute Post-Meal Walk Protocol
+                  </a>
+                </li>
+                <li>
+                  <a href="/healthy-blood-sugar/what-to-look-for-in-blood-sugar-supplement/" className="hover:text-white transition-colors">
+                    • What to Look for in a Blood Sugar Supplement
+                  </a>
+                </li>
+                <li>
+                  <a href="/healthy-blood-sugar/what-is-healthy-blood-sugar/" className="hover:text-white transition-colors">
+                    • What Is Healthy Blood Sugar & Why It Matters
+                  </a>
+                </li>
+                <li>
+                  <a href="/healthy-blood-sugar/how-diet-affects-blood-sugar/" className="hover:text-white transition-colors">
+                    • How Diet Affects Blood Sugar Levels
+                  </a>
+                </li>
+                <li>
+                  <a href="/healthy-blood-sugar/lifestyle-habits-healthy-blood-sugar/" className="hover:text-white transition-colors">
+                    • Simple Lifestyle Habits for Blood Sugar Balance
+                  </a>
+                </li>
+                <li>
+                  <a href="/healthy-blood-sugar/apple-cider-vinegar-benefits-uses/" className="hover:text-white transition-colors">
+                    • Apple Cider Vinegar: Benefits, Uses & Evidence
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Product Reviews & Audits Cluster */}
+            <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 space-y-2.5">
+              <a 
+                href="/product-reviews/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelectCategory('Product Reviews');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="font-bold text-emerald-400 hover:underline block text-xs"
+              >
+                Audited Product Reviews Hub →
+              </a>
+              <ul className="space-y-1.5 text-[11px]">
+                <li>
+                  <a href="/product-reviews/gluco6-review/" className="hover:text-white transition-colors">
+                    • Gluco6 Review: Ingredients, Benefits & Audit
+                  </a>
+                </li>
+                <li>
+                  <a href="/product-reviews/gluco6-ingredients/" className="hover:text-white transition-colors">
+                    • Gluco6 Ingredients: Deep Scientific Breakdown
+                  </a>
+                </li>
+                <li>
+                  <a href="/product-reviews/sugar-defender-review/" className="hover:text-white transition-colors">
+                    • Sugar Defender Review: Liquid Dropper Analysis
+                  </a>
+                </li>
+                <li>
+                  <a href="/product-reviews/puravive-review/" className="hover:text-white transition-colors">
+                    • Puravive Review: Brown Adipose Tissue Audit
+                  </a>
+                </li>
+                <li>
+                  <a href="/product-reviews/duwzgu-d3-k2-review/" className="hover:text-white transition-colors">
+                    • Duwzgu D3 + K2 Liquid Drops Review
+                  </a>
+                </li>
+                <li>
+                  <a href="/product-reviews/duwzgu-creatine-monohydrate-review/" className="hover:text-white transition-colors">
+                    • Duwzgu Creatine Monohydrate Powder Review
+                  </a>
+                </li>
+                <li>
+                  <a href="/product-reviews/duwzgu-sleep-support-gummies-review/" className="hover:text-white transition-colors">
+                    • Duwzgu Sleep Support Gummies Review
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Longevity, Stress & Metabolism */}
+            <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 space-y-2.5">
+              <span className="font-bold text-emerald-400 block text-xs">
+                Metabolism, Sleep & Longevity Pillars:
+              </span>
+              <ul className="space-y-1.5 text-[11px]">
+                <li>
+                  <a href="/sleep-and-stress/understanding-cortisol-stress-hormone/" className="hover:text-white transition-colors">
+                    • Understanding Cortisol & The Stress Hormone
+                  </a>
+                </li>
+                <li>
+                  <a href="/sleep-and-stress/magnesium-glycinate-benefits/" className="hover:text-white transition-colors">
+                    • Magnesium Glycinate for Deep Sleep
+                  </a>
+                </li>
+                <li>
+                  <a href="/sleep-and-stress/circadian-rhythm-dawn-phenomenon-guide/" className="hover:text-white transition-colors">
+                    • Circadian Rhythm & Dawn Phenomenon Protocol
+                  </a>
+                </li>
+                <li>
+                  <a href="/healthy-aging/mediterranean-anti-inflammatory-longevity-blueprint/" className="hover:text-white transition-colors">
+                    • Mediterranean Longevity Blueprint
+                  </a>
+                </li>
+                <li>
+                  <a href="/healthy-aging/chronic-vs-acute-inflammation/" className="hover:text-white transition-colors">
+                    • Chronic vs. Acute Inflammation Guide
+                  </a>
+                </li>
+                <li>
+                  <a href="/nutrition/food-sequencing-fiber-matrix-guide/" className="hover:text-white transition-colors">
+                    • Food Sequencing & Fiber Matrix Protocol
+                  </a>
+                </li>
+                <li>
+                  <a href="/nutrition/best-foods-before-after-exercise/" className="hover:text-white transition-colors">
+                    • Best Foods Before & After Exercise Guide
+                  </a>
+                </li>
+                <li>
+                  <a href="/weight-management/hydration-electrolytes-metabolic-health-guide/" className="hover:text-white transition-colors">
+                    • Hydration & Electrolytes for Metabolic Rate
+                  </a>
+                </li>
+                <li>
+                  <a href="/weight-management/intermittent-fasting-benefits-how-to-start/" className="hover:text-white transition-colors">
+                    • Intermittent Fasting: Safe Protocol
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         {/* FDA & Medical Legal Disclaimer (Compliance & Trust Signals) */}
         <div className="border-t border-slate-900 pt-6 space-y-4 text-[11px] text-slate-500 leading-relaxed">
           <div>
@@ -174,47 +356,77 @@ export const ComplianceFooter: React.FC<ComplianceFooterProps> = ({
         <div className="border-t border-slate-900 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© 2026 VitalPath Daily (<a href="mailto:rabatmba@gmail.com" className="hover:text-slate-300 transition-colors">rabatmba@gmail.com</a>). All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px]">
-            <button 
-              onClick={() => { onNavigateStaticPage('about'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            <a 
+              href="/about-us/"
+              onClick={(e) => { e.preventDefault(); onNavigateStaticPage('about'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               className="hover:text-slate-300 transition-colors cursor-pointer"
             >
-              About
-            </button>
+              About Us
+            </a>
             <span>•</span>
-            <button 
-              onClick={() => { onNavigateStaticPage('contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            <a 
+              href="/editorial-policy/"
+              onClick={(e) => { e.preventDefault(); onNavigateStaticPage('editorial-policy'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="hover:text-slate-300 transition-colors cursor-pointer"
+            >
+              Editorial Policy
+            </a>
+            <span>•</span>
+            <a 
+              href="/medical-review-board/"
+              onClick={(e) => { e.preventDefault(); onNavigateStaticPage('medical-review-board'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="hover:text-slate-300 transition-colors cursor-pointer"
+            >
+              Medical Review Board
+            </a>
+            <span>•</span>
+            <a 
+              href="/contact/"
+              onClick={(e) => { e.preventDefault(); onNavigateStaticPage('contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               className="hover:text-slate-300 transition-colors cursor-pointer"
             >
               Contact
-            </button>
+            </a>
             <span>•</span>
-            <button 
-              onClick={() => { onNavigateStaticPage('privacy'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            <a 
+              href="/privacy-policy/"
+              onClick={(e) => { e.preventDefault(); onNavigateStaticPage('privacy'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               className="hover:text-slate-300 transition-colors cursor-pointer"
             >
               Privacy Policy
-            </button>
+            </a>
             <span>•</span>
-            <button 
-              onClick={() => { onNavigateStaticPage('terms'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            <a 
+              href="/terms-of-use/"
+              onClick={(e) => { e.preventDefault(); onNavigateStaticPage('terms'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               className="hover:text-slate-300 transition-colors cursor-pointer"
             >
               Terms of Use
-            </button>
+            </a>
             <span>•</span>
-            <button 
-              onClick={() => { onNavigateStaticPage('affiliate-disclosure'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            <a 
+              href="/affiliate-disclosure/"
+              onClick={(e) => { e.preventDefault(); onNavigateStaticPage('affiliate-disclosure'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               className="hover:text-slate-300 transition-colors cursor-pointer"
             >
               Affiliate Disclosure
-            </button>
+            </a>
             <span>•</span>
-            <button 
-              onClick={() => { onNavigateStaticPage('medical-disclaimer'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            <a 
+              href="/medical-disclaimer/"
+              onClick={(e) => { e.preventDefault(); onNavigateStaticPage('medical-disclaimer'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               className="hover:text-slate-300 transition-colors cursor-pointer"
             >
               Medical Disclaimer
-            </button>
+            </a>
+            <span>•</span>
+            <a 
+              href="/cookie-policy/"
+              onClick={(e) => { e.preventDefault(); onNavigateStaticPage('cookie-policy'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="hover:text-slate-300 transition-colors cursor-pointer"
+            >
+              Cookie Policy
+            </a>
             {onOpenAffiliateManager && (
               <>
                 <span>•</span>
