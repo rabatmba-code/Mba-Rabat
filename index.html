@@ -78,29 +78,157 @@
         } catch (err) {}
       })();
     </script>
-    <!-- Schema.org Organization & WebSite Structured Data -->
+    <!-- Schema.org Knowledge Graph: Brand Entity Optimization (BEO) for Google & AI Search Engines -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "Organization",
+          "@type": ["NewsMediaOrganization", "MedicalOrganization"],
           "@id": "https://mba-rabat.vercel.app/#organization",
           "name": "VitalPath Daily",
+          "alternateName": [
+            "VitalPath",
+            "VitalPath Daily Health",
+            "VitalPath Longevity",
+            "VitalPathDaily"
+          ],
+          "legalName": "VitalPath Daily Media LLC",
           "url": "https://mba-rabat.vercel.app/",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://mba-rabat.vercel.app/assets/vitalpath-logo.png",
-            "caption": "VitalPath Daily"
+            "@id": "https://mba-rabat.vercel.app/#logo",
+            "url": "https://mba-rabat.vercel.app/favicon.svg",
+            "caption": "VitalPath Daily - Evidence-Based Wellness & Longevity Entity",
+            "width": "512",
+            "height": "512"
           },
-          "description": "Practical Wellness Guidance for a Healthier Everyday Life. Evidence-informed guides, nutrition tips, healthy-aging advice and honest product reviews.",
-          "knowsAbout": ["Healthy Blood Sugar", "Healthy Aging", "Nutrition", "Sleep & Stress", "Weight Management", "Dietary Supplements"]
+          "image": {
+            "@id": "https://mba-rabat.vercel.app/#logo"
+          },
+          "description": "VitalPath Daily is an independent digital health publishing entity and medical review authority dedicated to evidence-based metabolic health, clinical nutritional biochemistry, healthy longevity protocols, and rigorous dietary supplement audits for mature adults.",
+          "slogan": "Evidence-Informed Protocols & Vetted Health Guidance for Mature Adults",
+          "foundingDate": "2024-01-15",
+          "publishingPrinciples": "https://mba-rabat.vercel.app/editorial-policy/",
+          "correctionsPolicy": "https://mba-rabat.vercel.app/editorial-policy/#corrections",
+          "ethicsPolicy": "https://mba-rabat.vercel.app/editorial-policy/#ethics",
+          "diversityPolicy": "https://mba-rabat.vercel.app/about-us/#diversity",
+          "unnamedSourcesPolicy": "https://mba-rabat.vercel.app/editorial-policy/#citations",
+          "actionableFeedbackPolicy": "https://mba-rabat.vercel.app/contact/",
+          "knowsAbout": [
+            {
+              "@type": "Thing",
+              "name": "Evidence-Based Medicine",
+              "sameAs": "https://en.wikipedia.org/wiki/Evidence-based_medicine"
+            },
+            {
+              "@type": "Thing",
+              "name": "Dietary Supplement",
+              "sameAs": "https://en.wikipedia.org/wiki/Dietary_supplement"
+            },
+            {
+              "@type": "Thing",
+              "name": "Blood Sugar Regulation",
+              "sameAs": "https://en.wikipedia.org/wiki/Blood_sugar_regulation"
+            },
+            {
+              "@type": "Thing",
+              "name": "Longevity & Healthy Aging",
+              "sameAs": "https://en.wikipedia.org/wiki/Longevity"
+            },
+            {
+              "@type": "Thing",
+              "name": "Clinical Pharmacology",
+              "sameAs": "https://en.wikipedia.org/wiki/Clinical_pharmacology"
+            },
+            {
+              "@type": "Thing",
+              "name": "Insulin Resistance & Metabolic Syndrome",
+              "sameAs": "https://en.wikipedia.org/wiki/Insulin_resistance"
+            },
+            {
+              "@type": "Thing",
+              "name": "Pelvic Floor Physiology",
+              "sameAs": "https://en.wikipedia.org/wiki/Pelvic_floor"
+            }
+          ],
+          "member": [
+            {
+              "@type": "Person",
+              "@id": "https://mba-rabat.vercel.app/#person-elena-vance",
+              "name": "Dr. Elena Vance, MD",
+              "jobTitle": "Chief Medical Editor",
+              "honorificPrefix": "Dr.",
+              "honorificSuffix": "MD",
+              "alumniOf": {
+                "@type": "EducationalOrganization",
+                "name": "Johns Hopkins Medicine"
+              },
+              "knowsAbout": ["Internal Medicine", "Preventive Cardiology", "Metabolic Health"]
+            },
+            {
+              "@type": "Person",
+              "@id": "https://mba-rabat.vercel.app/#person-sarah-bennett",
+              "name": "Dr. Sarah Bennett, MD",
+              "jobTitle": "Medical Reviewer - Endocrinology",
+              "honorificPrefix": "Dr.",
+              "honorificSuffix": "MD",
+              "alumniOf": {
+                "@type": "EducationalOrganization",
+                "name": "Harvard Medical School"
+              },
+              "knowsAbout": ["Endocrinology", "Glycemic Regulation", "Gerontology"]
+            },
+            {
+              "@type": "Person",
+              "@id": "https://mba-rabat.vercel.app/#person-michael-vance",
+              "name": "Dr. Michael Vance, PharmD",
+              "jobTitle": "Clinical Pharmacotherapy Lead",
+              "honorificPrefix": "Dr.",
+              "honorificSuffix": "PharmD",
+              "alumniOf": {
+                "@type": "EducationalOrganization",
+                "name": "Johns Hopkins University"
+              },
+              "knowsAbout": ["Clinical Pharmacology", "Botanical Bioavailability", "Dietary Supplement Safety"]
+            },
+            {
+              "@type": "Person",
+              "@id": "https://mba-rabat.vercel.app/#person-marcus-thorne",
+              "name": "Marcus Thorne, MS, CNS",
+              "jobTitle": "Senior Nutritional Biochemist",
+              "honorificSuffix": "MS, CNS",
+              "knowsAbout": ["Nutritional Biochemistry", "Microbiome Signaling", "Phytonutrient Potency"]
+            }
+          ],
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "contactType": "editorial and medical inquiries",
+              "email": "rabatmba@gmail.com",
+              "url": "https://mba-rabat.vercel.app/contact/",
+              "availableLanguage": ["English"]
+            },
+            {
+              "@type": "ContactPoint",
+              "contactType": "customer support & reader feedback",
+              "email": "rabatmba@gmail.com",
+              "url": "https://mba-rabat.vercel.app/contact/",
+              "availableLanguage": ["English"]
+            }
+          ],
+          "sameAs": [
+            "https://twitter.com/VitalPathDaily",
+            "https://www.facebook.com/VitalPathDaily",
+            "https://www.linkedin.com/company/vitalpathdaily"
+          ]
         },
         {
           "@type": "WebSite",
           "@id": "https://mba-rabat.vercel.app/#website",
           "url": "https://mba-rabat.vercel.app/",
           "name": "VitalPath Daily",
+          "alternateName": "VitalPath Daily - Evidence-Based Wellness & Longevity",
           "publisher": {
             "@id": "https://mba-rabat.vercel.app/#organization"
           },

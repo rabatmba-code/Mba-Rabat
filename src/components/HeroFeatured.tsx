@@ -27,6 +27,7 @@ interface HeroFeaturedProps {
   onOpenQuiz: () => void;
   onExploreGuides?: () => void;
   onSelectCategory?: (category: string) => void;
+  onNavigateAuthor?: (slug: string) => void;
 }
 
 export const HeroFeatured: React.FC<HeroFeaturedProps> = ({
@@ -35,6 +36,7 @@ export const HeroFeatured: React.FC<HeroFeaturedProps> = ({
   onOpenQuiz,
   onExploreGuides,
   onSelectCategory,
+  onNavigateAuthor,
 }) => {
   const [activeGoal, setActiveGoal] = useState<string>('all');
 
@@ -257,14 +259,23 @@ export const HeroFeatured: React.FC<HeroFeaturedProps> = ({
 
               {/* Author & Action footer */}
               <div className="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
+                <div
+                  onClick={() => {
+                    const slug = article.author?.slug || article.author?.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'elena-vance';
+                    if (onNavigateAuthor) onNavigateAuthor(slug);
+                  }}
+                  className="flex items-center gap-3 cursor-pointer group/heroauthor"
+                  title={`View ${article.author?.name || 'Author'} profile & credentials`}
+                >
                   <img
                     src={article.author?.avatar || 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80'}
                     alt={article.author?.name || 'Editorial Team'}
-                    className="w-11 h-11 rounded-full object-cover ring-2 ring-emerald-500/40"
+                    className="w-11 h-11 rounded-full object-cover ring-2 ring-emerald-500/40 group-hover/heroauthor:ring-emerald-400 transition-all"
                   />
                   <div className="text-xs">
-                    <p className="font-bold text-white text-sm">{article.author?.name || 'Editorial Team'}</p>
+                    <p className="font-bold text-white text-sm group-hover/heroauthor:text-emerald-400 transition-colors">
+                      {article.author?.name || 'Editorial Team'}
+                    </p>
                     <p className="text-slate-400">{article.author?.credentials || 'Evidence-Based Medicine'}</p>
                   </div>
                 </div>

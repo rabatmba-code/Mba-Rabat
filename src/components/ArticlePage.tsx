@@ -24,8 +24,10 @@ import { AffiliateCTA } from './AffiliateCTA';
 import { FAQSection, FAQItem } from './FAQSection';
 import { RelatedArticles } from './RelatedArticles';
 import { OfferProductGallery } from './OfferProductGallery';
+import { InArticleNativeBanner } from './InArticleNativeBanner';
 import { getOfferForCategory, getAffiliateOffer } from '../config/affiliateOffers';
 import { getEnrichedInternalLinks } from '../utils/internalLinking';
+import { getOptimizedImageUrl } from '../utils/imageOptimization';
 
 interface ArticlePageProps {
   article: Article;
@@ -36,6 +38,7 @@ interface ArticlePageProps {
   onNavigateCategory?: (category: string) => void;
   onNavigateDisclosure?: () => void;
   onOpenReview?: (offerId: string) => void;
+  onNavigateAuthor?: (slug: string) => void;
 }
 
 export const ArticlePage: React.FC<ArticlePageProps> = ({
@@ -47,6 +50,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
   onNavigateCategory,
   onNavigateDisclosure,
   onOpenReview,
+  onNavigateAuthor,
 }) => {
   const [copied, setCopied] = useState(false);
   const [activeTocId, setActiveTocId] = useState<string>('');
@@ -172,37 +176,53 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
         'datePublished': article.publishedDate ? `${article.publishedDate}T08:00:00+00:00` : '2026-09-12T08:00:00+00:00',
         'dateModified': article.updatedDate ? `${article.updatedDate}T10:00:00+00:00` : '2026-09-21T11:00:00+00:00',
         'inLanguage': 'en-US',
+        'speakable': {
+          '@type': 'SpeakableSpecification',
+          'cssSelector': ['h1', '.article-takeaways', '.article-lead']
+        },
+        'publishingPrinciples': 'https://mba-rabat.vercel.app/editorial-policy/',
         'author': {
           '@type': 'Person',
-          '@id': `https://mba-rabat.vercel.app/#author-${article.author.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
+          '@id': `https://mba-rabat.vercel.app/#person-${article.author.slug || article.author.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
           'name': article.author.name,
+          'url': `https://mba-rabat.vercel.app/author/${article.author.slug || article.author.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}/`,
           'jobTitle': article.author.role,
           'honorificSuffix': article.author.credentials,
           'description': article.author.bio,
           'image': article.author.avatar,
+          ...(article.author.sameAs && article.author.sameAs.length > 0 ? {
+            'sameAs': article.author.sameAs
+          } : {}),
+          'worksFor': {
+            '@id': 'https://mba-rabat.vercel.app/#organization'
+          }
         },
         ...(article.medicallyReviewedBy ? {
           'reviewedBy': {
             '@type': 'Person',
-            '@id': `https://mba-rabat.vercel.app/#reviewer-${article.medicallyReviewedBy.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
+            '@id': `https://mba-rabat.vercel.app/#person-${article.medicallyReviewedBy.slug || article.medicallyReviewedBy.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
             'name': article.medicallyReviewedBy.name,
+            'url': `https://mba-rabat.vercel.app/author/${article.medicallyReviewedBy.slug || article.medicallyReviewedBy.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}/`,
             'jobTitle': article.medicallyReviewedBy.title,
             'description': article.medicallyReviewedBy.verificationNote,
             'image': article.medicallyReviewedBy.avatar,
+            ...(article.medicallyReviewedBy.sameAs && article.medicallyReviewedBy.sameAs.length > 0 ? {
+              'sameAs': article.medicallyReviewedBy.sameAs
+            } : {}),
             'worksFor': {
-              '@type': 'Organization',
+              '@type': 'MedicalOrganization',
               'name': article.medicallyReviewedBy.institution,
             },
           },
         } : {}),
         'publisher': {
-          '@type': 'Organization',
+          '@type': ['NewsMediaOrganization', 'MedicalOrganization'],
           '@id': 'https://mba-rabat.vercel.app/#organization',
           'name': 'VitalPath Daily',
           'url': 'https://mba-rabat.vercel.app/',
           'logo': {
             '@type': 'ImageObject',
-            'url': 'https://mba-rabat.vercel.app/assets/vitalpath-logo.png',
+            'url': 'https://mba-rabat.vercel.app/favicon.svg',
           },
         },
         'medicalAudience': {
@@ -461,58 +481,92 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
           </p>
 
           {/* Editorial / Medical Review Bar */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <img
-                src={article.author?.avatar || 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80'}
-                alt={article.author?.name || 'Editorial Team'}
-                className="w-12 h-12 rounded-full object-cover ring-2 ring-emerald-600/40"
-              />
-              <div>
-                <p className="text-sm font-bold text-slate-900">
-                  By {article.author?.name || 'VitalPath Editorial Team'}
-                </p>
-                <p className="text-xs text-slate-500">
-                  {article.author?.role || 'Medical Contributor'} • {article.author?.credentials || 'Evidence-Based Research'}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-2.5">
-              {article.medicallyReviewedBy && (
-                <div className="flex items-center gap-2 bg-white border border-emerald-200/80 px-3 py-1.5 rounded-xl text-xs text-slate-800 shadow-2xs">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+          {(() => {
+            const authorSlug = article.author?.slug || article.author?.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'elena-vance';
+            const reviewerSlug = article.medicallyReviewedBy?.slug || (article.medicallyReviewedBy?.name.toLowerCase().includes('vance') ? 'elena-vance' : 'sarah-lindqvist');
+            return (
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <a
+                    href={`/author/${authorSlug}/`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (onNavigateAuthor) onNavigateAuthor(authorSlug);
+                    }}
+                    className="cursor-pointer group block shrink-0"
+                    title={`View clinical profile of ${article.author?.name || 'Author'}`}
+                  >
+                    <img
+                      src={article.author?.avatar || 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80'}
+                      alt={article.author?.name || 'Editorial Team'}
+                      className="w-12 h-12 rounded-full object-cover ring-2 ring-emerald-600/40 group-hover:ring-emerald-600 transition-all"
+                    />
+                  </a>
                   <div>
-                    <span className="font-bold block text-emerald-950 text-[11px] leading-tight">Medically Reviewed</span>
-                    <span className="text-slate-500 text-[10px]">{article.medicallyReviewedBy.name}</span>
+                    <a
+                      href={`/author/${authorSlug}/`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (onNavigateAuthor) onNavigateAuthor(authorSlug);
+                      }}
+                      className="text-sm font-bold text-slate-900 hover:text-emerald-800 hover:underline transition-colors block cursor-pointer"
+                    >
+                      By {article.author?.name || 'VitalPath Editorial Team'}
+                    </a>
+                    <p className="text-xs text-slate-500">
+                      {article.author?.role || 'Medical Contributor'} • {article.author?.credentials || 'Evidence-Based Research'}
+                    </p>
                   </div>
                 </div>
-              )}
 
-              {matchedOffer && (
-                <div className="flex items-center gap-2 bg-white border border-amber-200/80 px-3 py-1.5 rounded-xl text-xs text-slate-800 shadow-2xs">
-                  <Star className="w-4 h-4 fill-amber-400 text-amber-400 shrink-0" />
-                  <div>
-                    <div className="flex items-center gap-1 leading-tight">
-                      <span className="font-bold text-slate-900 text-[11px]">{(matchedOffer.rating || 4.9).toFixed(1)}</span>
-                      <span className="text-slate-400 text-[10px]">/ 5.0</span>
+                <div className="flex flex-wrap items-center gap-2.5">
+                  {article.medicallyReviewedBy && (
+                    <a
+                      href={`/author/${reviewerSlug}/`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (onNavigateAuthor) onNavigateAuthor(reviewerSlug);
+                      }}
+                      className="flex items-center gap-2 bg-white border border-emerald-200/80 hover:border-emerald-400 px-3 py-1.5 rounded-xl text-xs text-slate-800 shadow-2xs hover:shadow-xs transition-all cursor-pointer"
+                      title={`View medical reviewer profile for ${article.medicallyReviewedBy.name}`}
+                    >
+                      <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <div>
+                        <span className="font-bold block text-emerald-950 text-[11px] leading-tight">Medically Reviewed</span>
+                        <span className="text-slate-500 text-[10px]">{article.medicallyReviewedBy.name}</span>
+                      </div>
+                    </a>
+                  )}
+
+                  {matchedOffer && (
+                    <div className="flex items-center gap-2 bg-white border border-amber-200/80 px-3 py-1.5 rounded-xl text-xs text-slate-800 shadow-2xs">
+                      <Star className="w-4 h-4 fill-amber-400 text-amber-400 shrink-0" />
+                      <div>
+                        <div className="flex items-center gap-1 leading-tight">
+                          <span className="font-bold text-slate-900 text-[11px]">{(matchedOffer.rating || 4.9).toFixed(1)}</span>
+                          <span className="text-slate-400 text-[10px]">/ 5.0</span>
+                        </div>
+                        <span className="text-slate-500 text-[10px]">
+                          {(matchedOffer.reviewsCount || 1840).toLocaleString()}+ Verified Audits
+                        </span>
+                      </div>
                     </div>
-                    <span className="text-slate-500 text-[10px]">
-                      {(matchedOffer.reviewsCount || 1840).toLocaleString()}+ Verified Audits
-                    </span>
-                  </div>
+                  )}
                 </div>
-              )}
-            </div>
-          </div>
+              </div>
+            );
+          })()}
 
           {/* Featured Image with Descriptive Alt Text */}
           <figure className="rounded-2xl overflow-hidden mb-8 shadow-sm border border-slate-200 bg-slate-100">
             <img
-              src={article.coverImage}
+              src={getOptimizedImageUrl(article.coverImage, { width: 1200, height: 675 })}
               alt={`Clinical illustration representing ${article.title}`}
               className="w-full h-72 sm:h-96 object-cover"
               loading="eager"
+              decoding="async"
+              width={1200}
+              height={675}
             />
             <figcaption className="text-center text-[11px] text-slate-500 py-2 bg-slate-50 border-t border-slate-200">
               Evidence-informed guidance for mature adults. Medical photography & research diagram.
@@ -587,77 +641,91 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
           {/* H2 / H3 Article Content Sections */}
           <div className="space-y-10 text-base text-slate-800 leading-relaxed font-sans">
             {article.contentSections.map((sec, idx) => (
-              <section key={idx} id={`section-${idx}`} className="space-y-4 pt-2 scroll-mt-24">
-                <h2 className="font-serif-title text-2xl sm:text-3xl font-bold text-slate-900 leading-snug">
-                  {sec.heading}
-                </h2>
+              <React.Fragment key={idx}>
+                <section id={`section-${idx}`} className="space-y-4 pt-2 scroll-mt-24">
+                  <h2 className="font-serif-title text-2xl sm:text-3xl font-bold text-slate-900 leading-snug">
+                    {sec.heading}
+                  </h2>
 
-                {sec.subheading && (
-                  <p className="text-sm font-medium text-emerald-800 italic">
-                    {sec.subheading}
-                  </p>
-                )}
-
-                {/* Paragraphs */}
-                {sec.paragraphs && sec.paragraphs.length > 0 ? (
-                  sec.paragraphs.map((p, pIdx) => (
-                    <p key={pIdx} className="leading-relaxed text-slate-700 text-base">
-                      {p}
+                  {sec.subheading && (
+                    <p className="text-sm font-medium text-emerald-800 italic">
+                      {sec.subheading}
                     </p>
-                  ))
-                ) : (
-                  <p className="leading-relaxed text-slate-700 text-base">
-                    {sec.content}
-                  </p>
-                )}
+                  )}
 
-                {/* Bullet points if present */}
-                {sec.bulletPoints && sec.bulletPoints.length > 0 && (
-                  <ul className="space-y-2.5 my-4 bg-slate-50 border border-slate-200/80 rounded-2xl p-5 text-sm text-slate-700">
-                    {sec.bulletPoints.map((point, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2 shrink-0"></span>
-                        <span className="leading-relaxed">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                  {/* Paragraphs */}
+                  {sec.paragraphs && sec.paragraphs.length > 0 ? (
+                    sec.paragraphs.map((p, pIdx) => (
+                      <p key={pIdx} className="leading-relaxed text-slate-700 text-base">
+                        {p}
+                      </p>
+                    ))
+                  ) : (
+                    <p className="leading-relaxed text-slate-700 text-base">
+                      {sec.content}
+                    </p>
+                  )}
 
-                {/* Subsections if present */}
-                {sec.subsections && sec.subsections.length > 0 && (
-                  <div className="space-y-6 pt-2">
-                    {sec.subsections.map((sub, sIdx) => (
-                      <div key={sIdx} className="space-y-2 border-l-2 border-emerald-600/30 pl-4 py-1">
-                        <h3 className="font-serif-title text-xl font-bold text-slate-900">
-                          {sub.title}
-                        </h3>
-                        <p className="text-slate-700 text-base leading-relaxed">
-                          {sub.content}
-                        </p>
-                        {sub.bulletPoints && sub.bulletPoints.length > 0 && (
-                          <ul className="space-y-1.5 pt-1 text-sm text-slate-600">
-                            {sub.bulletPoints.map((sp, spIdx) => (
-                              <li key={spIdx} className="flex items-start gap-2">
-                                <span className="text-emerald-700 font-bold">•</span>
-                                <span>{sp}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                    ))}
+                  {/* Bullet points if present */}
+                  {sec.bulletPoints && sec.bulletPoints.length > 0 && (
+                    <ul className="space-y-2.5 my-4 bg-slate-50 border border-slate-200/80 rounded-2xl p-5 text-sm text-slate-700">
+                      {sec.bulletPoints.map((point, bIdx) => (
+                        <li key={bIdx} className="flex items-start gap-2.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2 shrink-0"></span>
+                          <span className="leading-relaxed">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {/* Subsections if present */}
+                  {sec.subsections && sec.subsections.length > 0 && (
+                    <div className="space-y-6 pt-2">
+                      {sec.subsections.map((sub, sIdx) => (
+                        <div key={sIdx} className="space-y-2 border-l-2 border-emerald-600/30 pl-4 py-1">
+                          <h3 className="font-serif-title text-xl font-bold text-slate-900">
+                            {sub.title}
+                          </h3>
+                          <p className="text-slate-700 text-base leading-relaxed">
+                            {sub.content}
+                          </p>
+                          {sub.bulletPoints && sub.bulletPoints.length > 0 && (
+                            <ul className="space-y-1.5 pt-1 text-sm text-slate-600">
+                              {sub.bulletPoints.map((sp, spIdx) => (
+                                <li key={spIdx} className="flex items-start gap-2">
+                                  <span className="text-emerald-700 font-bold">•</span>
+                                  <span>{sp}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {sec.callout && (
+                    <div className="my-5 p-4 rounded-xl border border-blue-200 bg-blue-50/70 text-blue-950 text-sm">
+                      <span className="font-bold uppercase text-[11px] tracking-wider text-blue-900 block mb-1">
+                        🔬 Scientific Context:
+                      </span>
+                      <p className="italic text-blue-900/90 leading-relaxed">{sec.callout.text}</p>
+                    </div>
+                  )}
+                </section>
+
+                {/* High-Converting Mid-Article Touchpoint (Approx 35-45% scroll depth) */}
+                {idx === (article.contentSections.length > 2 ? 1 : 0) && (
+                  <div className="my-8 no-print print:hidden">
+                    <InArticleNativeBanner
+                      offerId={matchedOfferId}
+                      onReadReview={onOpenReview}
+                      title={`Targeted ${article.category} Protocol`}
+                      contextNote="Evidence-aligned formula complementary to this research"
+                    />
                   </div>
                 )}
-
-                {sec.callout && (
-                  <div className="my-5 p-4 rounded-xl border border-blue-200 bg-blue-50/70 text-blue-950 text-sm">
-                    <span className="font-bold uppercase text-[11px] tracking-wider text-blue-900 block mb-1">
-                      🔬 Scientific Context:
-                    </span>
-                    <p className="italic text-blue-900/90 leading-relaxed">{sec.callout.text}</p>
-                  </div>
-                )}
-              </section>
+              </React.Fragment>
             ))}
           </div>
 
@@ -839,6 +907,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
             medicallyReviewedBy={article.medicallyReviewedBy}
             publishedDate={article.publishedDate}
             updatedDate="September 13, 2026"
+            onNavigateAuthor={onNavigateAuthor}
           />
 
           {/* Related Articles Component (Topic Clusters & Related Clinical Guides) */}

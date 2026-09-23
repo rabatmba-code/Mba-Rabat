@@ -24,7 +24,8 @@ import {
   ArrowRight,
   Zap,
   Tag,
-  SlidersHorizontal
+  SlidersHorizontal,
+  Award
 } from 'lucide-react';
 import { StaticPageType } from './StaticPageView';
 import { Article } from '../types';
@@ -659,6 +660,13 @@ export const Header: React.FC<HeaderProps> = ({
                 </span>
                 <div className="grid grid-cols-2 gap-2 text-xs">
                   <button
+                    onClick={() => { setSideMenuOpen(false); onNavigateStaticPage('brand-entity'); }}
+                    className="p-2.5 rounded-lg border border-emerald-300 bg-emerald-50/80 text-emerald-950 font-bold text-left flex items-center gap-2 cursor-pointer col-span-2 shadow-2xs"
+                  >
+                    <Award className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
+                    <span>Entity Profile &amp; Knowledge Graph (BEO)</span>
+                  </button>
+                  <button
                     onClick={() => { setSideMenuOpen(false); onNavigateStaticPage('about'); }}
                     className="p-2.5 rounded-lg border border-slate-200 hover:border-slate-300 bg-white text-slate-700 hover:text-slate-900 font-medium text-left flex items-center gap-2 cursor-pointer"
                   >
@@ -666,11 +674,25 @@ export const Header: React.FC<HeaderProps> = ({
                     <span>About VitalPath</span>
                   </button>
                   <button
+                    onClick={() => { setSideMenuOpen(false); onNavigateStaticPage('editorial-policy'); }}
+                    className="p-2.5 rounded-lg border border-slate-200 hover:border-slate-300 bg-white text-slate-700 hover:text-slate-900 font-medium text-left flex items-center gap-2 cursor-pointer"
+                  >
+                    <BookOpen className="w-3.5 h-3.5 text-slate-400" />
+                    <span>Editorial Policy</span>
+                  </button>
+                  <button
+                    onClick={() => { setSideMenuOpen(false); onNavigateStaticPage('medical-review-board'); }}
+                    className="p-2.5 rounded-lg border border-slate-200 hover:border-slate-300 bg-white text-slate-700 hover:text-slate-900 font-medium text-left flex items-center gap-2 cursor-pointer"
+                  >
+                    <ShieldCheck className="w-3.5 h-3.5 text-slate-400" />
+                    <span>Medical Board</span>
+                  </button>
+                  <button
                     onClick={() => { setSideMenuOpen(false); onNavigateStaticPage('contact'); }}
                     className="p-2.5 rounded-lg border border-slate-200 hover:border-slate-300 bg-white text-slate-700 hover:text-slate-900 font-medium text-left flex items-center gap-2 cursor-pointer"
                   >
                     <Mail className="w-3.5 h-3.5 text-slate-400" />
-                    <span>Contact Editorial</span>
+                    <span>Contact Support</span>
                   </button>
                   <button
                     onClick={() => { setSideMenuOpen(false); onNavigateStaticPage('affiliate-disclosure'); }}

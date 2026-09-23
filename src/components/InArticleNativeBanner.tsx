@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Star, ExternalLink, Sparkles, BookOpen } from 'lucide-react';
 import { getAffiliateOffer, getAffiliateUrl } from '../config/affiliateOffers';
+import { getOptimizedImageUrl } from '../utils/imageOptimization';
 
 interface InArticleNativeBannerProps {
   offerId?: string;
@@ -53,9 +54,13 @@ export const InArticleNativeBanner: React.FC<InArticleNativeBannerProps> = ({
         {/* Product Image */}
         <div className="relative shrink-0 text-center">
           <img
-            src={offer.heroImage || 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&w=600&q=80'}
+            src={getOptimizedImageUrl(offer.heroImage || 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&w=600&q=80', { width: 240, height: 240 })}
             alt={offer.name}
             className="w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-xl border border-slate-200 shadow-xs"
+            loading="lazy"
+            decoding="async"
+            width={112}
+            height={112}
           />
           <span className="block text-[10px] font-semibold text-emerald-800 bg-emerald-100/90 rounded px-1.5 py-0.5 mt-1.5 border border-emerald-200">
             {offer.guaranteeDays || 60}-Day Guarantee
@@ -91,9 +96,9 @@ export const InArticleNativeBanner: React.FC<InArticleNativeBannerProps> = ({
               href={destinationUrl}
               target="_blank"
               rel="nofollow sponsored noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all active:scale-98"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all active:scale-98 cursor-pointer"
             >
-              <span>Check Official Price &amp; Availability</span>
+              <span>Check Official Price &amp; Claim Discount</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
 

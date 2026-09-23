@@ -841,9 +841,10 @@ export const clickBankOffers: ClickBankOffer[] = [
 import { all30Articles } from './articlesList';
 import { primarySeoArticles } from './seoContentData';
 import { pureEducationalArticles } from './pureEducationalArticles';
+import { longTailKeywordArticles } from './longTailKeywordArticles';
 
 // Deduplicate and prioritize comprehensive educational & SEO articles
-const priorityArticles = [...pureEducationalArticles, ...primarySeoArticles];
+const priorityArticles = [...longTailKeywordArticles, ...pureEducationalArticles, ...primarySeoArticles];
 const primaryTitles = new Set(priorityArticles.map(a => a.title.toLowerCase().trim()));
 const primarySlugs = new Set(priorityArticles.map(a => a.slug));
 

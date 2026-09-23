@@ -89,6 +89,9 @@ export const OfferProductGallery: React.FC<OfferProductGalleryProps> = ({
               alt={activePhoto.alt}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-102"
               loading="lazy"
+              decoding="async"
+              width={640}
+              height={480}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
 
@@ -141,6 +144,10 @@ export const OfferProductGallery: React.FC<OfferProductGalleryProps> = ({
                     src={photo.url}
                     alt={photo.alt}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                    width={64}
+                    height={64}
                   />
                   <span className="absolute bottom-1 right-1 bg-slate-900/85 text-white font-bold text-[9px] px-1.5 py-0.2 rounded">
                     #{index + 1}

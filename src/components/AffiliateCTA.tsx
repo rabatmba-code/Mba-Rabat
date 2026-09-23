@@ -27,23 +27,31 @@ export const AffiliateCTA: React.FC<AffiliateCTAProps> = ({
 
   if (variant === 'inline' || variant === 'compact') {
     return (
-      <div className="my-6 p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="text-center sm:text-left">
-          <p className="font-semibold text-slate-800 text-sm">
-            {customHeadline}
+      <div className="my-6 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-50/60 to-slate-50 border border-emerald-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+        <div className="text-center sm:text-left flex-1 min-w-0">
+          <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
+            <span className="inline-block w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+            <p className="font-bold text-slate-900 text-sm">
+              {customHeadline}
+            </p>
+          </div>
+          <p className="text-xs text-slate-600">
+            {offer.name} — <span className="font-medium text-emerald-800">{offer.tagline}</span>
           </p>
-          <p className="text-xs text-slate-500">
-            {offer.name} — {offer.tagline}
-          </p>
-          <p className="text-[11px] text-slate-500 italic mt-1">
-            Disclosure: VitalPath Daily may earn a commission when you purchase through links on this page, at no additional cost to you.
-          </p>
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 mt-1.5 text-[11px] text-slate-500">
+            <span className="flex items-center gap-1 text-emerald-700 font-medium">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              {offer.guaranteeDays}-Day 100% Money-Back Guarantee
+            </span>
+            <span>•</span>
+            <span>Direct Manufacturer Stock</span>
+          </div>
         </div>
-        <div className="flex items-center gap-2 w-full sm:w-auto">
+        <div className="flex items-center gap-2.5 w-full sm:w-auto shrink-0">
           {onReadReview && (
             <button
               onClick={() => onReadReview(offer.id)}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-white hover:bg-slate-100 text-slate-700 font-semibold text-xs px-3.5 py-2 rounded-lg border border-slate-300 transition-colors cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-white hover:bg-slate-100 text-slate-700 font-semibold text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 transition-colors cursor-pointer"
             >
               <BookOpen className="w-3.5 h-3.5 text-emerald-700" />
               <span>Read Review</span>
@@ -52,8 +60,8 @@ export const AffiliateCTA: React.FC<AffiliateCTAProps> = ({
           <a
             href={destinationUrl}
             target="_blank"
-            rel="noopener noreferrer nofollow"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs px-4 py-2 rounded-lg transition-colors cursor-pointer whitespace-nowrap"
+            rel="nofollow sponsored noopener noreferrer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer whitespace-nowrap active:scale-98"
             id={`affiliate-cta-btn-${offer.id}`}
           >
             <span>{customButtonText}</span>
@@ -65,30 +73,30 @@ export const AffiliateCTA: React.FC<AffiliateCTAProps> = ({
   }
 
   return (
-    <div className="my-8 bg-gradient-to-br from-emerald-50/40 via-white to-slate-50 rounded-2xl p-6 sm:p-8 border-2 border-emerald-600/20 shadow-sm" id={`affiliate-cta-box-${offer.id}`}>
+    <div className="my-8 bg-gradient-to-br from-emerald-50/50 via-white to-slate-50 rounded-2xl p-6 sm:p-8 border-2 border-emerald-600/30 shadow-md" id={`affiliate-cta-box-${offer.id}`}>
       <div className="flex flex-wrap items-center justify-between gap-2 pb-3 mb-5 border-b border-slate-200">
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
-          <span className="text-xs font-bold uppercase tracking-wider text-emerald-950">
+          <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-950">
             Editor's Choice Protocol • {offer.category}
           </span>
         </div>
         <div className="flex items-center gap-3 text-xs text-slate-600">
           {offer.rating && (
-            <span className="font-semibold text-amber-700 flex items-center gap-1">
+            <span className="font-bold text-amber-700 flex items-center gap-1">
               ★ {offer.rating.toFixed(1)}/5.0
             </span>
           )}
-          <div className="flex items-center gap-1 text-slate-500">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span>{offer.guaranteeDays}-Day Money-Back Guarantee</span>
+          <div className="flex items-center gap-1 text-slate-600 font-medium">
+            <ShieldCheck className="w-4 h-4 text-emerald-600" />
+            <span>{offer.guaranteeDays}-Day 100% Risk-Free Guarantee</span>
           </div>
         </div>
       </div>
 
       <div className="flex flex-col sm:flex-row items-start gap-5 mb-5">
         {offer.heroImage && (
-          <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden shrink-0 border border-slate-200 bg-white shadow-2xs">
+          <div className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden shrink-0 border border-slate-200 bg-white shadow-xs">
             <img
               src={offer.heroImage}
               alt={offer.name}
@@ -96,16 +104,19 @@ export const AffiliateCTA: React.FC<AffiliateCTAProps> = ({
               loading="lazy"
               referrerPolicy="no-referrer"
             />
+            <span className="absolute bottom-1 right-1 bg-emerald-600/90 text-white font-bold text-[9px] px-1.5 py-0.5 rounded shadow-xs">
+              Verified
+            </span>
           </div>
         )}
 
-        <div className="space-y-2 flex-1 min-w-0">
+        <div className="space-y-2.5 flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2">
-            <h4 className="text-lg sm:text-xl font-bold font-serif-title text-slate-900 leading-snug">
+            <h4 className="text-lg sm:text-2xl font-bold font-serif-title text-slate-900 leading-snug">
               {customHeadline}
             </h4>
             {offer.badge && (
-              <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-md">
+              <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-md border border-emerald-200">
                 {offer.badge}
               </span>
             )}
@@ -113,6 +124,18 @@ export const AffiliateCTA: React.FC<AffiliateCTAProps> = ({
           <p className="text-sm text-slate-600 leading-relaxed">
             {offer.whatIs}
           </p>
+          
+          <div className="flex flex-wrap items-center gap-y-1 gap-x-4 pt-1 text-xs text-slate-700">
+            <span className="flex items-center gap-1 text-emerald-700 font-medium">
+              ✓ Direct Manufacturer Stock
+            </span>
+            <span className="flex items-center gap-1 text-emerald-700 font-medium">
+              ✓ cGMP Certified Facility
+            </span>
+            <span className="flex items-center gap-1 text-emerald-700 font-medium">
+              ✓ Secure 256-Bit SSL Checkout
+            </span>
+          </div>
         </div>
       </div>
 
@@ -130,16 +153,16 @@ export const AffiliateCTA: React.FC<AffiliateCTAProps> = ({
       <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-[11px] text-slate-500 leading-relaxed text-center sm:text-left max-w-md">
           <strong className="text-slate-700 font-semibold block sm:inline">Affiliate Transparency: </strong>
-          VitalPath Daily may earn a commission when you order through our verified merchant links, at no added cost to you.
+          VitalPath Daily may earn a commission when you order through our verified merchant links, at no added cost to you. Orders are backed by an official {offer.guaranteeDays || 60}-day unconditional money-back guarantee.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto shrink-0">
           {onReadReview && (
             <button
               onClick={() => onReadReview(offer.id)}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-white hover:bg-slate-100 text-slate-800 font-semibold text-xs px-4 py-2.5 rounded-xl border border-slate-300 transition-colors cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-white hover:bg-slate-100 text-slate-800 font-semibold text-xs sm:text-sm px-4 py-3 rounded-xl border border-slate-300 transition-colors cursor-pointer"
             >
-              <BookOpen className="w-3.5 h-3.5 text-emerald-700" />
+              <BookOpen className="w-4 h-4 text-emerald-700" />
               <span>Read Full Review</span>
             </button>
           )}
@@ -147,8 +170,8 @@ export const AffiliateCTA: React.FC<AffiliateCTAProps> = ({
           <a
             href={destinationUrl}
             target="_blank"
-            rel="noopener noreferrer nofollow"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-md hover:shadow-lg transition-all transform active:scale-98 cursor-pointer whitespace-nowrap"
+            rel="nofollow sponsored noopener noreferrer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all transform active:scale-98 cursor-pointer whitespace-nowrap"
             id={`affiliate-cta-view-btn-${offer.id}`}
           >
             <span>{customButtonText}</span>

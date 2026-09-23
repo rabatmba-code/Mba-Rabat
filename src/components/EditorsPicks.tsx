@@ -5,9 +5,10 @@ import { Article } from '../types';
 interface EditorsPicksProps {
   articles: Article[];
   onReadArticle: (article: Article) => void;
+  onNavigateAuthor?: (slug: string) => void;
 }
 
-export const EditorsPicks: React.FC<EditorsPicksProps> = ({ articles, onReadArticle }) => {
+export const EditorsPicks: React.FC<EditorsPicksProps> = ({ articles, onReadArticle, onNavigateAuthor }) => {
   // Select top 6 curated editorial guides
   const guides = articles.slice(0, 6);
 
@@ -60,7 +61,21 @@ export const EditorsPicks: React.FC<EditorsPicksProps> = ({ articles, onReadArti
                     {article.readingTime}
                   </span>
                   <span>•</span>
-                  <span>{article.author.name}</span>
+                  {onNavigateAuthor ? (
+                    <span
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const slug = article.author?.slug || article.author?.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'elena-vance';
+                        onNavigateAuthor(slug);
+                      }}
+                      className="hover:text-emerald-800 hover:underline cursor-pointer font-medium"
+                      title={`View ${article.author.name} profile`}
+                    >
+                      {article.author.name}
+                    </span>
+                  ) : (
+                    <span>{article.author.name}</span>
+                  )}
                 </div>
 
                 <h3 className="font-serif-title font-bold text-lg text-slate-900 group-hover:text-emerald-800 transition-colors leading-snug mb-2 line-clamp-2">

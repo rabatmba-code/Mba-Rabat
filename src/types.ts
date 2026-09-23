@@ -1,17 +1,52 @@
+export interface AuthorPublication {
+  title: string;
+  publisherOrJournal: string;
+  year: number;
+  url?: string;
+  type?: 'Book' | 'Clinical Trial' | 'Systematic Review' | 'Monograph';
+}
+
+export interface AuthorExternalLinks {
+  linkedIn?: string;
+  researchGate?: string;
+  orcid?: string;
+  googleScholar?: string;
+  pubmed?: string;
+  twitter?: string;
+}
+
 export interface Author {
+  slug?: string;
   name: string;
   role: string;
   credentials: string;
   avatar: string;
   bio: string;
+  fullBio?: string;
+  education?: string[];
+  certifications?: string[];
+  medicalLicense?: string;
+  yearsOfExperience?: number;
+  expertiseAreas?: string[];
+  sameAs?: string[];
+  externalLinks?: AuthorExternalLinks;
+  publications?: AuthorPublication[];
+  institution?: string;
+  location?: string;
 }
 
 export interface MedicalReviewer {
+  slug?: string;
   name: string;
   title: string;
   institution: string;
   avatar: string;
   verificationNote: string;
+  bio?: string;
+  credentials?: string;
+  sameAs?: string[];
+  externalLinks?: AuthorExternalLinks;
+  education?: string[];
 }
 
 export interface ScientificReference {

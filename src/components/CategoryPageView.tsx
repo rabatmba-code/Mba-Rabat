@@ -33,6 +33,7 @@ interface CategoryPageViewProps {
   onOpenReview: (offer: ClickBankOffer) => void;
   onSelectCategory: (category: string) => void;
   affiliateSettings?: AffiliateSettings;
+  onNavigateAuthor?: (slug: string) => void;
 }
 
 export const CategoryPageView: React.FC<CategoryPageViewProps> = ({
@@ -43,6 +44,7 @@ export const CategoryPageView: React.FC<CategoryPageViewProps> = ({
   onReadArticle,
   onOpenReview,
   onSelectCategory,
+  onNavigateAuthor,
 }) => {
   const [filterSubtopic, setFilterSubtopic] = useState<string>('all');
 
@@ -544,6 +546,7 @@ export const CategoryPageView: React.FC<CategoryPageViewProps> = ({
                   key={article.id}
                   article={article}
                   onRead={onReadArticle}
+                  onNavigateAuthor={onNavigateAuthor}
                 />
               ))}
             </div>
@@ -586,23 +589,23 @@ export const CategoryPageView: React.FC<CategoryPageViewProps> = ({
                 </div>
 
                 <div className="flex flex-wrap items-center gap-3 pt-2">
-                  <button
-                    onClick={() => onOpenReview(recommendedOffer)}
-                    className="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-xl transition-all cursor-pointer"
-                  >
-                    <span>Read Complete Ingredient Breakdown</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-
                   <a
                     href={getAffiliateUrl(recommendedOffer.id)}
                     target="_blank"
-                    rel="nofollow noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-xl border border-slate-700 transition-colors"
+                    rel="nofollow sponsored noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 text-slate-950 text-xs sm:text-sm font-extrabold px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all active:scale-98 cursor-pointer"
                   >
-                    <span>Official Manufacturer Site</span>
+                    <span>Check Official {recommendedOffer.name.split(' ')[0]} Deal</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
+
+                  <button
+                    onClick={() => onOpenReview(recommendedOffer)}
+                    className="inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-xl border border-slate-700 transition-colors cursor-pointer"
+                  >
+                    <span>Read Ingredient Breakdown</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
                 </div>
               </div>
 

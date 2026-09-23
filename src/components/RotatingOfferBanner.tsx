@@ -189,6 +189,10 @@ export const RotatingOfferBanner: React.FC<RotatingOfferBannerProps> = ({
                   src={currentOffer.heroImage || 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&w=600&q=80'}
                   alt={currentOffer.name}
                   className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
+                  width={176}
+                  height={176}
                 />
                 {/* Savings Pill */}
                 {currentOffer.savingsPercentage && (

@@ -1,17 +1,20 @@
 import React from 'react';
 import { Clock, ArrowRight } from 'lucide-react';
 import { Article } from '../types';
+import { getOptimizedImageUrl, IMAGE_DIMENSIONS } from '../utils/imageOptimization';
 
 interface ArticleCardProps {
   article: Article;
   onRead: (article: Article) => void;
+  onNavigateAuthor?: (slug: string) => void;
 }
 
-export const ArticleCard: React.FC<ArticleCardProps> = ({ article, onRead }) => {
+export const ArticleCard: React.FC<ArticleCardProps> = ({ article, onRead, onNavigateAuthor }) => {
   const categorySlug = article.path
     ? article.path.split('/')[1]
     : (article.category || 'wellness').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   const articleUrl = article.path || `/${categorySlug}/${article.slug}/`;
+  const optimizedCover = getOptimizedImageUrl(article.coverImage, { width: 640, height: 360 });
 
   return (
     <article 
@@ -29,10 +32,13 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, onRead }) => 
         title={article.title}
       >
         <img
-          src={article.coverImage}
+          src={optimizedCover}
           alt={article.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           loading="lazy"
+          decoding="async"
+          width={IMAGE_DIMENSIONS.CARD.width}
+          height={IMAGE_DIMENSIONS.CARD.height}
         />
         <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider shadow-xs">
           {article.category}
@@ -71,17 +77,39 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, onRead }) => 
 
         {/* Card Footer Link */}
         <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img
-              src={article.author?.avatar || 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80'}
-              alt={article.author?.name || 'Editorial Team'}
-              className="w-7 h-7 rounded-full object-cover"
-              loading="lazy"
-            />
-            <span className="text-xs font-medium text-slate-700">
-              {article.author?.name || 'Editorial Team'}
-            </span>
-          </div>
+          {onNavigateAuthor ? (
+            <div
+              onClick={(e) => {
+                e.stopPropagation();
+                const slug = article.author?.slug || article.author?.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'elena-vance';
+                onNavigateAuthor(slug);
+              }}
+              className="flex items-center gap-2 cursor-pointer group/author"
+              title={`View ${article.author?.name || 'Author'} profile`}
+            >
+              <img
+                src={article.author?.avatar || 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80'}
+                alt={article.author?.name || 'Editorial Team'}
+                className="w-7 h-7 rounded-full object-cover ring-1 ring-slate-200 group-hover/author:ring-emerald-600 transition-all"
+                loading="lazy"
+              />
+              <span className="text-xs font-medium text-slate-700 group-hover/author:text-emerald-800 group-hover/author:underline transition-colors">
+                {article.author?.name || 'Editorial Team'}
+              </span>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2">
+              <img
+                src={article.author?.avatar || 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80'}
+                alt={article.author?.name || 'Editorial Team'}
+                className="w-7 h-7 rounded-full object-cover"
+                loading="lazy"
+              />
+              <span className="text-xs font-medium text-slate-700">
+                {article.author?.name || 'Editorial Team'}
+              </span>
+            </div>
+          )}
 
           <a
             href={articleUrl}

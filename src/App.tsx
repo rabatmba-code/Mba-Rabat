@@ -31,6 +31,9 @@ import { ReviewBridgeView } from './components/ReviewBridgeView';
 import { ProductComparisonTable } from './components/ProductComparisonTable';
 import { StaticPageView, StaticPageType } from './components/StaticPageView';
 import { CategoryPageView } from './components/CategoryPageView';
+import { AuthorProfilePage } from './components/AuthorProfilePage';
+import { getAuthorBySlug, authorsBase } from './data/editorialTeam';
+import { Author } from './types';
 import { QuizFunnel } from './components/QuizFunnel';
 import { ComplianceFooter } from './components/ComplianceFooter';
 import { TopAnnouncementBar } from './components/TopAnnouncementBar';
@@ -41,13 +44,14 @@ import { LeadMagnetModal } from './components/LeadMagnetModal';
 import { ExitIntentModal } from './components/ExitIntentModal';
 import { LiveDealToast } from './components/LiveDealToast';
 
-type ViewState = 'home' | 'article' | 'review' | 'comparison' | 'category' | StaticPageType;
+type ViewState = 'home' | 'article' | 'review' | 'comparison' | 'category' | 'author' | StaticPageType;
 
 export default function App() {
   // Navigation & View States
   const [activeView, setActiveView] = useState<ViewState>('home');
   const [previousView, setPreviousView] = useState<ViewState>('home');
   const [selectedArticle, setSelectedArticle] = useState<Article>(articles[0]);
+  const [selectedAuthor, setSelectedAuthor] = useState<Author>(authorsBase.elena);
   const [selectedReviewOffer, setSelectedReviewOffer] = useState<ClickBankOffer>(clickBankOffers[0]);
   const [selectedCategory, setSelectedCategory] = useState<string>('All Topics');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -136,6 +140,20 @@ export default function App() {
         return;
       }
 
+      // Author Profile routing: /author/:slug or /author/:slug/
+      if (cleanPath.startsWith('/author/')) {
+        const authorSlug = cleanPath.replace(/^\/author\//, '').replace(/\/$/, '');
+        const matchedAuthor = getAuthorBySlug(authorSlug) || authorsBase.elena;
+        setSelectedAuthor(matchedAuthor);
+        setActiveView('author');
+        return;
+      }
+      if (cleanPath === '/author') {
+        setSelectedAuthor(authorsBase.elena);
+        setActiveView('author');
+        return;
+      }
+
       // Comparison page routing
       if (cleanPath === '/comparison' || cleanPath === '/comparisons' || path.includes('comparison')) {
         setActiveView('comparison');
@@ -153,12 +171,12 @@ export default function App() {
         return;
       }
 
-      // Static compliance pages routing
-      const staticPage = ['about', 'about-us', 'editorial-policy', 'medical-review-board', 'privacy', 'terms', 'affiliate-disclosure', 'contact'].find(
+      // Static compliance and brand entity pages routing
+      const staticPage = ['about', 'about-us', 'brand-entity', 'entity-hub', 'editorial-policy', 'medical-review-board', 'privacy', 'terms', 'affiliate-disclosure', 'contact'].find(
         (p) => path.includes(p)
       );
       if (staticPage) {
-        const resolvedPage = staticPage === 'about-us' ? 'about' : staticPage;
+        const resolvedPage = staticPage === 'about-us' ? 'about' : (staticPage === 'entity-hub' ? 'brand-entity' : staticPage);
         setActiveView(resolvedPage as StaticPageType);
         return;
       }
@@ -169,17 +187,27 @@ export default function App() {
     return () => window.removeEventListener('popstate', resolveCurrentUrl);
   }, []);
 
-  // Ensure canonical tag and document title are restored on home view
+  // Ensure canonical tag and document title are restored on home view or brand entity view
   React.useEffect(() => {
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+
     if (activeView === 'home') {
       document.title = 'VitalPath Daily - Evidence-Based Wellness & Longevity';
-      let canonicalLink = document.querySelector('link[rel="canonical"]');
-      if (!canonicalLink) {
-        canonicalLink = document.createElement('link');
-        canonicalLink.setAttribute('rel', 'canonical');
-        document.head.appendChild(canonicalLink);
-      }
       canonicalLink.setAttribute('href', 'https://mba-rabat.vercel.app/');
+    } else if (activeView === 'brand-entity') {
+      document.title = 'VitalPath Daily: Official Entity Fact Sheet & Medical Review Board (BEO)';
+      canonicalLink.setAttribute('href', 'https://mba-rabat.vercel.app/brand-entity/');
+    } else if (activeView === 'editorial-policy') {
+      document.title = 'Editorial Policy & Evidence Standards - VitalPath Daily';
+      canonicalLink.setAttribute('href', 'https://mba-rabat.vercel.app/editorial-policy/');
+    } else if (activeView === 'medical-review-board') {
+      document.title = 'Medical Review Board & Clinical Oversight - VitalPath Daily';
+      canonicalLink.setAttribute('href', 'https://mba-rabat.vercel.app/medical-review-board/');
     }
   }, [activeView]);
 
@@ -223,6 +251,15 @@ export default function App() {
   const handleNavigateHome = () => {
     setActiveView('home');
     window.history.pushState(null, '', '/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateAuthor = (slug: string) => {
+    const author = getAuthorBySlug(slug) || authorsBase.elena;
+    setSelectedAuthor(author);
+    setActiveView('author');
+    const authorSlug = author.slug || slug;
+    window.history.pushState(null, '', `/author/${authorSlug}/`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -349,7 +386,15 @@ export default function App() {
 
       {/* Main View Router */}
       <main className="flex-1">
-        {activeView === 'article' ? (
+        {activeView === 'author' ? (
+          <AuthorProfilePage
+            author={selectedAuthor}
+            articles={articles}
+            onReadArticle={handleReadArticle}
+            onNavigateAuthor={handleNavigateAuthor}
+            onBackHome={handleNavigateHome}
+          />
+        ) : activeView === 'article' ? (
           <ArticlePage
             article={selectedArticle}
             allArticles={articles}
@@ -364,6 +409,7 @@ export default function App() {
                 handleOpenReview(off);
               }
             }}
+            onNavigateAuthor={handleNavigateAuthor}
           />
         ) : activeView === 'review' ? (
           <ReviewBridgeView
@@ -401,6 +447,7 @@ export default function App() {
             onOpenReview={handleOpenReview}
             onSelectCategory={handleSelectCategory}
             affiliateSettings={affiliateSettings}
+            onNavigateAuthor={handleNavigateAuthor}
           />
         ) : activeView !== 'home' ? (
           <StaticPageView
@@ -409,6 +456,7 @@ export default function App() {
             onBackToHome={handleNavigateHome}
             onNavigate={handleNavigateStaticPage}
             onNavigatePage={handleNavigateStaticPage}
+            onNavigateAuthor={handleNavigateAuthor}
           />
         ) : (
           /* HOMEPAGE VIEW */
@@ -426,6 +474,7 @@ export default function App() {
                 const el = document.getElementById('articles-section');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
+              onNavigateAuthor={handleNavigateAuthor}
             />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 pb-16">
@@ -463,6 +512,7 @@ export default function App() {
               <EditorsPicks
                 articles={articles.slice(0, 6)}
                 onReadArticle={handleReadArticle}
+                onNavigateAuthor={handleNavigateAuthor}
               />
 
               {/* Editor's Research Desk - Placed in middle of site, visible only on initial All Topics / Hero view */}
@@ -555,6 +605,7 @@ export default function App() {
                         key={article.id}
                         article={article}
                         onRead={handleReadArticle}
+                        onNavigateAuthor={handleNavigateAuthor}
                       />
                     ))}
                   </div>
@@ -818,24 +869,25 @@ export default function App() {
                           </div>
 
                           <div className="space-y-2 pt-2 border-t border-slate-100">
+                            <a
+                              href={destinationUrl}
+                              target="_blank"
+                              rel="nofollow sponsored noopener noreferrer"
+                              className="w-full inline-flex items-center justify-center gap-1.5 text-center text-xs sm:text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm hover:shadow-md py-2.5 px-3 rounded-xl transition-all active:scale-98 cursor-pointer"
+                              id={`claim-deal-btn-${offer.id}`}
+                            >
+                              <span>{buyBtnText}</span>
+                              <ExternalLink className="w-3.5 h-3.5" />
+                            </a>
+
                             <button
                               onClick={() => handleOpenReview(offer)}
-                              className="w-full inline-flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-2.5 px-3 rounded-xl shadow-2xs transition-colors cursor-pointer"
+                              className="w-full inline-flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs py-2 px-3 rounded-xl transition-colors cursor-pointer"
                               id={`read-review-btn-${offer.id}`}
                             >
                               <span>Read Independent Review</span>
                               <ArrowRight className="w-3.5 h-3.5" />
                             </button>
-
-                            <a
-                              href={destinationUrl}
-                              target="_blank"
-                              rel="noopener noreferrer nofollow"
-                              className={`w-full inline-flex items-center justify-center gap-1.5 text-center text-xs font-semibold ${isDirectDiscount ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-2xs' : 'text-slate-600 hover:text-emerald-800'} py-2 px-3 rounded-xl transition-colors cursor-pointer`}
-                            >
-                              <span>{buyBtnText}</span>
-                              <ExternalLink className="w-3.5 h-3.5" />
-                            </a>
                           </div>
                         </div>
                       </div>
@@ -867,6 +919,7 @@ export default function App() {
         onNavigateStaticPage={handleNavigateStaticPage}
         onSelectCategory={handleSelectCategory}
         onOpenAffiliateManager={() => setIsAffiliateManagerOpen(true)}
+        onNavigateAuthor={handleNavigateAuthor}
       />
 
       {/* Wellness Assessment Modal */}

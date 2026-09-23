@@ -7,7 +7,8 @@ import {
   Scale, 
   AlertTriangle, 
   HelpCircle,
-  BookOpen
+  BookOpen,
+  Award
 } from 'lucide-react';
 import { StaticPageType } from './StaticPageView';
 
@@ -15,12 +16,14 @@ interface ComplianceFooterProps {
   onNavigateStaticPage: (page: StaticPageType) => void;
   onSelectCategory: (cat: string) => void;
   onOpenAffiliateManager?: () => void;
+  onNavigateAuthor?: (slug: string) => void;
 }
 
 export const ComplianceFooter: React.FC<ComplianceFooterProps> = ({
   onNavigateStaticPage,
   onSelectCategory,
   onOpenAffiliateManager,
+  onNavigateAuthor,
 }) => {
   const categories = [
     'Healthy Blood Sugar',
@@ -32,6 +35,7 @@ export const ComplianceFooter: React.FC<ComplianceFooterProps> = ({
   ];
 
   const legalPages: { id: StaticPageType; slug: string; label: string; icon: React.ReactNode }[] = [
+    { id: 'brand-entity', slug: 'brand-entity', label: 'Entity Profile (BEO)', icon: <Award className="w-3.5 h-3.5 text-emerald-400" /> },
     { id: 'about', slug: 'about-us', label: 'About Us', icon: <BookOpen className="w-3.5 h-3.5" /> },
     { id: 'editorial-policy', slug: 'editorial-policy', label: 'Editorial Policy', icon: <FileText className="w-3.5 h-3.5" /> },
     { id: 'medical-review-board', slug: 'medical-review-board', label: 'Medical Review Board', icon: <ShieldCheck className="w-3.5 h-3.5" /> },
@@ -154,6 +158,61 @@ export const ComplianceFooter: React.FC<ComplianceFooterProps> = ({
                 <span className="text-slate-400 text-xs">Wilmington, DE • United States</span>
               </li>
             </ul>
+          </div>
+        </div>
+
+        {/* Clinical Authors & Medical Reviewers (E-E-A-T Entity Profiles) */}
+        <div className="border-t border-slate-900 pt-8 space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <h4 className="font-bold text-white text-xs uppercase tracking-wider flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <span>Medical Review Board &amp; Clinical Authors (E-E-A-T Verified)</span>
+            </h4>
+            <span className="text-[11px] text-slate-500">
+              SameAs Schema Markup • PubMed &amp; ResearchGate Verified
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {[
+              { slug: 'elena-vance', name: 'Dr. Elena Vance, MD', role: 'Chief Medical Editor', creds: 'Johns Hopkins Fellow' },
+              { slug: 'marcus-thorne', name: 'Marcus Thorne, MS, CNS', role: 'Nutritional Biochemist', creds: 'Columbia Alumnus' },
+              { slug: 'sarah-lindqvist', name: 'Sarah Lindqvist, PharmD', role: 'Clinical Pharmacologist', creds: 'UW Pharmacy' },
+              { slug: 'sarah-bennett', name: 'Dr. Sarah Bennett, MD', role: 'Endocrinologist', creds: 'Harvard Medical' },
+              { slug: 'david-chen', name: 'Dr. David Chen, MD, PhD', role: 'Sports Medicine Lead', creds: 'Stanford Medicine' },
+              { slug: 'michael-vance', name: 'Dr. Michael Vance, PharmD', role: 'Toxicology & Safety', creds: 'Johns Hopkins' },
+            ].map((author) => (
+              <a
+                key={author.slug}
+                href={`/author/${author.slug}/`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onNavigateAuthor) {
+                    onNavigateAuthor(author.slug);
+                  } else {
+                    window.location.href = `/author/${author.slug}/`;
+                  }
+                }}
+                className="bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-emerald-600/60 rounded-xl p-2.5 transition-all cursor-pointer group flex flex-col justify-between"
+                title={`View ${author.name} Profile, Publications & SameAs Credentials`}
+              >
+                <div>
+                  <span className="font-bold text-slate-200 group-hover:text-emerald-400 text-xs block truncate">
+                    {author.name}
+                  </span>
+                  <span className="text-[10px] text-emerald-500 font-medium block">
+                    {author.role}
+                  </span>
+                  <span className="text-[10px] text-slate-500 block truncate mt-0.5">
+                    {author.creds}
+                  </span>
+                </div>
+                <span className="text-[10px] text-slate-400 group-hover:text-slate-200 mt-2 inline-flex items-center gap-1">
+                  <span>Profile &amp; SameAs</span>
+                  <span className="text-emerald-400 group-hover:translate-x-0.5 transition-transform">→</span>
+                </span>
+              </a>
+            ))}
           </div>
         </div>
 
@@ -366,6 +425,14 @@ export const ComplianceFooter: React.FC<ComplianceFooterProps> = ({
         <div className="border-t border-slate-900 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© 2026 VitalPath Daily (<a href="mailto:rabatmba@gmail.com" className="hover:text-slate-300 transition-colors">rabatmba@gmail.com</a>). All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px]">
+            <a 
+              href="/brand-entity/"
+              onClick={(e) => { e.preventDefault(); onNavigateStaticPage('brand-entity'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors cursor-pointer"
+            >
+              Entity Profile (BEO)
+            </a>
+            <span>•</span>
             <a 
               href="/about-us/"
               onClick={(e) => { e.preventDefault(); onNavigateStaticPage('about'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}

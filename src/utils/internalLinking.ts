@@ -15,6 +15,24 @@ export interface CategoryPillarLink {
 export const CATEGORY_PILLAR_NETWORKS: Record<string, CategoryPillarLink[]> = {
   'Healthy Blood Sugar': [
     {
+      title: 'Best Blood Sugar Support Supplements 2026: Top 5 Formulas Compared & Tested',
+      url: '/healthy-blood-sugar/best-blood-sugar-support-supplements-2026/',
+      badge: '2026 Roundup',
+      description: 'Comprehensive clinical benchmark of top 5 formulas: Gluco6, Sugar Defender, Berberine Phytosome.'
+    },
+    {
+      title: 'Gluco6 vs Sugar Defender for Glucose Control: Head-to-Head Test',
+      url: '/comparisons/gluco6-vs-sugar-defender-for-glucose-control/',
+      badge: 'Head-to-Head',
+      description: 'Direct comparison: capsule GLUT-4 enzyme blocking vs liquid sublingual adaptogen delivery.'
+    },
+    {
+      title: 'Berberine Alternatives for Metabolic Health: 5 Gentle Options',
+      url: '/healthy-blood-sugar/berberine-alternatives-for-metabolic-health/',
+      badge: 'Gentle Alternatives',
+      description: 'Stomach-friendly substitutes for berberine without diarrhea, nausea, or liver CYP3A4 interactions.'
+    },
+    {
       title: 'Blood Sugar Supplements: What Consumers Should Know',
       url: '/healthy-blood-sugar/blood-sugar-supplements-guide/',
       badge: 'Core Pillar Guide',
@@ -45,10 +63,16 @@ export const CATEGORY_PILLAR_NETWORKS: Record<string, CategoryPillarLink[]> = {
       description: 'Examination of sublingual liquid absorption, 24 adaptogenic botanicals, and refund policies.'
     },
     {
-      title: 'The 10-Minute Post-Meal Walk Protocol for Glucose Blunting',
+      title: '10 Minute Walk After Meals Blood Sugar: Clinical Movement Protocol',
       url: '/healthy-blood-sugar/post-meal-walk-glucose-protocol/',
       badge: 'Clinical Protocol',
-      description: 'How brief light walking activates non-insulin-dependent GLUT-4 glucose clearance in skeletal muscle.'
+      description: 'How 10-minute light walking immediately post-meal blunts glucose spikes via non-insulin GLUT-4 activation.'
+    },
+    {
+      title: 'Early Signs of Insulin Resistance in Adults: Clinical Symptoms & Lab Tests',
+      url: '/healthy-blood-sugar/early-signs-of-insulin-resistance-in-adults/',
+      badge: 'Diagnostic Guide',
+      description: 'Recognizing subtle signs: postprandial fatigue, visceral adiposity, skin tags, and optimal HOMA-IR lab tests.'
     },
     {
       title: 'What to Look for in a Blood Sugar Supplement',
@@ -171,6 +195,12 @@ export const CATEGORY_PILLAR_NETWORKS: Record<string, CategoryPillarLink[]> = {
       description: 'Avoiding deceptive stimulant blends and verifying clinically backed thermogenic ingredients.'
     },
     {
+      title: 'What Ingredients to Avoid in Weight Loss Supplements: Safety Audit',
+      url: '/weight-management/what-ingredients-to-avoid-in-weight-loss-supplements/',
+      badge: 'Toxicology Audit',
+      description: 'Avoiding synthetic sympathomimetics, dangerous stimulants, laxatives, and proprietary filler cloaks.'
+    },
+    {
       title: 'Puravive Review: Exotic Rice Method & BAT Activation',
       url: '/product-reviews/puravive-review/',
       badge: 'Supplement Audit',
@@ -197,6 +227,12 @@ export const CATEGORY_PILLAR_NETWORKS: Record<string, CategoryPillarLink[]> = {
   ],
 
   'Sleep & Stress': [
+    {
+      title: 'Cortisol and Blood Sugar Spikes at Night: Sleep & Metabolism Guide',
+      url: '/sleep-and-stress/cortisol-and-blood-sugar-spikes-at-night/',
+      badge: 'Neuroendocrine Guide',
+      description: 'How nocturnal cortisol surges force liver glucose dumping, cause 3 AM awakenings, and fuel visceral belly fat.'
+    },
     {
       title: 'Understanding Cortisol: The Stress Hormone & Sleep Disruption',
       url: '/sleep-and-stress/understanding-cortisol-stress-hormone/',
@@ -277,15 +313,66 @@ export const CATEGORY_PILLAR_NETWORKS: Record<string, CategoryPillarLink[]> = {
       url: '/healthy-aging/chronic-vs-acute-inflammation/',
       badge: 'Immunology & Aging',
       description: 'Acute tissue healing versus unresolved systemic low-grade inflammation, biomarkers, and clinical protocols.'
+    },
+    {
+      title: 'How to Read Supplement Labels for Purity: A Consumer Guide',
+      url: '/healthy-aging/how-to-read-supplement-labels-for-purity/',
+      badge: 'Purity & Seals Guide',
+      description: 'How to read supplement labels for purity, verify third-party seals (USP, NSF), spot proprietary blend traps, and verify heavy metals.'
+    },
+    {
+      title: 'Best Daily Supplements for Women Over 40: Micronutrient Blueprint',
+      url: '/womens-health/best-daily-supplements-for-women-over-40/',
+      badge: 'Women’s Longevity',
+      description: 'Evidence-based micronutrients for perimenopause, bone mineral retention (D3/K2), chelated magnesium, and pelvic tissue vitality.'
+    }
+  ],
+
+  "Women's Health": [
+    {
+      title: 'Best Daily Supplements for Women Over 40: Evidence-Based Micronutrients',
+      url: '/womens-health/best-daily-supplements-for-women-over-40/',
+      badge: 'Core Pillar Guide',
+      description: 'Comprehensive medical review of Vitamin D3/K2, bioavailable Magnesium, Omega-3s, and pelvic tissue vitality.'
+    },
+    {
+      title: 'How to Read Supplement Labels for Purity: Certified Seals & Safety Checklist',
+      url: '/healthy-aging/how-to-read-supplement-labels-for-purity/',
+      badge: 'Purity Guide',
+      description: 'Auditing third-party lab testing, avoiding heavy metals, and understanding chelated mineral bioavailability.'
+    },
+    {
+      title: 'FemiCore Review: Botanical Support for Bladder & Pelvic Tone',
+      url: '/product-reviews/femicore-review/',
+      badge: 'Targeted Review',
+      description: 'Clinical evaluation of plant bioflavonoids for mature female pelvic floor elasticity and nocturnal sleep.'
+    },
+    {
+      title: 'Vitamin D3 and K2 Synergy: Bone Density & Arterial Protection',
+      url: '/healthy-aging/vitamin-d3-k2-benefits/',
+      badge: 'Bone Longevity',
+      description: 'Solving the calcium paradox in mature women to protect bone density while preventing vascular calcification.'
+    },
+    {
+      title: 'Magnesium Glycinate: Deep Sleep & Neurological Calm',
+      url: '/sleep-and-stress/magnesium-glycinate-benefits/',
+      badge: 'Sleep & Stress',
+      description: 'Why chelated bisglycinate crosses the blood-brain barrier to activate soothing GABA receptors.'
     }
   ],
 
   'Nutrition': [
     {
-      title: 'Food Sequencing & The Fiber Matrix: Blunting Glucose Spikes',
+      title: 'Food Sequencing for Blood Sugar Control: The 3-Step Meal Order Guide',
       url: '/nutrition/food-sequencing-fiber-matrix-guide/',
       badge: 'Digestive Strategy',
-      description: 'Consuming vegetables and protein before starches to create a viscous intestinal mesh.'
+      description: 'Consuming vegetables and protein before starches to create a viscous intestinal mesh that cuts glucose spikes by up to 73%.'
+    },
+    {
+      title: 'Low GI Breakfast Ideas for Stable Energy: 5 Science-Backed Morning Protocols',
+      url: '/nutrition/low-gi-breakfast-ideas-for-stable-energy/',
+      badge: 'Morning Nutrition',
+      description: 'Dismantling the morning glucose crash with 30g protein formulas, savory breakfast plates, and low-glycemic recipes.'
     },
     {
       title: 'Omega-3 Fish Oil: Cardiovascular & Cognitive Longevity',

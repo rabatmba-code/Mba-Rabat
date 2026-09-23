@@ -85,6 +85,10 @@ export const StickyDealBar: React.FC<StickyDealBarProps> = ({
               src={activeOffer.heroImage} 
               alt={activeOffer.name} 
               className="w-12 h-12 sm:w-14 sm:h-14 object-cover rounded-xl border border-slate-200 shadow-xs" 
+              width={56}
+              height={56}
+              loading="lazy"
+              decoding="async"
             />
             <span className="absolute -top-1.5 -left-1.5 bg-rose-600 text-white font-extrabold text-[9px] px-1.5 py-0.5 rounded-full shadow-xs">
               60% OFF
@@ -139,9 +143,9 @@ export const StickyDealBar: React.FC<StickyDealBarProps> = ({
             href={hoplinkUrl}
             target="_blank"
             rel="nofollow sponsored noopener noreferrer"
-            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-98"
+            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-98 cursor-pointer tracking-tight"
           >
-            <span>Claim Discount Now</span>
+            <span>Claim {activeOffer.discountPercent || '60%'} Deal Now</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
 
