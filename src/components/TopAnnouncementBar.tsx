@@ -60,7 +60,7 @@ export const TopAnnouncementBar: React.FC<TopAnnouncementBarProps> = ({
               id="top-bar-claim-link"
               href={targetUrl}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow sponsored noopener noreferrer"
               className="inline-flex items-center gap-1 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-3 py-1 rounded-md text-[11px] transition-colors shadow-xs"
             >
               <span>View {activeOffer.name.split(' ')[0]} Deal</span>

@@ -90,7 +90,7 @@ export const InArticleNativeBanner: React.FC<InArticleNativeBannerProps> = ({
               id={`in-article-claim-btn-${offer.id}`}
               href={destinationUrl}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow sponsored noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all active:scale-98"
             >
               <span>Check Official Price &amp; Availability</span>

@@ -196,7 +196,7 @@ export const ProductComparisonTable: React.FC<ProductComparisonTableProps> = ({
                     <a
                       href={hoplink}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="nofollow sponsored noopener noreferrer"
                       className="inline-flex items-center justify-center gap-1.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs px-3.5 py-2 rounded-xl shadow-xs transition-colors whitespace-nowrap"
                     >
                       <span>Check VIP Deal</span>

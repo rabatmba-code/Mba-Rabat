@@ -182,7 +182,7 @@ export const QuizFunnel: React.FC<QuizFunnelProps> = ({
                   <a
                     href={hoplinkUrl}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow sponsored noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-bold text-sm py-3 px-4 rounded-xl shadow-lg transition-all cursor-pointer"
                     id="quiz-claim-offer-btn"
                   >

@@ -165,7 +165,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
               <a
                 href={hoplinkUrl}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow sponsored noopener noreferrer"
                 className="w-full text-center bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-bold text-xs sm:text-sm py-3 px-4 rounded-xl shadow-md transition-all cursor-pointer inline-flex items-center justify-center gap-1.5"
                 id="article-bridge-cta-btn"
               >

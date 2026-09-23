@@ -106,7 +106,7 @@ export const LiveDealToast: React.FC<LiveDealToastProps> = ({ offers, affiliateS
             <a
               href={hoplinkUrl}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow sponsored noopener noreferrer"
               className="inline-flex items-center gap-1 text-emerald-700 hover:text-emerald-800 font-bold text-[11px] hover:underline"
             >
               <span>View Deal</span>

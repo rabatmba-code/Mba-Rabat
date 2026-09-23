@@ -521,7 +521,7 @@ export const ReviewBridgeView: React.FC<ReviewBridgeViewProps> = ({
             <a
               href={destinationUrl}
               target="_blank"
-              rel="noopener noreferrer nofollow"
+              rel="nofollow sponsored noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-sm px-6 py-3.5 rounded-xl shadow-sm hover:shadow transition-colors cursor-pointer w-full sm:w-auto shrink-0 whitespace-nowrap"
               id={`review-official-cta-${offer.id}`}
             >

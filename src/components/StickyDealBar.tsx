@@ -138,7 +138,7 @@ export const StickyDealBar: React.FC<StickyDealBarProps> = ({
             id="sticky-claim-deal-btn"
             href={hoplinkUrl}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow sponsored noopener noreferrer"
             className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-98"
           >
             <span>Claim Discount Now</span>
