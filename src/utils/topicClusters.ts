@@ -69,6 +69,25 @@ export const TOPIC_CLUSTERS: Record<string, TopicCluster> = {
 // Curated mappings for optimal Topic Cluster authority and minimum bounce rate
 // Explicitly prioritizes the highest-value clinical companions
 export const CURATED_RELATED_GUIDES: Record<string, { slug: string; synergyNote: string; clusterId?: string }[]> = {
+  // Sleep & Weight Metabolism Guide
+  'how-sleep-affects-weight-metabolism': [
+    {
+      slug: 'understanding-cortisol-stress-hormone',
+      synergyNote: 'Glucocorticoid Signaling: How nocturnal cortisol spikes stimulate 11β-HSD1 and lock fat in visceral depots.',
+      clusterId: 'stress-cortisol-circadian',
+    },
+    {
+      slug: 'circadian-rhythm-dawn-phenomenon-guide',
+      synergyNote: 'Circadian Clocks: The master SCN pacemaker and the science of morning blood sugar spikes.',
+      clusterId: 'stress-cortisol-circadian',
+    },
+    {
+      slug: 'what-is-healthy-blood-sugar',
+      synergyNote: 'Cellular Insulin Resistance: Blunted GLUT-4 transporter translocation and nocturnal fatty acid elevation.',
+      clusterId: 'glycemic-metabolic-health',
+    },
+  ],
+
   // Cortisol Guide (Requested specifically: Magnesium, Ashwagandha, Morning Routine)
   'understanding-cortisol-stress-hormone': [
     {
@@ -224,8 +243,8 @@ export const CURATED_RELATED_GUIDES: Record<string, { slug: string; synergyNote:
   // Turmeric Curcumin Guide
   'turmeric-curcumin-joint-inflammation-support': [
     {
-      slug: 'mediterranean-anti-inflammatory-longevity-blueprint',
-      synergyNote: 'Dietary Grounding: Enhancing curcumin absorption within an olive-oil-rich dietary fat matrix.',
+      slug: 'best-supplements-joint-pain-relief',
+      synergyNote: 'Joint Evidence Hierarchy: Where curcumin ranks alongside collagen peptides, omega-3s, and glucosamine.',
       clusterId: 'cellular-longevity-aging',
     },
     {
@@ -240,8 +259,32 @@ export const CURATED_RELATED_GUIDES: Record<string, { slug: string; synergyNote:
     },
   ],
 
+  // Best Supplements for Joint Pain Relief Guide
+  'best-supplements-joint-pain-relief': [
+    {
+      slug: 'turmeric-curcumin-joint-inflammation-support',
+      synergyNote: 'Inflammatory Cascade: Standardized curcuminoids blocking NF-kB and COX-2 without NSAID gastric toxicity.',
+      clusterId: 'cellular-longevity-aging',
+    },
+    {
+      slug: 'collagen-peptides-skin-joint-health',
+      synergyNote: 'Extracellular Remodeling: Bioactive Pro-Hyp dipeptides and oral tolerance via undenatured UC-II collagen.',
+      clusterId: 'cellular-longevity-aging',
+    },
+    {
+      slug: 'omega-3-fish-oil-benefits',
+      synergyNote: 'Resolving Mediators: EPA and DHA generating resolvins and protectins that terminate synovial synovitis.',
+      clusterId: 'performance-mitochondrial-nutrition',
+    },
+  ],
+
   // Vitamin D3 + K2 Guide
   'vitamin-d3-k2-benefits-bone-heart-health': [
+    {
+      slug: 'vitamin-k2-mk-7-vs-mk-4',
+      synergyNote: 'Menaquinone Pharmacology: Comparing 72-hour half-life MK-7 vs 1.5-hour MK-4 for bone and vascular health.',
+      clusterId: 'cellular-longevity-aging',
+    },
     {
       slug: 'magnesium-glycinate-benefits',
       synergyNote: 'Essential Enzymatic Activator: Vitamin D cannot be converted into active calcitriol without intracellular magnesium.',
@@ -252,9 +295,23 @@ export const CURATED_RELATED_GUIDES: Record<string, { slug: string; synergyNote:
       synergyNote: 'Immune Axis Synergy: Nuclear VDR receptor transcription paired with zinc-finger protein synthesis.',
       clusterId: 'cellular-longevity-aging',
     },
+  ],
+
+  // Vitamin K2 MK-7 vs MK-4 Guide
+  'vitamin-k2-mk-7-vs-mk-4': [
     {
-      slug: 'mediterranean-anti-inflammatory-longevity-blueprint',
-      synergyNote: 'Fat-Soluble Bioavailability: Why healthy monounsaturated fats are mandatory for optimal vitamin absorption.',
+      slug: 'vitamin-d3-k2-benefits-bone-heart-health',
+      synergyNote: 'Calcium Transport Synergy: How D3 stimulates osteocalcin and MGP while K2 carboxylates them.',
+      clusterId: 'cellular-longevity-aging',
+    },
+    {
+      slug: 'how-to-read-supplement-labels-for-purity',
+      synergyNote: 'Label Verification: Spotting all-trans isomer claims and avoiding inactive cis-isomer blends.',
+      clusterId: 'cellular-longevity-aging',
+    },
+    {
+      slug: 'best-daily-supplements-women-over-40',
+      synergyNote: 'Mature Bone & Arterial Defense: Essential co-factors for preserving bone mineral density after 40.',
       clusterId: 'cellular-longevity-aging',
     },
   ],

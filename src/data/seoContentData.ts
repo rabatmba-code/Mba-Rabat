@@ -1959,6 +1959,16 @@ export const primarySeoArticles: Article[] = [
     ],
     internalLinks: [
       {
+        url: '/healthy-aging/vitamin-k2-mk-7-vs-mk-4/',
+        anchorText: 'Vitamin K2 MK-7 vs. MK-4: The Definitive Clinical Guide',
+        context: 'Explore our comprehensive pharmacological analysis of menaquinone subtypes, 72-hour half-life dynamics, and dosage protocols.'
+      },
+      {
+        url: '/healthy-aging/vitamin-d3-k2-benefits/',
+        anchorText: 'Vitamin D3 K2 Benefits: The Essential Synergy for Bone Density & Arterial Health',
+        context: 'Discover how Vitamin D3 and K2 resolve the Calcium Paradox to protect arteries and bones.'
+      },
+      {
         url: '/product-reviews/gluco6-review/',
         anchorText: 'Gluco6 Review: Ingredients, Benefits & What to Know',
         context: 'Explore our companion review on glycemic balance and glucose metabolism.'
