@@ -835,6 +835,348 @@ export const clickBankOffers: ClickBankOffer[] = [
       'Bonus 1: The Neuropathy Reversal Protocol Guide',
       'Bonus 2: 10 Miracle Foods for Nerve Regeneration'
     ]
+  },
+  {
+    id: 'aging-cortexi',
+    name: 'Cortexi (Auditory & Cognitive Support Formula)',
+    niche: 'aging',
+    categoryName: 'Hearing Health & Cognitive Support',
+    tagline: '360-Degree Botanical Support for Hearing Health, Auditory Clarity & Mental Sharpness',
+    badge: '★ #1 Rated Auditory & Cognitive Formula',
+    vendorId: 'cortexi',
+    hoplinkFallback: 'https://42911k3po86p7lf0gmwfxdco39.hop.clickbank.net',
+    rating: 4.75,
+    reviewsCount: 13900,
+    startingPrice: 69,
+    bundlePrice: 49,
+    savingsPercentage: 58,
+    guaranteeDays: 60,
+    heroImage: 'https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?auto=format&fit=crop&w=600&q=80',
+    pros: [
+      'Fast-absorbing sublingual liquid dropper format for rapid cellular bio-availability',
+      'Combines standardized Grape Seed, Green Tea (EGCG), Gymnema Sylvestre, and Panax Ginseng',
+      'Free from synthetic stimulants, artificial colors, or habit-forming additives',
+      'Manufactured in an FDA-registered, cGMP-compliant facility in the USA',
+      'Backed by an official 60-Day 100% Money-Back Guarantee through ClickBank'
+    ],
+    cons: [
+      'Requires consistent daily use over 60 days for optimal micro-circulatory support',
+      'Not intended to treat medical hearing loss or structural tinnitus disorders'
+    ],
+    keyIngredients: [
+      {
+        name: 'Grape Seed Extract (Standardized Proanthocyanidins)',
+        description: 'Rich in oligomeric proanthocyanidins that cross the blood-brain barrier to shield delicate inner-ear hair cells against free radical oxidation.',
+        clinicalTrialNote: 'Demonstrates potent micro-vascular endothelial protection in peer-reviewed auditory research.'
+      },
+      {
+        name: 'Green Tea Extract (EGCG Polyphenols)',
+        description: 'Bioactive catechins promoting healthy micro-circulation to the cochlea and supporting auditory neural pathway integrity.',
+        clinicalTrialNote: 'Documented in neuroscience trials to support cerebral blood flow and mitigate acoustic nerve oxidative fatigue.'
+      },
+      {
+        name: 'Gymnema Sylvestre & Panax Ginseng',
+        description: 'Synergistic adaptogenic duo supporting clean glucose uptake in brain tissue and sustained cognitive vigilance.',
+        clinicalTrialNote: 'Clinical studies correlate adaptogenic ginsenosides with improved cognitive processing speed and mental clarity.'
+      }
+    ],
+    verdict: 'Cortexi offers an accessible, high-grade liquid botanical formula targeting the intersection of auditory nerve health and cognitive focus. Its sublingual delivery ensures superior assimilation for adults 45+ seeking sensory clarity.',
+    ctaText: 'Check Official VIP Discount & Availability →',
+    vslBulletPoints: [
+      'Supports clear auditory nerve signaling and inner ear hair cells',
+      'Helps clear mid-day brain fog and promotes sharp focus',
+      'Easy-to-use liquid dropper (sublingual or in water)',
+      '60-Day 100% money-back guarantee through ClickBank'
+    ],
+    bonusGifts: [
+      'Bonus 1: Hear Like A Pro (8 Natural Auditory Health Habits)',
+      'Bonus 2: Powerful Ways To Sharpen Your Memory (Digital Guide)'
+    ]
+  },
+  {
+    id: 'joints-instasoothe',
+    name: 'Insta Soothe (Fast-Acting Joint & Knee Comfort)',
+    niche: 'joints',
+    categoryName: 'Joint Mobility & Cartilage Support',
+    tagline: 'Targeted Botanical Support for Knee Comfort, Synovial Fluid & Daily Mobility',
+    badge: '★ 2026 Editor Vetted Mobility Protocol',
+    vendorId: 'instasoothe',
+    hoplinkFallback: 'https://9e0faj-jlewmbm73tmy02hrmlm.hop.clickbank.net',
+    rating: 4.85,
+    reviewsCount: 14200,
+    startingPrice: 69,
+    bundlePrice: 49,
+    savingsPercentage: 60,
+    guaranteeDays: 60,
+    heroImage: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80',
+    pros: [
+      'Fast-acting targeted knee comfort and connective cartilage nourishment',
+      'Combines standardized Turmeric Curcumin, Boswellia AKBA, and Type II Collagen',
+      'Non-drowsy, stimulant-free, and gentle on the stomach lining (unlike conventional NSAIDs)',
+      'Manufactured in an FDA-registered, cGMP-certified facility in the USA',
+      'Protected by an official ClickBank 60-Day 100% Money-Back Guarantee'
+    ],
+    cons: [
+      'Only sold online through the authorized manufacturer store',
+      'Consistency is critical: peak mobility benefits compound over 60 to 90 days of daily use'
+    ],
+    keyIngredients: [
+      {
+        name: 'Turmeric Curcumin Complex (95% Curcuminoids)',
+        description: 'Standardized curcuminoids providing potent cellular defense against chronic joint stiffness and synovial inflammatory cytokines.',
+        clinicalTrialNote: 'Extensively researched in clinical joint trials for easing movement discomfort and supporting walking distance.'
+      },
+      {
+        name: 'Boswellia Serrata Extract (Standardized AKBA)',
+        description: 'Standardized frankincense resin that moderates inflammatory 5-LOX enzymes in synovial joint tissues.',
+        clinicalTrialNote: 'Clinically shown to improve knee flexion and reduce morning stiffness in physical tolerance tests.'
+      },
+      {
+        name: 'Type II Collagen & Hyaluronic Acid',
+        description: 'Foundational structural proteins and moisture-binding glycosaminoglycans that lubricate synovial joint surfaces.',
+        clinicalTrialNote: 'Helps restore shock-absorbing synovial fluid viscosity and cartilage elasticity.'
+      }
+    ],
+    verdict: 'Insta Soothe attacks the root causes of age-related knee and joint friction: loss of synovial lubrication and cartilage wear. By combining standardized AKBA Boswellia with Curcumin and Type II Collagen, it provides dependable daily relief.',
+    ctaText: 'Claim Verified Manufacturer Discount Here →',
+    vslBulletPoints: [
+      'Eases morning knee stiffness and walking discomfort',
+      'Lubricates dry, grinding joints with hyaluronic co-factors',
+      '100% clean, non-habit forming botanical formula',
+      '60-Day 100% money-back guarantee (empty bottle refund policy)'
+    ],
+    bonusGifts: [
+      'Bonus 1: The 7-Minute Morning Mobility Sequence (Video Guide)',
+      'Bonus 2: Joint-Friendly Anti-Inflammatory Kitchen Blueprint'
+    ]
+  },
+  {
+    id: 'nutrition-mediterraneandiet',
+    name: 'The Mediterranean Diet Plan (30-Day Challenge)',
+    niche: 'wellness',
+    categoryName: 'Nutrition & Metabolic Lifestyle',
+    tagline: 'Evidence-Based 30-Day Mediterranean Lifestyle & Metabolic Meal Blueprint',
+    badge: '★ #1 Rated Mediterranean Protocol',
+    vendorId: 'mediterraneandiet',
+    hoplinkFallback: 'https://8ab5dm3jkl-udt09r7mltqso56.hop.clickbank.net',
+    rating: 4.90,
+    reviewsCount: 18600,
+    startingPrice: 37,
+    bundlePrice: 27,
+    savingsPercentage: 55,
+    guaranteeDays: 60,
+    heroImage: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=600&q=80',
+    pros: [
+      'Complete, step-by-step 30-day meal plans with delicious, quick-prep recipes',
+      'Grounded in gold-standard cardiovascular and metabolic longevity science (PREDIMED study)',
+      'Zero restrictive calorie counting, extreme fasting, or unpleasant starvation phases',
+      'Instant digital download with printable PDF grocery guides for smartphones and tablets',
+      'Backed by an official 60-Day 100% Money-Back Guarantee through ClickBank'
+    ],
+    cons: [
+      'Requires preparing fresh, whole Mediterranean ingredients at home',
+      'Digital lifestyle blueprint rather than a physical pre-made meal box'
+    ],
+    keyIngredients: [
+      {
+        name: 'Extra Virgin Olive Oil & Polyphenols',
+        description: 'High-phenolic monounsaturated fatty acids supporting vascular elasticity and cellular anti-inflammatory pathways.',
+        clinicalTrialNote: 'Extensively documented in landmark cardiovascular trials for longevity and arterial health.'
+      },
+      {
+        name: 'Microbiome-Diverse Prebiotic Plants & Omega-3s',
+        description: 'Wild fish, legumes, nuts, and diverse seasonal plant fibers nourishing the gut microbiome and satiety peptides.',
+        clinicalTrialNote: 'Demonstrates clinically verified improvements in insulin sensitivity and visceral fat reduction.'
+      },
+      {
+        name: 'Glycemic Sequencing & Satiety Matrix',
+        description: 'Structured nutrient pairing methodologies that blunt postprandial glucose surges while sustaining all-day energy.',
+        clinicalTrialNote: 'Shown to moderate post-meal blood sugar excursions by up to 35% compared to standard diets.'
+      }
+    ],
+    verdict: 'The Mediterranean Diet 30-Day Challenge is the premier evidence-grounded nutrition protocol for adults looking to reset their metabolism, reduce systemic inflammation, and establish sustainable eating habits without fad restrictions.',
+    ctaText: 'Access The 30-Day Mediterranean Challenge ($27) →',
+    vslBulletPoints: [
+      'Complete 30-Day day-by-day metabolic meal plans',
+      'Over 100 delicious, 20-minute anti-inflammatory recipes',
+      'Organized weekly shopping lists for effortless grocery trips',
+      '60-Day 100% satisfaction money-back guarantee'
+    ],
+    bonusGifts: [
+      'Bonus 1: The Mediterranean Dining Out Survival Guide',
+      'Bonus 2: Quick-Prep Longevity Smoothie & Herbal Infusion Handbook'
+    ]
+  },
+  {
+    id: 'wellness-femicore',
+    name: 'FemiCore (Pelvic Floor & Bladder Vitality Formula)',
+    niche: 'wellness',
+    categoryName: "Women's Health & Bladder Support",
+    tagline: 'Natural Botanical Protocol for Pelvic Tone, Bladder Confidence & Nighttime Sleep',
+    badge: "★ #1 Rated Women's Pelvic Wellness Formula",
+    vendorId: 'femicore',
+    hoplinkFallback: 'https://8f04fh0dqd5q2oaw32og3jr55j.hop.clickbank.net',
+    rating: 4.88,
+    reviewsCount: 18450,
+    startingPrice: 69,
+    bundlePrice: 49,
+    savingsPercentage: 62,
+    guaranteeDays: 60,
+    heroImage: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80',
+    pros: [
+      'Specifically formulated for women 40+ navigating pelvic floor laxity or nighttime bathroom trips',
+      '100% hormone-free, non-habit forming botanical synergy with zero synthetic additives',
+      'Calms overactive bladder signals to support uninterrupted, restorative overnight sleep',
+      'Manufactured in an FDA-inspected, cGMP facility in the USA',
+      'Backed by an official ClickBank 60-Day 100% Money-Back Guarantee with discreet shipping'
+    ],
+    cons: [
+      'Optimal pelvic muscle tone benefits compound with 60 to 90 days of consistent daily use',
+      'Only available online through the authorized manufacturer website'
+    ],
+    keyIngredients: [
+      {
+        name: 'Pumpkin Seed Extract (Cucurbita Pepo Phytosterols)',
+        description: 'Standardized water-soluble plant sterols that reinforce pelvic floor muscle tone and bladder sphincter control.',
+        clinicalTrialNote: 'Double-blind trials show significant reductions in daytime urinary urgency and nocturnal awakening frequency.'
+      },
+      {
+        name: 'Soy-Free Isoflavone Polyphenol Matrix',
+        description: 'Gentle plant bioflavonoids supporting healthy collagen architecture and mucosal elasticity in the urogenital tract.',
+        clinicalTrialNote: 'Clinically observed to support pelvic muscle tone and tissue elasticity during midlife hormonal shifts.'
+      },
+      {
+        name: 'Horsetail Extract (Equisetum Arvense)',
+        description: 'Rich in natural bioavailable plant silica, reinforcing connective tissue matrix around the bladder neck.',
+        clinicalTrialNote: 'Traditional botanical tonic documented to support urinary tract structural integrity.'
+      }
+    ],
+    verdict: 'FemiCore provides a compassionate, evidence-based nutritional avenue for mature women to regain pelvic confidence, sleep through the night without frequent bathroom trips, and engage freely in active social life.',
+    ctaText: 'Check Official VIP Discount & Stock Status →',
+    vslBulletPoints: [
+      'Supports healthy pelvic floor muscle tone and bladder control',
+      'Reduces nighttime bathroom visits for deeper, uninterrupted sleep',
+      '100% hormone-free, clean botanical formula',
+      '60-Day 100% money-back guarantee with discrete billing and shipping'
+    ],
+    bonusGifts: [
+      'Bonus 1: The 5-Minute Pelvic Core Reset Protocol',
+      'Bonus 2: The Restful Night Guide for Women Over 40'
+    ]
+  },
+  {
+    id: 'brain-thebrainsong',
+    name: 'The Brain Song (Neuro-Acoustic Frequency Protocol)',
+    niche: 'longevity',
+    categoryName: 'Brain Frequencies & Memory Support',
+    tagline: 'Neuro-Acoustic Sound Frequency Protocol for Sharp Focus & Mental Clarity',
+    badge: '★ Innovative Audio Brainwave Therapy',
+    vendorId: 'thebrainsong',
+    hoplinkFallback: 'https://7b4f29vgoj5r8x1mljsez6u25r.hop.clickbank.net',
+    rating: 4.82,
+    reviewsCount: 11200,
+    startingPrice: 39,
+    bundlePrice: 39,
+    savingsPercentage: 50,
+    guaranteeDays: 60,
+    heroImage: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80',
+    pros: [
+      '100% non-invasive audio protocol: zero pills, capsules, or supplement interactions',
+      'Takes just 10 to 15 minutes a day using any standard pair of headphones or earbuds',
+      'Calibrated Alpha (8–12 Hz) and Theta audio frequencies for effortless mental focus and calm',
+      'Instant digital access with lifetime download rights on smartphone, tablet, or desktop',
+      'Protected by an official ClickBank 60-Day 100% Money-Back Guarantee'
+    ],
+    cons: [
+      'Requires regular headphones or stereo earphones for optimal binaural entrainment',
+      'Digital auditory protocol rather than an ingestible nutritional supplement'
+    ],
+    keyIngredients: [
+      {
+        name: 'Isochronic & Binaural Frequency Entrainment',
+        description: 'Precision-engineered acoustic sound frequencies that gently guide brain electrical rhythms into balanced Alpha focus states.',
+        clinicalTrialNote: 'Quantitative EEG research demonstrates audio brainwave entrainment reduces mental fatigue and enhances working memory.'
+      },
+      {
+        name: 'Vagal Nerve Harmonic Resonance',
+        description: 'Acoustic frequency architecture calibrated to stimulate parasympathetic tone, easing sympathetic nervous tension.',
+        clinicalTrialNote: 'Promotes heart rate variability (HRV) improvement and calms cognitive stress responses.'
+      },
+      {
+        name: 'Gamma-Band Memory Stimulation Frequencies',
+        description: 'Targeted auditory rhythm sequences supporting synaptic neuro-plasticity and word recall.',
+        clinicalTrialNote: 'Published neuroscience studies associate gamma oscillations with coordinated memory binding.'
+      }
+    ],
+    verdict: 'The Brain Song offers a refreshing non-invasive breakthrough for cognitive longevity. By tapping into auditory neuroscience rather than chemical stimulation, it provides an accessible focus routine suitable for anyone.',
+    ctaText: 'Download The Official Brain Song Protocol ($39) →',
+    vslBulletPoints: [
+      'Clears mental brain fog and sharpens daily concentration',
+      'Non-invasive: just listen for 10-15 minutes each morning',
+      'Works with any pair of standard headphones or earbuds',
+      '60-Day 100% money-back guarantee (zero risk trial)'
+    ],
+    bonusGifts: [
+      'Bonus 1: The Theta Sleep Meditation Audio Session',
+      'Bonus 2: The Fast-Recall Memory Activation Blueprint'
+    ]
+  },
+  {
+    id: 'brain-neurovera',
+    name: 'NeuroVera (Advanced Botanical Nootropic Complex)',
+    niche: 'aging',
+    categoryName: 'Brain & Neural Health',
+    tagline: 'Advanced Botanical Nootropic Complex for Memory Recall & Neuronal Health',
+    badge: '★ Editor Vetted Neuro-Nutrition',
+    vendorId: 'neurovera',
+    hoplinkFallback: 'https://cc398mqohixn5q7hgptc5cs21a.hop.clickbank.net',
+    rating: 4.87,
+    reviewsCount: 15600,
+    startingPrice: 69,
+    bundlePrice: 49,
+    savingsPercentage: 64,
+    guaranteeDays: 60,
+    heroImage: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80',
+    pros: [
+      'Comprehensive botanical nootropic combining standardized Bacopa, Lion’s Mane, and Phosphatidylserine',
+      'Supports acetylcholine neurotransmitter longevity, memory retention, and mental processing speed',
+      '100% caffeine-free: clean mental alertness without anxiety, jitters, or afternoon crashes',
+      'Manufactured in an FDA-registered, cGMP-certified facility in the USA',
+      'Backed by an official ClickBank 60-Day 100% Money-Back Guarantee'
+    ],
+    cons: [
+      'Best neurological benefits compound over 60 to 90 days of consistent morning use',
+      'Only available through the verified manufacturer distributor online'
+    ],
+    keyIngredients: [
+      {
+        name: 'Bacopa Monnieri (Standardized Bacosides)',
+        description: 'Ancient Ayurvedic botanical clinically proven to enhance synaptic communication, dendrite branching, and memory recall.',
+        clinicalTrialNote: 'Double-blind, placebo-controlled trials confirm significant improvements in verbal recall and cognitive processing speed.'
+      },
+      {
+        name: 'Organic Lion’s Mane Mushroom (Hericium Erinaceus)',
+        description: 'Medicinal mushroom rich in hericenones that stimulate endogenous Nerve Growth Factor (NGF) synthesis.',
+        clinicalTrialNote: 'Investigated in neuroscience trials for supporting neurogenesis, myelination, and cognitive vitality in mature adults.'
+      },
+      {
+        name: 'Phosphatidylserine (Soy-Free Plant Derived)',
+        description: 'Crucial phospholipid compound comprising the structural membranes of brain cells and synaptic junctions.',
+        clinicalTrialNote: 'Documented in multiple randomized clinical trials to preserve memory recall and mental sharpness during healthy aging.'
+      }
+    ],
+    verdict: 'NeuroVera stands out in the cognitive wellness category for its refusal to use cheap caffeine or harsh synthetic stimulants. Its multi-target formula nourishes nerve myelin sheaths and supports neurotransmitter pathways for long-term brain vitality.',
+    ctaText: 'Claim Official VIP Discount & Availability →',
+    vslBulletPoints: [
+      'Promotes sharp memory recall and mental processing speed',
+      'Protects aging brain cells from oxidative neural stress',
+      'Smooth, non-jittery cognitive energy with zero caffeine',
+      '60-Day 100% money-back satisfaction guarantee'
+    ],
+    bonusGifts: [
+      'Bonus 1: The Neuro-Plasticity Brain Training Protocol',
+      'Bonus 2: 7 Superfoods for Lifelong Cognitive Sharpness'
+    ]
   }
 ];
 

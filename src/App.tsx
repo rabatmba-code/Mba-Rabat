@@ -55,6 +55,7 @@ export default function App() {
   const [selectedReviewOffer, setSelectedReviewOffer] = useState<ClickBankOffer>(clickBankOffers[0]);
   const [selectedCategory, setSelectedCategory] = useState<string>('All Topics');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [productReviewFilter, setProductReviewFilter] = useState<string>('all-clickbank');
 
   // Modals
   const [isQuizOpen, setIsQuizOpen] = useState(false);
@@ -138,6 +139,27 @@ export default function App() {
         setSelectedArticle(matchedArticle);
         setActiveView('article');
         return;
+      }
+
+      // Product review bridge view routing: /product-reviews/:id or /product-reviews/:id/
+      if (cleanPath.startsWith('/product-reviews/')) {
+        const reviewSlug = cleanPath.replace(/^\/product-reviews\//, '').replace(/\/$/, '');
+        const matchedReviewArticle = articles.find(
+          (a) => a.path === path || (a.path && a.path.replace(/\/$/, '') === cleanPath) || a.slug === reviewSlug
+        );
+        if (matchedReviewArticle) {
+          setSelectedArticle(matchedReviewArticle);
+          setActiveView('article');
+          return;
+        }
+        const matchedOffer = clickBankOffers.find(
+          (o) => o.id === reviewSlug || o.vendorId === reviewSlug || o.id.includes(reviewSlug) || reviewSlug.includes(o.id)
+        );
+        if (matchedOffer) {
+          setSelectedReviewOffer(matchedOffer);
+          setActiveView('review');
+          return;
+        }
       }
 
       // Author Profile routing: /author/:slug or /author/:slug/
@@ -722,101 +744,195 @@ export default function App() {
                   </button>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* FILTER TABS FOR PRODUCT REVIEWS */}
+                <div className="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
                   {[
-                    clickBankOffers.find((o) => o.id === 'gluco6' || o.id === 'bloodsugar-gluco6') || clickBankOffers[0],
-                    clickBankOffers.find((o) => o.id === 'duwzgu-d3k2' || o.id === 'duwzgu'),
-                    clickBankOffers.find((o) => o.id === 'duwzgu-creatine-gummies' || o.id.includes('creatine-gummies')),
-                    clickBankOffers.find((o) => o.id === 'duwzgu-sleep-gummies' || o.id.includes('sleep-gummies')),
-                    clickBankOffers.find((o) => o.id === 'duwzgu-immune-gummies' || o.id.includes('immune-gummies') || o.id.includes('gumm')),
-                    clickBankOffers.find((o) => o.id === 'eelhoe-vc' || o.id === 'eelhoe'),
-                    clickBankOffers.find((o) => o.id === 'preworkout-caffeine' || o.id.includes('caffeine')),
-                    clickBankOffers.find((o) => o.id === 'duwzgu-creatine' || o.id.includes('creatine')),
-                    clickBankOffers.find((o) => o.id === 'bloodsugar-defender'),
-                    clickBankOffers.find((o) => o.id === 'puravive' || o.id === 'metabolism-puravive'),
-                  ].filter(Boolean).map((offer) => {
+                    { id: 'all-clickbank', label: 'All 13 ClickBank Reviews (13)' },
+                    { id: 'bloodsugar-metabolism', label: 'Blood Sugar & Metabolism (4)' },
+                    { id: 'joints-mobility', label: 'Joints & Mobility (2)' },
+                    { id: 'brain-hearing', label: 'Brain & Hearing (3)' },
+                    { id: 'sleep-women', label: "Sleep & Women's Health (2)" },
+                    { id: 'nutrition', label: 'Longevity Nutrition (1)' },
+                    { id: 'all-catalog', label: 'Complete Catalog (20)' }
+                  ].map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => setProductReviewFilter(tab.id)}
+                      className={`text-xs font-semibold px-3.5 py-1.5 rounded-lg whitespace-nowrap transition-all cursor-pointer ${
+                        productReviewFilter === tab.id
+                          ? 'bg-emerald-800 text-white shadow-2xs'
+                          : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+
+                {(() => {
+                  const clickBank13Ids = [
+                    'bloodsugar-gluco6',
+                    'metabolism-puravive',
+                    'bloodsugar-defender',
+                    'gut-leanbiome',
+                    'joints-genesis',
+                    'sleep-deep-rest',
+                    'aging-cellular-boost',
+                    'aging-cortexi',
+                    'joints-instasoothe',
+                    'nutrition-mediterraneandiet',
+                    'wellness-femicore',
+                    'brain-thebrainsong',
+                    'brain-neurovera',
+                  ];
+
+                  const all13Offers = clickBank13Ids
+                    .map((id) => clickBankOffers.find((o) => o.id === id))
+                    .filter(Boolean) as ClickBankOffer[];
+
+                  let displayedOffers: ClickBankOffer[] = all13Offers;
+                  if (productReviewFilter === 'bloodsugar-metabolism') {
+                    displayedOffers = all13Offers.filter((o) =>
+                      ['bloodsugar-gluco6', 'metabolism-puravive', 'bloodsugar-defender', 'gut-leanbiome'].includes(o.id)
+                    );
+                  } else if (productReviewFilter === 'joints-mobility') {
+                    displayedOffers = all13Offers.filter((o) =>
+                      ['joints-genesis', 'joints-instasoothe'].includes(o.id)
+                    );
+                  } else if (productReviewFilter === 'brain-hearing') {
+                    displayedOffers = all13Offers.filter((o) =>
+                      ['aging-cortexi', 'brain-thebrainsong', 'brain-neurovera'].includes(o.id)
+                    );
+                  } else if (productReviewFilter === 'sleep-women') {
+                    displayedOffers = all13Offers.filter((o) =>
+                      ['sleep-deep-rest', 'wellness-femicore'].includes(o.id)
+                    );
+                  } else if (productReviewFilter === 'nutrition') {
+                    displayedOffers = all13Offers.filter((o) =>
+                      ['nutrition-mediterraneandiet'].includes(o.id)
+                    );
+                  } else if (productReviewFilter === 'all-catalog') {
+                    displayedOffers = clickBankOffers;
+                  }
+
+                  return (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {displayedOffers.map((offer) => {
                     const destinationUrl = getAffiliateUrl(offer.id);
-                    const isCreatineGummies = offer.id === 'duwzgu-creatine-gummies' || (offer.id.includes('creatine') && (offer.id.includes('gumm') || offer.id.includes('candy')));
-                    const isSleepGummies = offer.id.includes('sleep') && (offer.id.includes('gumm') || offer.id.includes('melatonin'));
-                    const isImmuneGummies = (offer.id.includes('gumm') || offer.id.includes('elderberry')) && !isSleepGummies && !isCreatineGummies;
-                    const isCreatine = offer.id.includes('creatine') && !isCreatineGummies;
-                    const isDuwzgu = (offer.id.includes('duwzgu') || offer.id.includes('d3k2')) && !isCreatine && !isImmuneGummies && !isSleepGummies && !isCreatineGummies;
-                    const isEelhoe = offer.id.includes('eelhoe');
-                    const isPreworkout = offer.id.includes('caffeine') || offer.id.includes('preworkout');
-                    const isDirectDiscount = isDuwzgu || isEelhoe || isPreworkout || isCreatine || isImmuneGummies || isSleepGummies || isCreatineGummies;
+                        // Dropship types
+                        const isCreatineGummies = offer.id === 'duwzgu-creatine-gummies' || (offer.id.includes('creatine') && (offer.id.includes('gumm') || offer.id.includes('candy')));
+                        const isSleepGummies = offer.id.includes('sleep') && (offer.id.includes('gumm') || offer.id.includes('melatonin'));
+                        const isImmuneGummies = (offer.id.includes('gumm') || offer.id.includes('elderberry')) && !isSleepGummies && !isCreatineGummies;
+                        const isCreatine = offer.id.includes('creatine') && !isCreatineGummies;
+                        const isDuwzgu = (offer.id.includes('duwzgu') || offer.id.includes('d3k2')) && !isCreatine && !isImmuneGummies && !isSleepGummies && !isCreatineGummies;
+                        const isEelhoe = offer.id.includes('eelhoe');
+                        const isPreworkout = offer.id.includes('caffeine') || offer.id.includes('preworkout');
 
-                    const badgeText = isEelhoe || isDuwzgu || isPreworkout || isCreatine || isImmuneGummies || isSleepGummies || isCreatineGummies ? "★ Editor's Pick" : "Vetted Formula";
-                    const badgeColor = isCreatineGummies
-                      ? "bg-cyan-700 text-white"
-                      : isSleepGummies
-                      ? "bg-indigo-700 text-white"
-                      : isImmuneGummies
-                      ? "bg-purple-700 text-white"
-                      : isEelhoe
-                      ? "bg-pink-600 text-white"
-                      : isCreatine
-                      ? "bg-blue-600 text-white"
-                      : isDuwzgu
-                      ? "bg-amber-600 text-white"
-                      : isPreworkout
-                      ? "bg-orange-600 text-white"
-                      : "bg-emerald-700 text-white";
+                        // ClickBank products
+                        const isBrainSong = offer.id.includes('brainsong') || offer.vendorId === 'thebrainsong';
+                        const isMedDiet = offer.id.includes('mediterranean') || offer.vendorId === 'mediterraneandiet';
+                        const isFemiCore = offer.id.includes('femicore') || offer.vendorId === 'femicore';
+                        const isCortexi = offer.id.includes('cortexi') || offer.vendorId === 'cortexi';
+                        const isInstaSoothe = offer.id.includes('instasoothe') || offer.vendorId === 'instasoothe';
+                        const isNeuroVera = offer.id.includes('neurovera') || offer.vendorId === 'neurovera';
+                        const isLeanBiome = offer.id.includes('leanbiome') || offer.vendorId === 'leanbiome';
+                        const isJointGenesis = offer.id.includes('joints-genesis') || offer.id.includes('jointgenesis') || offer.vendorId === 'jointgenesis';
+                        const isSleepTea = offer.id.includes('sleep-deep') || offer.id.includes('sleepslim') || offer.vendorId === 'sleeptea';
+                        const isProNervium = offer.id.includes('aging-cellular') || offer.id.includes('pronervium') || offer.vendorId === 'pronervium';
+                        const isGluco6 = offer.id.includes('gluco6') || offer.vendorId === 'gluco6';
+                        const isSugarDefender = offer.id.includes('defender') || offer.vendorId === 'sugardef';
+                        const isPuravive = offer.id.includes('puravive') || offer.vendorId === 'puravive';
 
-                    const cardBorder = isCreatineGummies
-                      ? "border-cyan-400/80 ring-1 ring-cyan-400/30 shadow-md"
-                      : isSleepGummies
-                      ? "border-indigo-400/80 ring-1 ring-indigo-400/30 shadow-md"
-                      : isImmuneGummies
-                      ? "border-purple-400/80 ring-1 ring-purple-400/30 shadow-md"
-                      : isEelhoe
-                      ? "border-pink-300/80 ring-1 ring-pink-400/30 shadow-md"
-                      : isCreatine
-                      ? "border-blue-400/80 ring-1 ring-blue-400/30 shadow-md"
-                      : isDuwzgu
-                      ? "border-amber-400/80 ring-1 ring-amber-400/30 shadow-md"
-                      : isPreworkout
-                      ? "border-orange-400/80 ring-1 ring-orange-400/30 shadow-md"
-                      : "border-slate-200 hover:border-emerald-600/40 hover:shadow-lg";
+                        const badgeText = 
+                          isBrainSong ? "★ Audio Brainwave Therapy" :
+                          isMedDiet ? "★ #1 Diet Challenge" :
+                          isFemiCore ? "★ Women's Health #1" :
+                          isCortexi ? "★ Hearing & Brain" :
+                          isInstaSoothe ? "★ Knee & Mobility" :
+                          isNeuroVera ? "★ Neuro-Nutrition" :
+                          isJointGenesis ? "★ Synovial Joint Matrix" :
+                          isLeanBiome ? "★ Microbiome Formula" :
+                          isSleepTea ? "★ Restorative Sleep" :
+                          isProNervium ? "★ Nerve & Longevity" :
+                          isGluco6 ? "★ 2026 Top Glycemic" :
+                          isSugarDefender ? "★ Glycemic Matrix" :
+                          isPuravive ? "★ Top Metabolism" :
+                          isCreatineGummies || isSleepGummies || isImmuneGummies || isEelhoe || isCreatine || isDuwzgu || isPreworkout ? "★ Editor's Pick" : "Vetted Formula";
 
-                    const pricingText = isCreatineGummies
-                      ? "$26.99 retail"
-                      : isSleepGummies || isImmuneGummies
-                      ? "$18.99 retail"
-                      : isEelhoe
-                      ? "$24.99 retail"
-                      : isCreatine
-                      ? "$27.99 retail"
-                      : isDuwzgu
-                      ? "$19.99 retail"
-                      : isPreworkout
-                      ? "$22.99 retail"
-                      : `$${offer.bundlePrice} / bottle`;
+                        const badgeColor = 
+                          isBrainSong ? "bg-purple-700 text-white" :
+                          isMedDiet ? "bg-emerald-700 text-white" :
+                          isFemiCore ? "bg-rose-700 text-white" :
+                          isCortexi ? "bg-indigo-700 text-white" :
+                          isInstaSoothe ? "bg-teal-700 text-white" :
+                          isNeuroVera ? "bg-blue-700 text-white" :
+                          isJointGenesis ? "bg-cyan-700 text-white" :
+                          isLeanBiome ? "bg-emerald-700 text-white" :
+                          isSleepTea ? "bg-violet-700 text-white" :
+                          isProNervium ? "bg-amber-700 text-white" :
+                          isCreatineGummies ? "bg-cyan-700 text-white" :
+                          isSleepGummies ? "bg-indigo-700 text-white" :
+                          isImmuneGummies ? "bg-purple-700 text-white" :
+                          isEelhoe ? "bg-pink-600 text-white" :
+                          isCreatine ? "bg-blue-600 text-white" :
+                          isDuwzgu ? "bg-amber-600 text-white" :
+                          isPreworkout ? "bg-orange-600 text-white" :
+                          "bg-emerald-700 text-white";
 
-                    const standardText = isCreatineGummies
-                      ? "USA cGMP / 6000mg Formula"
-                      : isSleepGummies || isImmuneGummies
-                      ? "USA cGMP / Plant Pectin"
-                      : isEelhoe
-                      ? "Dermatology Tested"
-                      : isCreatine
-                      ? "USA cGMP / Micronized 200 Mesh"
-                      : isPreworkout
-                      ? "USA cGMP / HPLC Tested"
-                      : "USA cGMP Facility";
+                        const cardBorder = 
+                          isCreatineGummies ? "border-cyan-400/80 ring-1 ring-cyan-400/30 shadow-md" :
+                          isSleepGummies ? "border-indigo-400/80 ring-1 ring-indigo-400/30 shadow-md" :
+                          isImmuneGummies ? "border-purple-400/80 ring-1 ring-purple-400/30 shadow-md" :
+                          isEelhoe ? "border-pink-300/80 ring-1 ring-pink-400/30 shadow-md" :
+                          isCreatine ? "border-blue-400/80 ring-1 ring-blue-400/30 shadow-md" :
+                          isDuwzgu ? "border-amber-400/80 ring-1 ring-amber-400/30 shadow-md" :
+                          isPreworkout ? "border-orange-400/80 ring-1 ring-orange-400/30 shadow-md" :
+                          isBrainSong ? "border-purple-200 hover:border-purple-400 hover:shadow-lg" :
+                          isMedDiet ? "border-emerald-200 hover:border-emerald-400 hover:shadow-lg" :
+                          isFemiCore ? "border-rose-200 hover:border-rose-400 hover:shadow-lg" :
+                          isCortexi ? "border-indigo-200 hover:border-indigo-400 hover:shadow-lg" :
+                          isInstaSoothe ? "border-teal-200 hover:border-teal-400 hover:shadow-lg" :
+                          "border-slate-200 hover:border-emerald-600/40 hover:shadow-lg";
 
-                    const buyBtnText = isCreatineGummies
-                      ? "Claim Discount Now ($26.99)"
-                      : isSleepGummies || isImmuneGummies
-                      ? "Claim Discount Now ($18.99)"
-                      : isEelhoe
-                      ? "Claim Discount Now ($24.99)"
-                      : isCreatine
-                      ? "Claim Discount Now ($27.99)"
-                      : isDuwzgu
-                      ? "Claim Discount Now ($19.99)"
-                      : isPreworkout
-                      ? "Claim Discount Now ($22.99)"
-                      : "Official Product Information";
+                        const pricingText = 
+                          isBrainSong ? "$39 digital audio" :
+                          isMedDiet ? "$27 complete challenge" :
+                          isCreatineGummies ? "$26.99 retail" :
+                          isSleepGummies || isImmuneGummies ? "$18.99 retail" :
+                          isEelhoe ? "$24.99 retail" :
+                          isCreatine ? "$27.99 retail" :
+                          isDuwzgu ? "$19.99 retail" :
+                          isPreworkout ? "$22.99 retail" :
+                          `$${offer.bundlePrice} / bottle`;
+
+                        const standardText = 
+                          isBrainSong ? "Audio Neuro-Acoustic Protocol" :
+                          isMedDiet ? "Whole-Food Meal Blueprint" :
+                          isFemiCore ? "USA cGMP / Hormone-Free" :
+                          isCortexi ? "USA cGMP / Sublingual Dropper" :
+                          isInstaSoothe ? "USA cGMP / AKBA Boswellia" :
+                          isNeuroVera ? "USA cGMP / Standardized Bacosides" :
+                          isJointGenesis ? "USA cGMP / Mobilee Hyaluronan" :
+                          isLeanBiome ? "USA cGMP / DRcaps Acid-Resistant" :
+                          isSleepTea ? "USA cGMP / USDA Spiced Brew" :
+                          isProNervium ? "USA cGMP / Benfotiamine & ALA" :
+                          isCreatineGummies ? "USA cGMP / 6000mg Formula" :
+                          isSleepGummies || isImmuneGummies ? "USA cGMP / Plant Pectin" :
+                          isEelhoe ? "Dermatology Tested" :
+                          isCreatine ? "USA cGMP / Micronized 200 Mesh" :
+                          isPreworkout ? "USA cGMP / HPLC Tested" :
+                          "USA cGMP Facility";
+
+                        const buyBtnText = 
+                          isBrainSong ? "Download Audio Protocol ($39)" :
+                          isMedDiet ? "Access 30-Day Challenge ($27)" :
+                          isCreatineGummies ? "Claim Discount Now ($26.99)" :
+                          isSleepGummies || isImmuneGummies ? "Claim Discount Now ($18.99)" :
+                          isEelhoe ? "Claim Discount Now ($24.99)" :
+                          isCreatine ? "Claim Discount Now ($27.99)" :
+                          isDuwzgu ? "Claim Discount Now ($19.99)" :
+                          isPreworkout ? "Claim Discount Now ($22.99)" :
+                          "Check Official VIP Discount";
 
                     return (
                       <div
@@ -894,6 +1010,8 @@ export default function App() {
                     );
                   })}
                 </div>
+                  );
+                })()}
 
                 {/* Section FTC Affiliate Transparency Callout */}
                 <div className="bg-slate-100/80 border border-slate-200 rounded-xl p-4 text-xs text-slate-600 flex items-start gap-2.5">
