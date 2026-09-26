@@ -532,6 +532,11 @@ export const pureEducationalArticles: Article[] = [
     },
     internalLinks: [
       {
+        anchorText: 'Electrolytes 101: The Science of Sodium, Potassium & Magnesium Balance',
+        url: '/nutrition/electrolytes-sodium-potassium-magnesium-balance/',
+        context: 'Explore our companion educational deep-dive into the individual biological roles of sodium, potassium, and magnesium, and the sodium-potassium pump.'
+      },
+      {
         anchorText: 'The Best Morning Routine for Sustained Energy Guide',
         url: '/healthy-aging/best-morning-routine-sustained-energy/',
         context: 'Discover how waking mineral rehydration and morning light protocols activate the sodium-potassium pump to restore vital daytime energy.'
@@ -836,6 +841,11 @@ export const pureEducationalArticles: Article[] = [
     },
     internalLinks: [
       {
+        anchorText: 'NAD+ and Cellular Aging Science: Sirtuins, DNA Repair & Precursors',
+        url: '/healthy-aging/nad-cellular-aging-science/',
+        context: 'Explore how mitochondrial electron transport and cellular NAD+ pools synergize with phosphocreatine ATP resynthesis for healthy aging.'
+      },
+      {
         anchorText: 'DUWZGU Pure Power Creatine Monohydrate Review',
         url: '/product-reviews/duwzgu-creatine-monohydrate-review/',
         context: 'Complete laboratory breakdown of purity, micronization solubility, and 60-day value analysis.'
@@ -998,6 +1008,16 @@ export const pureEducationalArticles: Article[] = [
       ]
     },
     internalLinks: [
+      {
+        anchorText: 'Electrolytes 101: The Science of Sodium, Potassium & Magnesium Balance',
+        url: '/nutrition/electrolytes-sodium-potassium-magnesium-balance/',
+        context: 'Explore how magnesium serves as the obligate catalytic cofactor for the Na+/K+-ATPase pump alongside sodium and potassium.'
+      },
+      {
+        anchorText: 'NAD+ and Cellular Aging Science: Sirtuins, DNA Repair & Precursors',
+        url: '/healthy-aging/nad-cellular-aging-science/',
+        context: 'Discover how intracellular magnesium acts as an obligate cofactor for ATP binding, mitochondrial respiration, and NAD+ coenzyme stability.'
+      },
       {
         anchorText: 'Ashwagandha for Stress & Cortisol Management',
         url: '/sleep-and-stress/ashwagandha-stress-cortisol-management/',
@@ -3700,6 +3720,11 @@ export const pureEducationalArticles: Article[] = [
       }
     ],
     internalLinks: [
+      {
+        url: '/nutrition/iron-deficiency-women-signs-solutions/',
+        anchorText: 'Iron Deficiency in Women: Clinical Signs, Ferritin Biomarkers & Solutions',
+        context: 'Explore how non-anemic iron deficiency and depleted ferritin parallel B12 deficiency in driving chronic fatigue, hair shedding, and brain fog.'
+      },
       {
         url: '/nutrition/b-complex-vitamins-energy-metabolism/',
         anchorText: 'B-Complex Vitamins: Energy Metabolism, Cellular Respiration & Active Coenzymes',

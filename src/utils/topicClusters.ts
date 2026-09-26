@@ -278,6 +278,25 @@ export const CURATED_RELATED_GUIDES: Record<string, { slug: string; synergyNote:
     },
   ],
 
+  // NAD+ and Cellular Aging Science Guide
+  'nad-cellular-aging-science': [
+    {
+      slug: 'creatine-monohydrate-benefits-strength-brain-health',
+      synergyNote: 'Bioenergetic Synergy: Combining mitochondrial NAD+/NADH electron transport with phosphocreatine ATP resynthesis.',
+      clusterId: 'performance-mitochondrial-nutrition',
+    },
+    {
+      slug: 'mediterranean-anti-inflammatory-longevity-blueprint',
+      synergyNote: 'CD38 Suppression: How extra virgin olive oil polyphenols and caloric restraint protect the cellular NAD+ pool.',
+      clusterId: 'cellular-longevity-aging',
+    },
+    {
+      slug: 'magnesium-glycinate-benefits',
+      synergyNote: 'Enzymatic Stabilization: Intracellular magnesium as an obligate cofactor for ATP binding and sirtuin function.',
+      clusterId: 'stress-cortisol-circadian',
+    },
+  ],
+
   // Vitamin D3 + K2 Guide
   'vitamin-d3-k2-benefits-bone-heart-health': [
     {
@@ -312,6 +331,44 @@ export const CURATED_RELATED_GUIDES: Record<string, { slug: string; synergyNote:
     {
       slug: 'best-daily-supplements-women-over-40',
       synergyNote: 'Mature Bone & Arterial Defense: Essential co-factors for preserving bone mineral density after 40.',
+      clusterId: 'cellular-longevity-aging',
+    },
+  ],
+
+  // Iron Deficiency in Women Guide
+  'iron-deficiency-women-signs-solutions': [
+    {
+      slug: 'vitamin-b12-deficiency-signs-causes',
+      synergyNote: 'Hematological Synergy: Distinguishing microcytic iron deficiency from macrocytic cobalamin anemia.',
+      clusterId: 'performance-mitochondrial-nutrition',
+    },
+    {
+      slug: 'best-daily-supplements-women-over-40',
+      synergyNote: 'Hormonal Transition: Why iron requirements drop sharply following menopause while bone cofactors rise.',
+      clusterId: 'cellular-longevity-aging',
+    },
+    {
+      slug: 'how-to-read-supplement-labels-for-purity',
+      synergyNote: 'Mineral Chelation: Verifying elemental iron dosages and gentle bisglycinate chelation seals.',
+      clusterId: 'cellular-longevity-aging',
+    },
+  ],
+
+  // Vitamin B12 Deficiency Guide
+  'vitamin-b12-deficiency-signs-causes': [
+    {
+      slug: 'iron-deficiency-women-signs-solutions',
+      synergyNote: 'Cellular Anemia Axis: How non-anemic iron deficiency and B12 malabsorption drive overlapping fatigue.',
+      clusterId: 'performance-mitochondrial-nutrition',
+    },
+    {
+      slug: 'best-daily-supplements-women-over-40',
+      synergyNote: 'Intestinal Acid Secretion: Overcoming age-associated hypochlorhydria to restore micronutrient absorption.',
+      clusterId: 'cellular-longevity-aging',
+    },
+    {
+      slug: 'how-to-read-supplement-labels-for-purity',
+      synergyNote: 'Coenzyme Forms: Auditing methylcobalamin vs cyanocobalamin purity on supplement facts panels.',
       clusterId: 'cellular-longevity-aging',
     },
   ],
@@ -357,6 +414,11 @@ export const CURATED_RELATED_GUIDES: Record<string, { slug: string; synergyNote:
   // Hydration & Electrolytes Guide
   'hydration-electrolytes-metabolic-health-guide': [
     {
+      slug: 'electrolytes-sodium-potassium-magnesium-balance',
+      synergyNote: 'Electrolyte Fundamentals: Detailed biochemical breakdown of sodium, potassium, and magnesium cellular duties.',
+      clusterId: 'performance-mitochondrial-nutrition',
+    },
+    {
       slug: 'intermittent-fasting-benefits-how-to-start',
       synergyNote: 'Fasting Mineral Preservation: Preventing sodium depletion, headaches, and energy crashes during fasting windows.',
       clusterId: 'metabolic-reset-weight',
@@ -366,9 +428,23 @@ export const CURATED_RELATED_GUIDES: Record<string, { slug: string; synergyNote:
       synergyNote: 'Awakening Hydration Protocol: Rapid cellular fluid re-balancing with sodium and potassium before morning coffee.',
       clusterId: 'stress-cortisol-circadian',
     },
+  ],
+
+  // Electrolytes 101: Sodium, Potassium & Magnesium Balance Guide
+  'electrolytes-sodium-potassium-magnesium-balance': [
+    {
+      slug: 'hydration-electrolytes-metabolic-health-guide',
+      synergyNote: 'Metabolic Hydration: How cellular osmolality and vasopressin intersect with daily electrolyte balance.',
+      clusterId: 'metabolic-reset-weight',
+    },
+    {
+      slug: 'magnesium-glycinate-benefits',
+      synergyNote: 'Catalytic Pump Activation: Intracellular magnesium as the required cofactor for Na+/K+-ATPase ATP hydrolysis.',
+      clusterId: 'stress-cortisol-circadian',
+    },
     {
       slug: 'post-meal-walk-glucose-protocol',
-      synergyNote: 'Vascular Hydration: Ensuring adequate blood volume and electrolyte balance for active muscular glucose disposal.',
+      synergyNote: 'SGLT Cotransport: Muscular glucose uptake and sodium gradient dynamics during postprandial movement.',
       clusterId: 'glycemic-metabolic-health',
     },
   ],
