@@ -365,6 +365,31 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
     title: sec.heading,
   }));
 
+  // Internal link delegation for rendered article content
+  const handleArticleContentClick = (e: React.MouseEvent<HTMLElement>) => {
+    const target = (e.target as HTMLElement).closest('a');
+    if (!target) return;
+    const href = target.getAttribute('href');
+    if (!href) return;
+    
+    // Internal link
+    if (href.startsWith('/') && !href.startsWith('//')) {
+      const cleanHref = href.split('?')[0].split('#')[0];
+      const matchingArticle = allArticles.find(a => 
+        a.path === cleanHref || 
+        `/${a.slug}/` === cleanHref || 
+        cleanHref.endsWith(`/${a.slug}/`) ||
+        cleanHref === `/${a.slug}`
+      );
+      if (matchingArticle) {
+        e.preventDefault();
+        onReadArticle(matchingArticle);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+    }
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       {/* Top Breadcrumb Navigation & Action Bar */}
@@ -417,7 +442,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
         {/* Main Article Content Column (around 750px) */}
-        <article className="lg:col-span-8 article-container">
+        <article className="lg:col-span-8 article-container" onClick={handleArticleContentClick}>
           {/* Simplified Print View Header (Visible ONLY during print) */}
           <div className="hidden print:block mb-8 pb-4 border-b-2 border-slate-900 text-slate-900">
             <div className="flex items-center justify-between gap-4 mb-3">
@@ -656,14 +681,29 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
                   {/* Paragraphs */}
                   {sec.paragraphs && sec.paragraphs.length > 0 ? (
                     sec.paragraphs.map((p, pIdx) => (
-                      <p key={pIdx} className="leading-relaxed text-slate-700 text-base">
-                        {p}
-                      </p>
+                      p.includes('<') && p.includes('>') ? (
+                        <p
+                          key={pIdx}
+                          className="leading-relaxed text-slate-700 text-base"
+                          dangerouslySetInnerHTML={{ __html: p }}
+                        />
+                      ) : (
+                        <p key={pIdx} className="leading-relaxed text-slate-700 text-base">
+                          {p}
+                        </p>
+                      )
                     ))
                   ) : (
-                    <p className="leading-relaxed text-slate-700 text-base">
-                      {sec.content}
-                    </p>
+                    sec.content && (sec.content.includes('<') && sec.content.includes('>')) ? (
+                      <p
+                        className="leading-relaxed text-slate-700 text-base"
+                        dangerouslySetInnerHTML={{ __html: sec.content }}
+                      />
+                    ) : (
+                      <p className="leading-relaxed text-slate-700 text-base">
+                        {sec.content}
+                      </p>
+                    )
                   )}
 
                   {/* Bullet points if present */}
@@ -672,7 +712,11 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
                       {sec.bulletPoints.map((point, bIdx) => (
                         <li key={bIdx} className="flex items-start gap-2.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2 shrink-0"></span>
-                          <span className="leading-relaxed">{point}</span>
+                          {point.includes('<') && point.includes('>') ? (
+                            <span className="leading-relaxed" dangerouslySetInnerHTML={{ __html: point }} />
+                          ) : (
+                            <span className="leading-relaxed">{point}</span>
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -686,15 +730,26 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
                           <h3 className="font-serif-title text-xl font-bold text-slate-900">
                             {sub.title}
                           </h3>
-                          <p className="text-slate-700 text-base leading-relaxed">
-                            {sub.content}
-                          </p>
+                          {sub.content && (sub.content.includes('<') && sub.content.includes('>')) ? (
+                            <p
+                              className="text-slate-700 text-base leading-relaxed"
+                              dangerouslySetInnerHTML={{ __html: sub.content }}
+                            />
+                          ) : (
+                            <p className="text-slate-700 text-base leading-relaxed">
+                              {sub.content}
+                            </p>
+                          )}
                           {sub.bulletPoints && sub.bulletPoints.length > 0 && (
                             <ul className="space-y-1.5 pt-1 text-sm text-slate-600">
                               {sub.bulletPoints.map((sp, spIdx) => (
                                 <li key={spIdx} className="flex items-start gap-2">
                                   <span className="text-emerald-700 font-bold">•</span>
-                                  <span>{sp}</span>
+                                  {sp.includes('<') && sp.includes('>') ? (
+                                    <span dangerouslySetInnerHTML={{ __html: sp }} />
+                                  ) : (
+                                    <span>{sp}</span>
+                                  )}
                                 </li>
                               ))}
                             </ul>

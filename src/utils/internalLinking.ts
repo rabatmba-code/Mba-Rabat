@@ -325,6 +325,30 @@ export const CATEGORY_PILLAR_NETWORKS: Record<string, CategoryPillarLink[]> = {
       url: '/womens-health/best-daily-supplements-for-women-over-40/',
       badge: 'Women’s Longevity',
       description: 'Evidence-based micronutrients for perimenopause, bone mineral retention (D3/K2), chelated magnesium, and pelvic tissue vitality.'
+    },
+    {
+      title: 'Age-Related Synovial Fluid Loss: Joint Lubrication Science & Solutions',
+      url: '/healthy-aging/age-related-joint-fluid-loss-synovial/',
+      badge: 'Joint Lubrication',
+      description: 'Understanding age-related synovial fluid loss, hyaluronic acid depletion, and clinical solutions for joint friction.'
+    },
+    {
+      title: 'Tinnitus & Auditory Pathway Health: Neurological Science & Microcirculation',
+      url: '/healthy-aging/tinnitus-auditory-pathway-health/',
+      badge: 'Hearing & Auditory Health',
+      description: 'Neurological mechanisms of tinnitus, cochlear microvascular circulation, and evidence-based sensory care.'
+    },
+    {
+      title: 'Nutritional Neuroprotection and Cognitive Health in Adults',
+      url: '/healthy-aging/nutritional-neuroprotection-adults-cognitive-health/',
+      badge: 'Cognitive Longevity',
+      description: 'The science of nootropic nutrients, phosphatidylserine, Bacopa, Lion’s Mane, and evidence-informed neuro-acoustic protocols.'
+    },
+    {
+      title: 'Topical Vitamin C for Skin Brightening & Antioxidant Defense',
+      url: '/healthy-aging/topical-vitamin-c-skin-brightening-antioxidant/',
+      badge: 'Dermatological Longevity',
+      description: 'The science of topical Vitamin C for collagen synthesis, UV photoprotection, tyrosinase inhibition, and delivery formats.'
     }
   ],
 
@@ -362,6 +386,12 @@ export const CATEGORY_PILLAR_NETWORKS: Record<string, CategoryPillarLink[]> = {
   ],
 
   'Nutrition': [
+    {
+      title: 'The Mediterranean Anti-Inflammatory Meal Strategy',
+      url: '/nutrition/mediterranean-anti-inflammatory-meal-strategy/',
+      badge: 'Meal Planning Strategy',
+      description: 'Daily plate architecture, 90-minute Sunday batch prep, budget-friendly swaps, and 20-minute recipes.'
+    },
     {
       title: 'Food Sequencing for Blood Sugar Control: The 3-Step Meal Order Guide',
       url: '/nutrition/food-sequencing-fiber-matrix-guide/',

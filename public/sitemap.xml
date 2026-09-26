@@ -49,12 +49,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mba-rabat.vercel.app/brand-entity/</loc>
-    <lastmod>2026-09-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://mba-rabat.vercel.app/about-us/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
@@ -117,6 +111,114 @@
   <url>
     <loc>https://mba-rabat.vercel.app/womens-health/best-daily-supplements-for-women-over-40/</loc>
     <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/healthy-blood-sugar/early-signs-of-insulin-resistance-in-adults/</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/nutrition/low-gi-breakfast-ideas-for-stable-energy/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/sleep-and-stress/cortisol-and-blood-sugar-spikes-at-night/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/healthy-blood-sugar/best-blood-sugar-support-supplements-2026/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/healthy-blood-sugar/berberine-alternatives-for-metabolic-health/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/weight-management/what-ingredients-to-avoid-in-weight-loss-supplements/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/comparisons/gluco6-vs-sugar-defender-for-glucose-control/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/healthy-aging/vitamin-k2-mk-7-vs-mk-4/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/healthy-aging/best-supplements-joint-pain-relief/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/sleep-and-stress/how-sleep-affects-weight-metabolism/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/nutrition/iron-deficiency-women-signs-solutions/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/healthy-aging/nad-cellular-aging-science/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/nutrition/electrolytes-sodium-potassium-magnesium-balance/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/healthy-aging/age-related-joint-fluid-loss-synovial/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/healthy-aging/tinnitus-auditory-pathway-health/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/nutrition/mediterranean-anti-inflammatory-meal-strategy/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/healthy-aging/nutritional-neuroprotection-adults-cognitive-health/</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mba-rabat.vercel.app/healthy-aging/topical-vitamin-c-skin-brightening-antioxidant/</loc>
+    <lastmod>2026-03-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
